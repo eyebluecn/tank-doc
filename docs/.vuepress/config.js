@@ -27,27 +27,22 @@ module.exports = {
                 ]
             }
         ],
-        sidebar: {
-            // docs文件夹下面的basic文件夹 文档中md文件 书写的位置(命名随意)
-            '/basic/': [
-                '/basic/', // accumulate文件夹的README.md 不是下拉框形式
-                {
-                    title: '侧边栏下拉框的标题1',
-                    children: [
-                        '/basic/JS/test',
-                    ]
-                }
-            ],
-            // docs文件夹下面的algorithm文件夹 这是第二组侧边栏 跟第一组侧边栏没关系
-            '/advance/': [
-                '/advance/',
-                {
-                    title: '第二组侧边栏下拉框的标题1',
-                    children: [
-                        '/advance/simple/test'
-                    ]
-                }
-            ]
-        }
+        sidebar: [
+            {
+                title: '基本使用',
+                collapsable: false,
+                children: [
+                    '/basic/',
+                    '/basic/install',
+                ]
+            },
+            {
+                title: '进阶技巧',
+                children: [
+                    '/advance/webdav',
+                    '/advance/api'
+                ]
+            }
+        ]
     }
 };
