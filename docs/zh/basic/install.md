@@ -39,7 +39,7 @@ docker run --name dockermysql -p 13306:3306 -e MYSQL_ROOT_PASSWORD=123456 -e MYS
 
 2. Docker中启动蓝眼云盘
 ```shell
-docker run --name tank -p 6010:6010 --link dockermysql:mysql -v ~/data/dockermatter:/data/matter -d eyeblue/tank:3.0.0
+docker run --name tank -p 6010:6010 --link dockermysql:mysql -v ~/data/dockermatter:/data/build/matter -d eyeblue/tank:3.0.1
 ```
 ::: tip 提示
 容器名称为`tank`，占用宿主6010端口，链接数据库为`mysql`，即通过`mysql`可以访问到步骤1中mysql的地址，将文件挂载于宿主的`~/data/dockermatter`文件夹。
