@@ -1,79 +1,38 @@
-# 基础使用
+# 介绍
 
-这里是云盘的一些基础使用功能，在界面上直接就可以操作感受。
+蓝眼云盘致力于打造成一个优雅，好用，高效，克制的开源云盘。
 
-## [安装](./install.md)
+[在线体验](https://tank.eyeblue.cn) (体验账号： demo 密码：123456)
 
+## 软件架构
+ 
+ 蓝眼云盘采用前后端分离的模式开发。后端使用Golang语言，前端采用Vue框架；前端打包后的静态文件夹放置于后端`/html`目录下，后端对前后端资源做统一路由。
+ 
+ ![](/github.png "github.png") [eyebluecn/tank](https://github.com/eyebluecn/tank)
 
-### 开机启动
+ ![](/github.png "github.png") [eyebluecn/tank-front](https://github.com/eyebluecn/tank-front)
 
-在文件`/etc/systemd/system/tank.service`中粘贴以下内容，其中`ExecStart=`根据实际情况而定。
-```
-[Unit]
-Description=EyeblueTank
-Documentation=https://tank-doc.eyeblue.cn
-Wants=network.target
-After=network.target
+## 特色
 
-[Service]
-Type=simple
-DynamicUser=yes
-ExecStart=/data/program/tank-3.0.0/tank
-Restart=always
-RestartSec=3
+- 支持Docker安装
+- 安装包仅10M左右，跨平台支持。`windows`,`linux`,`mac os`均提供安装包
+- 支持 文件上传，文件预览，文件下载，聚合下载，提取码分享
+- 提供编程接口，可以当作网站的第三方文件存储器
+- 支持图片缓存，可使用参数对图片进行处理
+- 支持多用户，支持用户空间限制
+- 支持简体中文和英文
 
-[Install]
-WantedBy=multi-user.target
-```
+## Todo
 
-执行以下命令，让service生效
-```shell
-systemctl daemon-reload
-systemctl enable tank.service
-systemctl status tank.service
-```
+蓝眼云盘仍然处于持续迭代中，以下特性还不支持，但是已经在开发计划中：
 
-出现以下提示表示创建成功
-```
-Created symlink from /etc/systemd/system/multi-user.target.wants/tank.service to /etc/systemd/system/tank.service.
+- 支持Sqlite
+- 支持文件混合预览，增强对常见文件的预览能力
 
-tank.service - EyeblueTank
-Loaded: loaded (/etc/systemd/system/tank.service; enabled; vendor preset: disabled)
-Active: inactive (dead)
- Docs: https://tank-doc.eyeblue.cn
-```
+## 加入讨论区
 
-## 上传
+加入钉钉群可以体验最新Beta版本，你的任何合理需求，我都会尽量满足
 
-## 下载
-
-## 分享
-
-
-
-## 从2.0迁移到3.0
-
-准备条件：
-
-1. 停止tank2.0
-2. 安装好tank3.0
-3. 2.0和3.0使用同一个数据库
-
-迁移命令：
-```
-cd tank 3.0安装目录
-./tank -mode=migrate20to30 -username=YourUsername -password=YourPassword -src=Tank2.0MatterPath
-```
-
-
-如果要想查看迁移过程日志：
-```
-cd tank 3.0安装目录
-tail -f ./log/tank.log
-```
-
-迁移完毕后，所有2.0的用户后会加上`_20`.
-
-
+ ![](/dingding.jpg)
 
 

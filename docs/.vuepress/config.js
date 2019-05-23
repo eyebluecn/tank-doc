@@ -22,11 +22,33 @@ module.exports = {
         }
     },
     themeConfig: {
+
+
+        // 假定是 GitHub. 同时也可以是一个完整的 GitLab URL
+        repo: 'https://github.com/eyebluecn/tank',
+        // 自定义仓库链接文字。默认从 `themeConfig.repo` 中自动推断为
+        // "GitHub"/"GitLab"/"Bitbucket" 其中之一，或是 "Source"。
+        repoLabel: 'GitHub',
+        // 以下为可选的编辑链接选项
+
+        // 假如你的文档仓库和项目本身不在一个仓库：
+        docsRepo: 'https://github.com/eyebluecn/tank-doc',
+        // 假如文档不是放在仓库的根目录下：
+        docsDir: 'docs',
+        // 假如文档放在一个特定的分支下：
+        docsBranch: 'master',
+        // 默认是 false, 设置为 true 来启用
+        editLinks: true,
+        // 默认为 "Edit this page"
+        editLinkText: 'Edit this page on Github！',
+
         locales: {
             '/': {
                 selectText: '简体中文',
                 label: 'English',
-                editLinkText: 'Edit this page on GitHub',
+
+
+
                 lastUpdated: 'Last Updated', // 文档更新时间：每个文件git最后提交的时间
                 sidebarDepth: 2, // e'b将同时提取markdown中h2 和 h3 标题，显示在侧边栏上。
                 nav: [
@@ -40,10 +62,12 @@ module.exports = {
                         children: [
                             '/basic/',
                             '/basic/install',
+                            '/basic/compile',
                         ]
                     },
                     {
                         title: 'Advance Feature',
+                        collapsable: false,
                         children: [
                             '/advance/webdav',
                             '/advance/api'
@@ -54,7 +78,20 @@ module.exports = {
             '/zh/': {
                 selectText: 'English',
                 label: '简体中文',
-                editLinkText: '在GitHub中编辑此页面',
+
+                // 以下为可选的编辑链接选项
+
+                // 假如你的文档仓库和项目本身不在一个仓库：
+                docsRepo: 'https://github.com/eyebluecn/tank-doc',
+                // 假如文档不是放在仓库的根目录下：
+                docsDir: 'docs',
+                // 假如文档放在一个特定的分支下：
+                docsBranch: 'master',
+                // 默认是 false, 设置为 true 来启用
+                editLinks: true,
+                // 默认为 "Edit this page"
+                editLinkText: '在Github中修改此页！',
+
                 lastUpdated: '上次更新', // 文档更新时间：每个文件git最后提交的时间
                 sidebarDepth: 2, // e'b将同时提取markdown中h2 和 h3 标题，显示在侧边栏上。
                 nav: [
@@ -68,10 +105,12 @@ module.exports = {
                         children: [
                             '/zh/basic/',
                             '/zh/basic/install',
+                            '/zh/basic/compile',
                         ]
                     },
                     {
                         title: '高级特性',
+                        collapsable: false,
                         children: [
                             '/zh/advance/webdav',
                             '/zh/advance/api'
