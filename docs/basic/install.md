@@ -1,8 +1,8 @@
-# 安装
+# Install
 
-## 直接安装
+## Directly Install
 
-## docker安装
+## docker
 
-## 自行编译
+## Compile
 

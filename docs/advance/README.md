@@ -1,5 +1,5 @@
-# 高级特性
+# Advance Feature
 
 [Webdav](./webdav.md)
 
-[图片处理](./image.md)
+[Image](./image.md)

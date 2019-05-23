@@ -1,11 +1,11 @@
-# Basic Usage
+# 基础使用
 
 这里是云盘的一些基础使用功能，在界面上直接就可以操作感受。
 
-## [Install](./install.md)
+## [安装](./install.md)
 
 
-### Bootstrap
+### 开机启动
 
 在文件`/etc/systemd/system/tank.service`中粘贴以下内容，其中`ExecStart=`根据实际情况而定。
 ```
@@ -43,15 +43,15 @@ Active: inactive (dead)
  Docs: https://tank-doc.eyeblue.cn
 ```
 
-## Upload
+## 上传
 
-## Download
+## 下载
 
-## Share
+## 分享
 
 
 
-## Migrate from 2.0 to 3.0
+## 从2.0迁移到3.0
 
 准备条件：
 

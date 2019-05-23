@@ -1,14 +1,14 @@
 ---
 home: true
 heroImage: /logo.png
-actionText: 快速上手 →
+actionText: Start →
 actionLink: /basic/
 features:
-- title: 经典云盘
-  details: 基础云盘功能一应俱全
-- title: 黑科技
-  details: 支持Webdav, 提供编程接口，可做图床使用
-- title: 高性能
-  details: golang开发，速度绝对杠杠的
+- title: Cloud Disk
+  details: Basic cloud disk feature
+- title: Advance Feature
+  details: Support Webdav, Support upload files by api.
+- title: High Performance
+  details: Developed by Golang
 footer: MIT Licensed | Copyright © 2018-present Eyeblue Tank
 ---
