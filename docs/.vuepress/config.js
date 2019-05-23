@@ -63,6 +63,7 @@ module.exports = {
                             '/basic/',
                             '/basic/install',
                             '/basic/compile',
+                            '/basic/download',
                         ]
                     },
                     {
@@ -106,6 +107,7 @@ module.exports = {
                             '/zh/basic/',
                             '/zh/basic/install',
                             '/zh/basic/compile',
+                            '/zh/basic/download',
                         ]
                     },
                     {
