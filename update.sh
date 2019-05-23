@@ -19,8 +19,8 @@ sudo git pull
 echo " --- npm install --- "
 sudo cnpm install
 
-echo " --- npm run build --- "
-sudo npm run docs:build
+echo " --- vuepress build docs --- "
+sudo vuepress build docs
 
 echo " --- move to production folder --- "
 if [[ ! -d "$PRODUCTION_DIR" ]] ; then
