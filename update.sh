@@ -11,16 +11,16 @@ PRODUCTION_DIR=${HOME_DIR}/production
 cd ${HOME_DIR}
 
 echo " --- reset to HEAD --- "
-sudo git reset --hard HEAD
+git reset --hard HEAD
 
 echo " --- pull from git server --- "
-sudo git pull
+git pull
 
 echo " --- npm install --- "
-sudo cnpm install
+cnpm install
 
 echo " --- vuepress build docs --- "
-sudo vuepress build docs
+vuepress build docs
 
 echo " --- move to production folder --- "
 if [[ ! -d "$PRODUCTION_DIR" ]] ; then
