@@ -70,7 +70,11 @@ module.exports = {
                         title: 'Advance Feature',
                         collapsable: false,
                         children: [
+                            '/advance/cli',
+                            '/advance/migrate',
                             '/advance/webdav',
+                            '/advance/image',
+                            '/advance/alien',
                             '/advance/api'
                         ]
                     }
@@ -114,7 +118,11 @@ module.exports = {
                         title: '高级特性',
                         collapsable: false,
                         children: [
+                            '/zh/advance/cli',
+                            '/zh/advance/migrate',
                             '/zh/advance/webdav',
+                            '/zh/advance/image',
+                            '/zh/advance/alien',
                             '/zh/advance/api'
                         ]
                     }

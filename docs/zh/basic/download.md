@@ -8,9 +8,6 @@
 | [tank-3.0.2.linux-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/aac57797-0042-4bf0-7d88-b0e5c42d53ac/tank-3.0.2.linux-amd64.tar.gz)     | linux |   x86-64    |   	11.5M    |
 | eyeblue/tank:3.0.2     | Docker |   x86-64    |   	11.5M    |
 
-
-
-
 ## 3.0.0
 
 | 文件名        | 操作系统(OS)   |  架构(Arch)  |  大小  |
