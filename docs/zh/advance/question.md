@@ -26,7 +26,7 @@ CHANGE COLUMN `username` `username` VARCHAR(45) CHARACTER SET 'utf8' NOT NULL ;
 ```
 
 
-# 如何配置nginx反向代理？
+## 如何配置nginx反向代理？
 通常我们不希望把6010端口暴露到公网，这时需要nginx进行反向代理，让用户使用域名及80端口（或443端口）就能访问蓝眼云盘。以下是`tank.eyeblue.cn`的nginx配置
 ```shell
 #https://tank.eyeblue.cn
@@ -58,6 +58,6 @@ server {
 }
 ```
 
-# 为什么太大的文件就不能上传了？
+## 为什么太大的文件就不能上传了？
 可能是反向代理的软件对post大小限制了，比如上方`nginx`配置的`client_max_body_size  2048m;`就使得最大只能上传`2G`的文件
 
