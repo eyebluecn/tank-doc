@@ -48,7 +48,6 @@ module.exports = {
                 label: 'English',
 
 
-
                 lastUpdated: 'Last Updated', // 文档更新时间：每个文件git最后提交的时间
                 sidebarDepth: 2, // e'b将同时提取markdown中h2 和 h3 标题，显示在侧边栏上。
                 nav: [
@@ -75,7 +74,8 @@ module.exports = {
                             '/advance/webdav',
                             '/advance/image',
                             '/advance/alien',
-                            '/advance/api'
+                            '/advance/api',
+                            '/advance/question'
                         ]
                     }
                 ]
@@ -123,7 +123,8 @@ module.exports = {
                             '/zh/advance/webdav',
                             '/zh/advance/image',
                             '/zh/advance/alien',
-                            '/zh/advance/api'
+                            '/zh/advance/api',
+                            '/zh/advance/question'
                         ]
                     }
                 ]
