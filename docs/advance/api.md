@@ -23,7 +23,7 @@ type Base struct {
 
 #### Pager
 
-在前端请求一个列表时，通常返回的都是一个`Pager`，`Pager`中就是装的各个实体的列表。
+在前端请求一个列表时，通常返回的都是一个`Pager`，`Pager`中就是装的各个实体的列表
 
 ```
 type Pager struct {
@@ -63,15 +63,15 @@ type Matter struct {
 	Md5      string  `json:"md5"`
 	//文件大小，单位 byte。比如某个文件1M大，那么这里就为： 1048576
 	Size     int64   `json:"size"`
-	//文件是否为私有，如果true则该文件只能作者或超级管理员可以下载，如果false所有人均可以通过下载链接下载。
+	//文件是否为私有，如果true则该文件只能作者或超级管理员可以下载，如果false所有人均可以通过下载链接下载
 	Privacy  bool    `json:"privacy"`
-	//文件在磁盘中的路径，前端无需关心这个字段。但是后端在寻找文件时这个字段非常关键。
+	//文件在磁盘中的路径，前端无需关心这个字段。但是后端在寻找文件时这个字段非常关键
 	Path     string  `json:"path"`
-	//文件下载次数。
+	//文件下载次数
     Times    int64   `json:"times"`
-	//该文件的父级matter，该字段不会持久化到数据集，属于获取matter详情时临时组装出来的。
+	//该文件的父级matter，该字段不会持久化到数据集，属于获取matter详情时临时组装出来的
 	Parent   *Matter `gorm:"-" json:"parent"`
-	//该文件的子级matter数组，该字段不会持久化到数据集，属于获取matter详情时临时组装出来的。
+	//该文件的子级matter数组，该字段不会持久化到数据集，属于获取matter详情时临时组装出来的
     Children *Matter `gorm:"-" json:"-"`
 }
 ```
@@ -85,7 +85,7 @@ type User struct {
 	Base
 	//角色，有以下枚举值：GUEST(游客，不会持久化到数据库),USER(普通用户),ADMINISTRATOR(超级管理员)
 	Role      string    `json:"role"`
-	//用户名，在Matter的path字段中很有用。
+	//用户名，在Matter的path字段中很有用
 	Username  string    `json:"username"`
 	//密码，默认不会返回给前端
 	Password  string    `json:"-"`
@@ -165,7 +165,7 @@ type UploadToken struct {
 
 #### DownloadToken 
 
-用于给陌生人下载的token，一个matter如果Privacy=true，那么就意味着只有自己或者超级管理员可以下载，如果让某些自己信任的用户也能下载，那么就需要生成`DownloadToken`给这些用户来下载。
+用于给陌生人下载的token，一个matter如果Privacy=true，那么就意味着只有自己或者超级管理员可以下载，如果让某些自己信任的用户也能下载，那么就需要生成`DownloadToken`给这些用户来下载
 
 ```
 type DownloadToken struct {
@@ -233,7 +233,7 @@ type Share struct {
 	UserUuid       string    `json:"userUuid"`
 	//下载次数
 	DownloadTimes  int64     `json:"downloadTimes"`
-	//二维码
+	//提取码
 	Code           string    `json:"code"`
 	//是否过期失效
 	ExpireInfinity bool      `json:"expireInfinity"`
@@ -249,7 +249,7 @@ type Share struct {
 
 #### WebResult
 
-`WebResult`并不是会持久化到数据库中实体，`WebResult`是在`controller`返回数据给前端时包装的一层，有了`WebResult`后每个接口返回的数据会更加统一，方便了前端的统一处理。
+`WebResult`并不是会持久化到数据库中实体，`WebResult`是在`controller`返回数据给前端时包装的一层，有了`WebResult`后每个接口返回的数据会更加统一，方便了前端的统一处理
 
 ```
 type WebResult struct {
@@ -284,7 +284,7 @@ const (
 	RESULT_CODE_FORM_INVALID = -410
 	//请求太频繁
 	RESULT_CODE_FREQUENCY = -420
-	//服务器出错。
+	//服务器出错
 	RESULT_CODE_SERVER_ERROR = -500
 	//远程服务不可用
 	RESULT_CODE_NOT_AVAILABLE = -501
@@ -300,17 +300,17 @@ const (
 ```
 ## 二、返回规范
 
-蓝眼云盘采用前后端分离的模式，前端调用后端接口时，url均以`/api`开头，返回均是json字符串。
+蓝眼云盘采用前后端分离的模式，前端调用后端接口时，url均以`/api`开头，返回均是json字符串
 
 - 返回的json字符串的key均为小写开头的驼峰法，具体参考实体类中`json`标签
 
 - 返回的时间格式均为 `YYYY-MM-dd HH:mm:ss`（例如：2018-01-06 17:57:00）
 
-返回内容均是由`WebResult`进行包装，因此具有高度的统一性，在这里我们约定一些说法，后面介绍`Controller`时便不再赘述。
+返回内容均是由`WebResult`进行包装，因此具有高度的统一性，在这里我们约定一些说法，后面介绍`Controller`时便不再赘述
 
 1. 返回一个`XX`实体
 
-    指的是`WebResult`的`Code=200`, `Data=一个XX实体对象`。
+    指的是`WebResult`的`Code=200`, `Data=一个XX实体对象`
     
     例：返回一个User，则前端会收到以下json字符串：
     ```
@@ -336,7 +336,7 @@ const (
     ```
 2. 返回`XX`的`Pager`
 
-    指的是`WebResult`的`Code=200`, `Data=XX的Pager`。
+    指的是`WebResult`的`Code=200`, `Data=XX的Pager`
     
     例：返回`User`的`Pager`，则前端会收到以下json字符串：
     ```
@@ -386,7 +386,7 @@ const (
     
 3. 返回错误信息：yyy
 
-    指的是`WebResult`的`Code=-400`, `Msg=yyy`。(这里的Code具体值参考上文的code表)
+    指的是`WebResult`的`Code=-400`, `Msg=yyy`(这里的Code具体值参考上文的code表)
     
     例：返回错误信息："【新建文件夹】已经存在了，请使用其他名称。"，则前端会收到以下json字符串：
     ```
@@ -399,7 +399,7 @@ const (
     
 4. 返回成功信息：zzz
 
-    指的是`WebResult`的`Code=200`, `Msg=zzz`。(这里的Code具体值参考上文的code表)
+    指的是`WebResult`的`Code=200`, `Msg=zzz`(这里的Code具体值参考上文的code表)
     
     例：返回成功信息："删除成功。"，则前端会收到以下json字符串：
     ```
@@ -434,7 +434,7 @@ AlienController | `alien_controller.go` | 第三方授权上传，下载，预�
 
 #### /api/preference/fetch
 
-**功能**：读取网站偏好设置，网站名称，logo，版权，备案信息，zip下载大小限制，zip下载数量限制，用户默认总大小限制，是否允许自主注册均从此接口读取。
+**功能**：读取网站偏好设置，网站名称，logo，版权，备案信息，zip下载大小限制，zip下载数量限制，用户默认总大小限制，是否允许自主注册均从此接口读取
 
 **访问级别**：`游客`,`注册用户`,`管理员`
 
@@ -446,7 +446,7 @@ AlienController | `alien_controller.go` | 第三方授权上传，下载，预�
 ----------
 #### /api/preference/edit
 
-**功能**：编辑网站偏好设置，修改网站名称，logo，版权，备案信息，zip下载大小限制，zip下载数量限制，用户默认总大小限制，是否允许自主注册。
+**功能**：编辑网站偏好设置，修改网站名称，logo，版权，备案信息，zip下载大小限制，zip下载数量限制，用户默认总大小限制，是否允许自主注册
 
 **访问级别**：`管理员`
 
@@ -469,7 +469,7 @@ allowRegisterStr | `bool` | 选填 | 是否允许自主注册
 ----------
 #### /api/preference/system/cleanup
 
-**功能**：重置系统，谨慎操作。
+**功能**：重置系统，谨慎操作
 
 **访问级别**：`管理员`
 
@@ -498,6 +498,7 @@ password | `string` | 必填 | 管理员用户密码
 
 名称 | 类型 | 必填性 | 描述
 --------- | ---- | ---- | -----------
+userUuid | `string` | 必填 | 用户的唯一标识，文件存放在该用户名下
 puuid | `string` | 必填 | 准备创建的目录所在的目录，如果在根目录下创建传`root`
 name | `string` | 必填 | 文件夹名称， 不能包含以下特殊符号：`< > \| * ? / \`
 
@@ -516,16 +517,17 @@ name | `string` | 必填 | 文件夹名称， 不能包含以下特殊符号：`
 
 名称 | 类型 | 必填性 | 描述
 --------- | ---- | ---- | -----------
-puuid | `bool` | 选填 | 文件上传到哪个目录下。
-privacy | `bool` | 选填 | 文件的私有性，默认`false`
-file | `file` | 必填 | 文件，在浏览器中是通过`<input type="file" name="file"/>`来选择的
-
+userUuid | `string` | 必填 | 用户的唯一标识，文件存放在该用户名下
+puuid | `bool` | 选填 | 文件上传到哪个目录下
+file | `file` | 必填 | 二进制文件，在浏览器中是通过`<input type="file" name="file"/>`来选择的
+alien | `bool` | 选填 | 是否为第三方文件，默认`false`
+privacy | `bool` | 选填 | 文件的私有性，默认`true`
 
 **返回**: 刚上传的这个文件的`Matter`实体
 
 ----------
 
-#### /api/matter/crawl
+#### /api/matter/crawl（命令行工具）
 
 **功能**：通过url获取文件
 
@@ -535,7 +537,7 @@ file | `file` | 必填 | 文件，在浏览器中是通过`<input type="file" na
 
 名称 | 类型 | 必填性 | 描述
 --------- | ---- | ---- | -----------
-url | `string` | 选填 | 文件url路径。
+url | `string` | 选填 | 文件url路径
 destPath | `string` | 选填 | 目的路径
 filename | `string` | 必填 | 文件名称
 
@@ -573,7 +575,7 @@ uuid | `string` | 必填 | 待删除的文件或文件夹的uuid
 
 名称 | 类型 | 必填性 | 描述
 --------- | ---- | ---- | -----------
-uuids | `string` | 必填 | 待删除的文件或文件夹的uuids,用逗号(,)分隔。
+uuids | `string` | 必填 | 待删除的文件或文件夹的uuids,用逗号(,)分隔
 
 **返回**: 成功信息“删除成功”
 
@@ -614,7 +616,7 @@ privacy | `bool` | 选填 | 文件的私有性，默认`false`
 
 #### /api/matter/move
 
-**功能**：将一个文件夹或者文件移入到另一个文件夹下。
+**功能**：将一个文件夹或者文件移入到另一个文件夹下
 
 **访问级别**：`注册用户`,`管理员`
 
@@ -622,7 +624,7 @@ privacy | `bool` | 选填 | 文件的私有性，默认`false`
 
 名称 | 类型 | 必填性 | 描述
 --------- | ---- | ---- | -----------
-srcUuids | `string` | 必填 | 待移动的文件或文件夹的uuids,用逗号(,)分隔。
+srcUuids | `string` | 必填 | 待移动的文件或文件夹的uuids,用逗号(,)分隔
 destUuid | `string` | 必填 | 目标文件夹，根目录用`root`
 
 **返回**: 成功信息“设置成功”
@@ -640,7 +642,7 @@ destUuid | `string` | 必填 | 目标文件夹，根目录用`root`
 
 名称 | 类型 | 必填性 | 描述
 --------- | ---- | ---- | -----------
-uuid | `string` | 必填 | 该文件的uuid。
+uuid | `string` | 必填 | 该文件的uuid
 
 **返回**: 这个文件的`Matter`实体
 
@@ -705,16 +707,16 @@ overwrite | `bool` | 选填 | 是否覆盖，默认false
 
 名称 | 类型 | 必填性 | 描述
 --------- | ---- | ---- | -----------
-uuids | `string` | 必填 | 待下载的文件或文件夹的uuids,用逗号(,)分隔。
+uuids | `string` | 必填 | 待下载的文件或文件夹的uuids,用逗号(,)分隔
 
 ----------
 
 
 ### AlienController
 
-- 蓝眼云盘提供了[编程接口](https://github.com/eyebluecn/tank/blob/master/build/doc/alien_zh.md)，实现了云存储（如：[七牛云](https://www.qiniu.com)，[阿里云OSS](https://www.aliyun.com/product/oss)）的核心功能，可以使用编程接口上传文件，作为其他网站、系统、app的资源存储器。可以在下载图片时对图片做缩放裁剪处理，可以有效地节省客户端流量。
+- 蓝眼云盘提供了[编程接口](https://github.com/eyebluecn/tank/blob/master/build/doc/alien_zh.md)，实现了云存储（如：[七牛云](https://www.qiniu.com)，[阿里云OSS](https://www.aliyun.com/product/oss)）的核心功能，可以使用编程接口上传文件，作为其他网站、系统、app的资源存储器。可以在下载图片时对图片做缩放裁剪处理，可以有效地节省客户端流量
 
-- 蓝眼系列开源软件之二的[《蓝眼博客》](https://github.com/eyebluecn/blog)正是使用蓝眼博客作为第三方资源存储器。蓝眼博客中的所有图片，附件均是存储在蓝眼云盘中。
+- 蓝眼系列开源软件之二的[《蓝眼博客》](https://github.com/eyebluecn/blog)正是使用蓝眼博客作为第三方资源存储器。蓝眼博客中的所有图片，附件均是存储在蓝眼云盘中
 
 
 ### 上传时序图
@@ -731,9 +733,9 @@ uuids | `string` | 必填 | 待下载的文件或文件夹的uuids,用逗号(,)�
 
 #### /api/alien/fetch/upload/token
 
-**功能**：一个蓝眼云盘受信任的用户请求一个`UploadToken`，用于给另一个用户向蓝眼云盘上传文件。
+**功能**：一个蓝眼云盘受信任的用户请求一个`UploadToken`，用于给另一个用户向蓝眼云盘上传文件
 
-一般的使用场景是`应用服务器`向`蓝眼云盘`请求`UploadToken`，然后将此`UploadToken`交由`浏览器`去向`蓝眼云盘`上传文件。
+一般的使用场景是`应用服务器`向`蓝眼云盘`请求`UploadToken`，然后将此`UploadToken`交由`浏览器`去向`蓝眼云盘`上传文件
 
 **访问级别**：`注册用户`,`管理员`
 
@@ -741,9 +743,9 @@ uuids | `string` | 必填 | 待下载的文件或文件夹的uuids,用逗号(,)�
 
 名称 | 类型 | 必填性 | 描述
 --------- | ---- | ---- | -----------
-filename | `string` | 必填 | 文件名。
-expireTime | `string` | 必填 | UploadToken过期时间。
-privacy | `bool` | 选填 | 文件的共有性。`true`表示文件私有，下载时必须要DownloadToken. `false`表示文件公有，任何人可以通过下载链接直接下载，默认值为false。
+filename | `string` | 必填 | 文件名
+expireTime | `string` | 必填 | UploadToken过期时间
+privacy | `bool` | 选填 | 文件的共有性。`true`表示文件私有，下载时必须要DownloadToken. `false`表示文件公有，任何人可以通过下载链接直接下载，默认值为false
 size | `int` |  必填 | 文件的大小。单位：byte
 dirPath | `string` | 必填 |文件存放的路径。不能为空，必须以`/`开头，不能出现连续的`//`,不能包含以下特殊符号：`< > \| * ? \`。举例：`/app/blog/20180101121212001`
 
@@ -751,9 +753,9 @@ dirPath | `string` | 必填 |文件存放的路径。不能为空，必须以`/`
 
 #### /api/alien/fetch/download/token
 
-**功能**：一个蓝眼云盘受信任的用户请求一个`DownloadToken`，用于给另一个用户下载蓝眼云盘上的私有文件。
+**功能**：一个蓝眼云盘受信任的用户请求一个`DownloadToken`，用于给另一个用户下载蓝眼云盘上的私有文件
 
-一般的使用场景是`应用服务器`向`蓝眼云盘`请求`DownloadToken`，然后将此`DownloadToken`交由`浏览器`去向`蓝眼云盘`下载文件。
+一般的使用场景是`应用服务器`向`蓝眼云盘`请求`DownloadToken`，然后将此`DownloadToken`交由`浏览器`去向`蓝眼云盘`下载文件
 
 **访问级别**：`注册用户`,`管理员`
 
@@ -761,14 +763,14 @@ dirPath | `string` | 必填 |文件存放的路径。不能为空，必须以`/`
 
 名称 | 类型 | 必填性 | 描述
 --------- | ---- | ---- | -----------
-matterUuid | `string` |  必填 |文件uuid，要想下载的文件`uuid`
+matterUuid | `string` |  必填 | 文件uuid，要想下载的文件`uuid`
 expireTime | `string` |  必填 | UploadToken过期时间，单位：s。默认 86400s 即24h
 
 ----------
 
 #### /api/alien/confirm
 
-**功能**：`应用服务器`向蓝眼云盘确认某个文件是否确实已经上传好了。
+**功能**：`应用服务器`向蓝眼云盘确认某个文件是否确实已经上传好了
 
 **访问级别**：`注册用户`,`管理员`
 
@@ -782,9 +784,9 @@ matterUuid | `string` | 必填 | 浏览器上传完毕后，蓝眼云盘返回�
 
 #### /api/alien/upload
 
-**功能**：浏览器拿着`UploadToken`通过FormData向蓝眼云盘上传文件。
+**功能**：浏览器拿着`UploadToken`通过FormData向蓝眼云盘上传文件
 
-一般的使用场景是`应用服务器`向`蓝眼云盘`请求`UploadToken`，然后将此`UploadToken`交由`浏览器`去向`蓝眼云盘`上传文件。由于在请求`UploadToken`的时候已经传入了文件元信息，因此这里的文件信息必须要和`/api/alien/fetch/upload/token`传入的参数信息一致。
+一般的使用场景是`应用服务器`向`蓝眼云盘`请求`UploadToken`，然后将此`UploadToken`交由`浏览器`去向`蓝眼云盘`上传文件。由于在请求`UploadToken`的时候已经传入了文件元信息，因此这里的文件信息必须要和`/api/alien/fetch/upload/token`传入的参数信息一致
 
 **访问级别**：`游客`,`注册用户`,`管理员`
 
@@ -799,7 +801,7 @@ file | `file` | 必填 | 文件，在浏览器中是通过`<input type="file" na
 
 #### /api/alien/crawl/token
 
-**功能**：获取一个token，提供给第三方去调用的一个接口。
+**功能**：获取一个token，提供给第三方去调用的一个接口
 
 **访问级别**：`游客`,`注册用户`,`管理员`
 
@@ -814,7 +816,7 @@ url | `string` | 选填 | 获取文件的链接
 
 #### /api/alien/crawl/direct
 
-**功能**：让蓝眼云盘去拉取一个url资源。
+**功能**：让蓝眼云盘去拉取一个url资源
 
 **访问级别**：`注册用户`,`管理员`
 
@@ -831,7 +833,7 @@ url | `string` | 选填 | 获取文件的链接
 
 #### /api/alien/Preview/{uuid}/{filename}
 
-**功能**：这个接口实现预览功能。
+**功能**：这个接口实现预览功能
 
 **访问级别**：`游客`,`注册用户`,`管理员`
 
@@ -841,7 +843,7 @@ url | `string` | 选填 | 获取文件的链接
 --------- | ---- | ---- | -----------
 uuid | `string` | 必填 | 文件的uuid，该参数放在url的路径中
 filename | `string` | 必填 | 文件的名称，该参数放在url的路径中
-downloadTokenUuid | `string` | 选填 |download的uuid，如果是私有文件该参数必须，公有文件无需填写。
+downloadTokenUuid | `string` | 选填 |download的uuid，如果是私有文件该参数必须，公有文件无需填写
 
 **返回**: 二进制的文件
 
@@ -851,7 +853,7 @@ downloadTokenUuid | `string` | 选填 |download的uuid，如果是私有文件�
 
 **功能**：在浏览器中下载文件
 
-这个接口既可以下载公有文件，又可以下载私有文件。同时对于图片文件还可以做裁剪缩放等操作。
+这个接口既可以下载公有文件，又可以下载私有文件。同时对于图片文件还可以做裁剪缩放等操作
 
 **访问级别**：`注册用户`,`管理员`
 
@@ -861,7 +863,7 @@ downloadTokenUuid | `string` | 选填 |download的uuid，如果是私有文件�
 --------- | ---- | ---- | -----------
 uuid | `string` | 必填 | 文件的uuid，该参数放在url的路径中
 filename | `string` | 必填 | 文件的名称，该参数放在url的路径中
-downloadTokenUuid | `string` | 选填 |download的uuid，如果是私有文件该参数必须，公有文件无需填写。
+downloadTokenUuid | `string` | 选填 |download的uuid，如果是私有文件该参数必须，公有文件无需填写
 
 **返回**: 二进制的文件
 
@@ -934,7 +936,7 @@ password | `string` | 必填 | 密码
 
 #### /api/user/authentication/login
 
-**功能**：自动授权登录
+**功能**：授权变身登录
 
 **访问级别**：`游客`,`注册用户`,`管理员`
 
@@ -942,7 +944,7 @@ password | `string` | 必填 | 密码
 
 名称 | 类型 | 必填性 | 描述
 --------- | ---- | ---- | -----------
-authentication | `string` | 必填 | 授权信息
+authentication | `string` | 必填 | 授权验证信息
 
 **返回**: 当前登录的`User`实体
 
@@ -1144,4 +1146,113 @@ orderUpdateTime | `DESC`或`ASC` | 选填 | 按创建时间排序，`DESC`降序
 
 ### ShareController
 
+该Controller为蓝眼云盘的提供分享功能，可以用来分享一切你想要分享的东西（文件/文件夹）
 
+----------
+
+#### /api/share/create
+
+**功能**：创建文件分享
+
+**访问级别**：`注册用户`,`管理员`
+
+**请求参数**：
+
+名称 | 类型 | 必填性 | 描述
+--------- | ---- | ---- | -----------
+matterUuids | `string` | 必填 | 文件uuid，要想分享的文件`uuid`，分享多个文件uuid用逗号隔开
+expireInfinity | `bool` | 必填 | 分享是否过期失效，默认false
+expireTime | `string` | 必填 | 过期日期，如果expireInfinity为true则默认为当天
+
+**返回**: 被分享的`Share`实体
+
+----------
+
+#### /api/share/delete
+
+**功能**：在我的分享里删除文件分享
+
+**访问级别**：`注册用户`,`管理员`
+
+**请求参数**：
+
+名称 | 类型 | 必填性 | 描述
+--------- | ---- | ---- | -----------
+uuid | `string` | 必填 | 文件uuid，要想删除分享的文件`uuid`
+
+**返回**: 成功信息“操作成功”
+
+----------
+
+#### /api/share/delete/batch
+
+**功能**：在我的分享里批量删除文件分享
+
+**访问级别**：`注册用户`,`管理员`
+
+**请求参数**：
+
+名称 | 类型 | 必填性 | 描述
+--------- | ---- | ---- | -----------
+uuids | `string` | 必填 | 文件uuid，要想删除分享的文件`uuid`，删除多个文件分享uuid用逗号隔开
+
+**返回**: 成功信息“操作成功”
+
+----------
+
+#### /api/share/page
+
+**功能**：获取我的文件分享列表
+
+**访问级别**：`注册用户`,`管理员`
+
+**请求参数**：
+
+名称 | 类型 | 必填性 | 描述
+--------- | ---- | ---- | -----------
+page | `int` | 选填 | 当前页数，0基，默认0
+pageSize | `int` | 选填 | 每页条目数，默认200
+orderCreateTime | `DESC`或`ASC` | 选填 | 按创建时间排序，`DESC`降序排，`ASC`升序排
+
+**返回**: `Share`实体的`Pager`
+
+----------
+//TODO
+
+#### /api/share/browse
+
+**功能**：被分享者打开文件分享
+
+**访问级别**：`游客`,`注册用户`,`管理员`
+
+**请求参数**：
+
+名称 | 类型 | 必填性 | 描述
+--------- | ---- | ---- | -----------
+shareUuid | `string` | 必填 | 当前分享实体的uuid
+code | `string` | 选填 | 提取码，如果不是自己的分享则为必填项
+puuid | `string` | 选填 | 文件uuid
+rootUuid | `string` | 选填 | 当前分享正在查看的根目录uuid，前端辅助字段
+
+**返回**: 被分享的`Share`实体
+
+----------
+
+#### /api/share/zip
+
+**功能**：被分享者下载文件分享
+
+**访问级别**：`游客`,`注册用户`,`管理员`
+
+**请求参数**：
+
+名称 | 类型 | 必填性 | 描述
+--------- | ---- | ---- | -----------
+shareUuid | `string` | 必填 | 当前分享实体的uuid
+code | `string` | 选填 | 提取码，如果不是自己的分享则为必填项
+puuid | `string` | 选填 | 文件uuid
+rootUuid | `string` | 选填 | 当前分享正在查看的根目录uuid，前端辅助字段
+
+**返回**: 无
+
+----------
