@@ -1,79 +1,44 @@
-# Basic Usage
-
-这里是云盘的一些基础使用功能，在界面上直接就可以操作感受。
-
-## [Install](./install.md)
+# Compile
 
 
-### Bootstrap
+## todo...
 
-在文件`/etc/systemd/system/tank.service`中粘贴以下内容，其中`ExecStart=`根据实际情况而定。
+## 前端项目打包
+1. clone  ![](/github.png "github.png") [eyebluecn/tank-front](https://github.com/eyebluecn/tank-front)
+
+2. 安装依赖项
 ```
-[Unit]
-Description=EyeblueTank
-Documentation=https://tank-doc.eyeblue.cn
-Wants=network.target
-After=network.target
-
-[Service]
-Type=simple
-DynamicUser=yes
-ExecStart=/data/program/tank-3.0.0/tank
-Restart=always
-RestartSec=3
-
-[Install]
-WantedBy=multi-user.target
+npm install
 ```
-
-执行以下命令，让service生效
-```shell
-systemctl daemon-reload
-systemctl enable tank.service
-systemctl status tank.service
+3. 执行打包命令
 ```
-
-出现以下提示表示创建成功
+npm run build
 ```
-Created symlink from /etc/systemd/system/multi-user.target.wants/tank.service to /etc/systemd/system/tank.service.
+4. 通过前面三步可以在`dist`文件夹下得到打包后的静态文件，将`dist`目录下的所有文件拷贝到后端项目的`build/html`文件夹下。
 
-tank.service - EyeblueTank
-Loaded: loaded (/etc/systemd/system/tank.service; enabled; vendor preset: disabled)
-Active: inactive (dead)
- Docs: https://tank-doc.eyeblue.cn
+## 后端项目打包
+
+1. clone ![](/github.png "github.png") [eyebluecn/tank](https://github.com/eyebluecn/tank)
+
+2. 安装Golang，配置环境变量`GOPATH` （因为使用go module，所以对`GOPATH`路径没有要求）
+
+3. 打包
+
+- windows平台双击运行 `tank/build/pack/build.bat`，成功之后可在`tank/dist`下看到`tank-x.x.x`文件夹，该文件夹即为最终安装包。
+
+- linux平台运行如下命令：
 ```
-
-## Upload
-
-## Download
-
-## Share
-
-
-
-## Migrate from 2.0 to 3.0
-
-准备条件：
-
-1. 停止tank2.0
-2. 安装好tank3.0
-3. 2.0和3.0使用同一个数据库
-
-迁移命令：
+cd tank/build/pack/
+./build.sh
 ```
-cd tank 3.0安装目录
-./tank -mode=migrate20to30 -username=YourUsername -password=YourPassword -src=Tank2.0MatterPath
-```
+成功之后可在`tank/dist`下看到`tank-x.x.x.linux-xxx.tar.gz`
 
+利用得到的安装包即可参考[安装](install.md)一节进行安装。
 
-如果要想查看迁移过程日志：
-```
-cd tank 3.0安装目录
-tail -f ./log/tank.log
-```
+::: tip 提示
+如果你在安装依赖时，发现速度太慢，那么可以尝试修改脚本中的GOPROXY，常用的GOPROXY值有：
 
-迁移完毕后，所有2.0的用户后会加上`_20`.
+https://athens.azurefd.net
 
-
-
-
+https://goproxy.io
+:::
