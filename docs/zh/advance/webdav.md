@@ -1,7 +1,45 @@
 # Webdav
 
-## 地址
-/api/dav
+## 访问地址
+https://tank.eyeblue.cn/api/dav
+
+(以官方蓝眼云盘为例)
+
+## 使用单独的域名作为WebDAV地址
+如果你想去掉/api/dav的后缀，并且使用其他域名作为WebDAV的访问地址，你可以参考以下的nginx配置：
+
+```shell
+#https://tank-dav.eyeblue.cn
+server{
+        listen 443 ssl;
+        server_name tank-dav.eyeblue.cn;
+
+        ssl on;
+        ssl_certificate /data/security/letsencrypt/eyebluecn/full_chain.pem;
+        #private key
+        ssl_certificate_key /data/security/letsencrypt/eyebluecn/private.key;
+
+        location / {
+                rewrite /(.*) /api/dav/$1 break;
+                proxy_pass http://127.0.0.1:6010;
+                proxy_set_header host $host;
+                proxy_set_header X-Forwarded-For $remote_addr;
+                proxy_pass_request_headers      on;
+                client_max_body_size  2048m;
+        }
+}
+
+#http://tank-dav.eyeblue.cn
+server {
+        listen      80;
+        server_name    tank-dav.eyeblue.cn;
+        rewrite ^(.*)$ https://tank-dav.eyeblue.cn$1 permanent;
+}
+
+```
+
+通过以上的配置，WebDAV的访问地址就变成了：`https://tank-dav.eyeblue.cn`
+
 
 ## 支持WebDAV的常用客户端
 
