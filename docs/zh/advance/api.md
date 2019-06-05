@@ -191,7 +191,7 @@ type DownloadToken struct {
 type Dashboard struct {
     //继承Base，功能同上
 	Base
-	//环比
+	//环比，表示连续2个单位周期（比如连续两周）内的量的变化比。
 	InvokeNum      int64  `json:"invokeNum"`
 	//总环比
 	TotalInvokeNum int64  `json:"totalInvokeNum"`

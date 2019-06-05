@@ -2,7 +2,7 @@
 
 ## 一、entity
 
-Before introducing the interfaces in each controller in detail, it is necessary to introduce the entities in the eyeblue cloud disk. All entity Base classes are 'Base'
+Before introducing the interfaces in each controller in detail, it is necessary to introduce the entities in the Eyeblue Cloud Disk. All entity Base classes are 'Base'
 
 #### Base
 
@@ -43,65 +43,65 @@ type Pager struct {
 
 #### Matter
 
-`Matter`是代表文件（文件夹是一种特殊的文件），为了避免和系统的`file`重复，这里使用`matter`，这个实体是蓝眼云盘最重要也是最基本的实体：
+`Matter` represents a file (a folder is a special file). In order to avoid duplication of `file` with the system, `Matter` is used here. This entity is the most important and basic entity of blue-eye cloud disk:
 
 ```
 type Matter struct {
-    //继承Base，也就是说Base中的Uuid,Sort,ModifyTime,CreateTime这里也会有
+    //Inheritance Base, that is the Base of Uuid, Sort, ModifyTime, CreateTime here also
 	Base
-	//所在的文件夹的uuid，如果在根目录下，这个字段为 root
+	//The uuid of the folder in which it is located, if in the root directory, this field is root
 	Puuid    string  `json:"puuid"`
-	//创建这个文件的用户uuid
+	//The user uuid that created this file
 	UserUuid string  `json:"userUuid"`
-	//创建这个文件的用户名
+	//The user name to create this file
     Username string  `json:"username"`
-	//该文件是否是文件夹
+	//Whether the file is a folder
 	Dir      bool    `json:"dir"`
-	//文件名，带后缀名。例如：avatar.jpg
+	//File name with suffix. For example：avatar.jpg
 	Name     string  `json:"name"`
-    //文件的md5值，目前该功能尚未实现，作为保留字段
+    //Md5 value of the file, which is not currently implemented, as a reserved field
 	Md5      string  `json:"md5"`
-	//文件大小，单位 byte。比如某个文件1M大，那么这里就为： 1048576
+	//File size, unit byte. For example, if a file is 1M in size, then this will be： 1048576
 	Size     int64   `json:"size"`
-	//文件是否为私有，如果true则该文件只能作者或超级管理员可以下载，如果false所有人均可以通过下载链接下载
+	//If true, the file can only be downloaded by the author or super administrator. If false, everyone can download the file through the download link
 	Privacy  bool    `json:"privacy"`
-	//文件在磁盘中的路径，前端无需关心这个字段。但是后端在寻找文件时这个字段非常关键
+	//The path of the file on disk. The front end does not need to care about this field. But this field is critical when the backend is looking for files
 	Path     string  `json:"path"`
-	//文件下载次数
+	//Download times
     Times    int64   `json:"times"`
-	//该文件的父级matter，该字段不会持久化到数据集，属于获取matter详情时临时组装出来的
+	//The parent of the file, matter, will not be persisted to the data set. This field is a temporary assembly of matter details
 	Parent   *Matter `gorm:"-" json:"parent"`
-	//该文件的子级matter数组，该字段不会持久化到数据集，属于获取matter详情时临时组装出来的
+	//The file's sublevel matter array, which will not be persisted to the data set, is a temporary assembly of matter details
     Children *Matter `gorm:"-" json:"-"`
 }
 ```
 #### User
 
-`User`是代表用户：
+`User` represents the User：
 
 ```
 type User struct {
-    //继承Base，功能同上
+    //Inherit Base, same as above
 	Base
-	//角色，有以下枚举值：GUEST(游客，不会持久化到数据库),USER(普通用户),ADMINISTRATOR(超级管理员)
+	//Roles, with the following enumerated values：GUEST(It is not persisted to the database),USER,ADMINISTRATOR
 	Role      string    `json:"role"`
-	//用户名，在Matter的path字段中很有用
+	//Username, useful in the Matter path field
 	Username  string    `json:"username"`
-	//密码，默认不会返回给前端
+	//Passwords are not returned to the front end by default
 	Password  string    `json:"-"`
-	//头像Url
+	//Image Url
 	AvatarUrl string    `json:"avatarUrl"`
-	//上次登录时的ip
+	//IP at last login
 	LastIp    string    `json:"lastIp"`
-	//上次登录的时间
+	//Last login time
 	LastTime  time.Time `json:"lastTime"`
-	//该用户允许上传的单文件最大大小
+	//This user allows the maximum size of a single file to be uploaded
 	SizeLimit int64     `json:"sizeLimit"`
-	//该用户允许上传的文件总量最大大小
+	//The maximum size of files that this user allows to upload
     TotalSizeLimit int64     `json:"totalSizeLimit"`
-    //该用户已上传的文件总量大小
+    //Total size of files uploaded by this user
     TotalSize int64     `json:"totalSize"`
-	//状态，有以下枚举值：OK(正常),DISABLED(被禁用)
+	//State with the following enumerated values：OK,DISABLED
 	Status    string    `json:"status"`
 }
 ```
@@ -109,55 +109,55 @@ type User struct {
 
 #### Preference
 
-`Preference`是整个网站的偏好设置，网站的名称，logo，favicon，版权，备案号等信息均由这个实体负责。定义如下：
+`Preference` is the Preference setting of the whole website. This entity is responsible for the name, logo, favicon, copyright, record number and other information of the website. The definition is as follows:
 
 ```
 type Preference struct {
-    //继承Base，功能同上
+    //inherit Base, function is the same as above
 	Base
-	//网站名称
+	//website name
 	Name        string `json:"name"`
-	//网站的logo url
+	//url of the website logo
 	LogoUrl     string `json:"logoUrl"`
-	//版权信息
+	//copyright information
 	Copyright   string `json:"copyright"`
 	Record      string `json:"record"`
-    //大小限制
+    //size limit
     DownloadDirMaxSize    int64 `json:"downloadDirMaxSize"`
-    //文件数量
+    //number of files
     DownloadDirMaxNum     int64 `json:"downloadDirMaxNum"` 
-    //用户默认总大小限制
+    //user default total size limit
     DefaultTotalSizeLimit int64 `json:"defaultTotalSizeLimit"`
-    //是否允许自主注册
+    //whether automatic registration is allowed
     AllowRegister bool `json:"allowRegister"`  
-	//当前运行的蓝眼博客版本，这个字段不可修改，每次发版时硬编码
+	//currently running version of the blue eye blog, this field is not modifiable and hardcoded every time it is published
 	Version     string `json:"version"`
 }
 ```
 
 #### UploadToken 
 
-用于给陌生人上传的token
+Token for uploading to strangers
 
 ```
 type UploadToken struct {
-    //继承Base，功能同上
+    // inherit Base, function is the same as above
 	Base
-	//颁发该token的用户，系统中任何用户都能颁发token
+	// the user who issues the token, any user in the system can issue the token
 	UserUuid   string    `json:"userUuid"`
-	//使用这个token上传文件就必须上传在这个文件夹下
+	// to upload a file with this token, you must upload it under this folder
 	FolderUuid string    `json:"folderUuid"`
-	//陌生人上传好了的文件uuid
+	// the stranger uploads the uuid of the finished file
 	MatterUuid string    `json:"matterUuid"`
-	//过期时间
+	// expiration time
 	ExpireTime time.Time `json:"expireTime"`
-	//使用这个token上传文件就必须是这个文件名
+	// this must be the name of the file you upload with this token
 	Filename   string    `json:"filename"`
-	//使用这个token上传文件就必须是这个公私有性
+	// upload files with this token must be private or private
 	Privacy    bool      `json:"privacy"`
-	//使用这个token上传文件就必须这个大小
+    // this size is required to upload a file with this token
 	Size       int64     `json:"size"`
-	//使用这个token上传文件陌生人的ip
+	// use this token to upload the IP of the stranger
 	Ip         string    `json:"ip"`
 }
 ```
@@ -165,19 +165,18 @@ type UploadToken struct {
 
 #### DownloadToken 
 
-用于给陌生人下载的token，一个matter如果Privacy=true，那么就意味着只有自己或者超级管理员可以下载，如果让某些自己信任的用户也能下载，那么就需要生成`DownloadToken`给这些用户来下载
-
+A token used for downloading to strangers. If Privacy=true, it means that only you or the super administrator can download it. If certain users who you trust can also download it, then a `DownloadToken` needs to be generated for these users to download
 ```
 type DownloadToken struct {
-    //继承Base，功能同上
+    // inherit Base, function is the same as above
 	Base
-	//颁发该token的用户
+    // the user who issues this token
 	UserUuid   string    `json:"userUuid"`
-	//该token只能下载这个文件
+    // this token can only be used to download this file
 	MatterUuid string    `json:"matterUuid"`
-	//有效期截止
+    // expiration date
 	ExpireTime time.Time `json:"expireTime"`
-	//下载者的ip
+    // the IP of the downloader
 	Ip         string    `json:"ip"`
 }
 
@@ -185,63 +184,63 @@ type DownloadToken struct {
 
 #### Dashboard
 
-蓝眼云盘的控制面板，显示云盘的统计数据：PV/UV、'活跃'文件、活跃IP 
+Eyeblue Cloud Disk control panel, showing cloud disk statistics: PV/UV, 'active' files, active IP 
 
 ```
 type Dashboard struct {
-    //继承Base，功能同上
+    // inherit Base, function is the same as above
 	Base
-	//环比
-	InvokeNum      int64  `json:"invokeNum"`
-	//总环比
-	TotalInvokeNum int64  `json:"totalInvokeNum"`
-	//当日UV
-	Uv             int64  `json:"uv"`  
-	//总UV           
-	TotalUv        int64  `json:"totalUv"`    
-	//当日文件总数
-	MatterNum      int64  `json:"matterNum"`    
-	//总文件总数
-	TotalMatterNum int64  `json:"totalMatterNum"`
-	//当日文件总大小
-	FileSize       int64  `json:"fileSize"`    
-	//文件总大小
-	TotalFileSize  int64  `json:"totalFileSize"` 
-	//平均耗时，反映了服务器整体的响应速度 
-	AvgCost        int64  `json:"avgCost"`
-	//日期
-	Dt             string `json:"dt"`
+	// link relative ratio，The ratio of change in quantity over two consecutive unit periods, such as two consecutive weeks
+    InvokeNum      int64  `json:"invokeNum"`
+    // total link relative ratio
+    TotalInvokeNum int64  `json:"totalInvokeNum"`
+    // the UV
+    Uv             int64  `json:"uv"`  
+    // total UV           
+    TotalUv        int64  `json:"totalUv"`    
+    // total number of documents on that day
+    MatterNum      int64  `json:"matterNum"`    
+    // total number of documents
+    TotalMatterNum int64  `json:"totalMatterNum"`
+    // total file size of the day
+    FileSize       int64  `json:"fileSize"`    
+    // total file size
+    TotalFileSize  int64  `json:"totalFileSize"` 
+    // the average time taken reflects the overall response speed of the server
+    AvgCost        int64  `json:"avgCost"`
+    // date
+    Dt 	           string `json:"dt"`
 }
 
 ```
 
 #### Share
 
-文件分享记录
+File sharing record
 
 ```
 type Share struct {
-    //继承Base，功能同上
+    // inherit Base, function is the same as above
 	Base
-	//分享该记录的名称
+    // share the name of the record
 	Name           string    `json:"name"`
-	//分享类型，文件/文件夹/混合类型
+    // Shared type, file/folder/mixed type
 	ShareType      string    `json:"shareType"`
-	//分享该记录的用户
+    // users who share the record
 	Username       string    `json:"username"`
-	//分享该记录的用户标识
+    // share the user id of the record
 	UserUuid       string    `json:"userUuid"`
-	//下载次数
+    // download times
 	DownloadTimes  int64     `json:"downloadTimes"`
-	//提取码
+    // extraction code
 	Code           string    `json:"code"`
-	//是否过期失效
+    // whether it expires or not
 	ExpireInfinity bool      `json:"expireInfinity"`
-	//过期时间
+    // expiration time
 	ExpireTime     time.Time `json:"expireTime"`
-	//文件夹文件
+    // folder file
 	DirMatter      *Matter   `json:"dirMatter"`
-	//文件集合
+    // file collection
 	Matters        []*Matter `json:"matters"`
 }
 
@@ -249,70 +248,69 @@ type Share struct {
 
 #### WebResult
 
-`WebResult`并不是会持久化到数据库中实体，`WebResult`是在`controller`返回数据给前端时包装的一层，有了`WebResult`后每个接口返回的数据会更加统一，方便了前端的统一处理
-
+`WebResult` is not an entity that will be persisted to the database. `WebResult` is a layer of packaging when `controller` returns data to the front end. With `WebResult`, the data returned by each interface will be more uniform, facilitating the unified processing of the front end
 ```
 type WebResult struct {
-    //状态码，具体每个码的意义参考下文
+    //Status code, the specific meaning of each code reference below
 	Code int       `json:"code"`
-	//一句话描述请求结果，通常会是出错时指明出错原因，或者修改权限等小操作时提示的`操作成功`
+	//A one-sentence description of the result of the request will usually indicate the cause of the error, or modify permissions and other small operations prompted by `operation success`
 	Msg  string      `json:"msg"`
-	//内容可能是一个实体，也可能是一个 Pager.
+	//The content may be an entity, or it may be a Pager.
 	Data interface{} `json:"data"`
 }
 
 ```
-状态码对应关系如下：
+The corresponding relationship of the status code is as follows:
 
 ```
 const (
-	//正常
+	//normal
 	RESULT_CODE_OK = 200
-	//未登录
+	//Not logged in
 	RESULT_CODE_LOGIN = -400
-	//没有权限
+	//Not logged in
 	RESULT_CODE_UNAUTHORIZED = -401
-	//请求错误
+	//Request error
 	RESULT_CODE_BAD_REQUEST = -402
-	//没有找到
+	//Could not find
 	RESULT_CODE_NOT_FOUND = -404
-	//登录过期
+	//Login date
 	RESULT_CODE_LOGIN_EXPIRED = -405
-	//该登录用户不是有效用户
+	//This login user is not a valid user
 	RESULT_CODE_LOGIN_INVALID = -406
-	//提交的表单验证不通过
+	//The submitted form was not validated
 	RESULT_CODE_FORM_INVALID = -410
-	//请求太频繁
+	//Too many requests
 	RESULT_CODE_FREQUENCY = -420
-	//服务器出错
+	//Server error
 	RESULT_CODE_SERVER_ERROR = -500
-	//远程服务不可用
+	//Remote service unavailable
 	RESULT_CODE_NOT_AVAILABLE = -501
-	//并发异常
+	//Concurrent abnormal
 	RESULT_CODE_CONCURRENCY = -511
-	//远程微服务没有找到
+	//The remote micro service was not found
 	RESULT_CODE_SERVICE_NOT_FOUND = -600
-	//远程微服务连接超时
+	//Remote micro service connection timeout
 	RESULT_CODE_SERVICE_TIME_OUT = -610
-	//通用的异常
+	//Universal exception
 	RESULT_CODE_UTIL_EXCEPTION = -700
 )
 ```
-## 二、返回规范
+## 二、Return specification
 
-蓝眼云盘采用前后端分离的模式，前端调用后端接口时，url均以`/api`开头，返回均是json字符串
+Eyeblue Cloud Disk adopts the mode of front and back end separation. When the front end calls the back end interface, urls start with `/ API` and return json strings
 
-- 返回的json字符串的key均为小写开头的驼峰法，具体参考实体类中`json`标签
+- The key of the returned json string is the lowercase Camel-Case, specifically referring to the `json` tag in the entity class
 
-- 返回的时间格式均为 `YYYY-MM-dd HH:mm:ss`（例如：2018-01-06 17:57:00）
+- The time format returned is` yyyy-mm-dd HH: MM :ss `(for example: 2018-01-06 17:57:00).
 
-返回内容均是由`WebResult`进行包装，因此具有高度的统一性，在这里我们约定一些说法，后面介绍`Controller`时便不再赘述
+The returned contents are all packaged by `WebResult`, so they have a high degree of uniformity. Here we agree on some statements, which will not be repeated when `Controller` is introduced later
 
-1. 返回一个`XX`实体
+1. Returns an `XX` entity
 
-    指的是`WebResult`的`Code=200`, `Data=一个XX实体对象`
+    Refers to `Code=200` of `WebResult`, `Data= an XX entity object'`
     
-    例：返回一个User，则前端会收到以下json字符串：
+    For example: if a `User` is returned, the front end will receive the following json string:
     ```
     {
       "code": 200,
@@ -334,11 +332,11 @@ const (
       }
     }
     ```
-2. 返回`XX`的`Pager`
+2. Returns` XX `of` Pager `
 
-    指的是`WebResult`的`Code=200`, `Data=XX的Pager`
+    Refers to the `Code=200` of `WebResult`, `Data= Pager` of XX
     
-    例：返回`User`的`Pager`，则前端会收到以下json字符串：
+    For example: `User` returns` Pager `, and the front end receives the following json string:
     ```
     {
       "code": 200,
@@ -384,150 +382,150 @@ const (
     }
     ```
     
-3. 返回错误信息：yyy
+3. Error message: yyy
 
-    指的是`WebResult`的`Code=-400`, `Msg=yyy`(这里的Code具体值参考上文的code表)
+    Refers to `Code=-400` of `WebResult`, `Msg=yyy` (the specific values of Code here refer to the Code table above)
     
-    例：返回错误信息："【新建文件夹】已经存在了，请使用其他名称。"，则前端会收到以下json字符串：
+    For example: return error message: "new folder already exists, please use another name." , the front end will receive the following json string:
     ```
     {
       "code": -700,
-      "msg": "【新建文件夹】已经存在了，请使用其他名称。",
+      "msg": "new folder already exists, please use another name.",
       "data": null
     }
     ```
     
-4. 返回成功信息：zzz
+4. Success message: zzz
 
-    指的是`WebResult`的`Code=200`, `Msg=zzz`(这里的Code具体值参考上文的code表)
+    Refers to `Code=200` of `WebResult`, `Msg= ZZZ` (refer to the Code table above for specific values here)
     
-    例：返回成功信息："删除成功。"，则前端会收到以下json字符串：
+    For example: return success message: "deleted successfully." , the front end will receive the following json string:
     ```
     {
       "code": 200,
-      "msg": "删除成功。",
+      "msg": "deleted successfully",
       "data": null
     }
     ```
     
-## 三、接口
+## 三、interface
 
-蓝眼云盘所有的接口均定义在`controller`中，总共定义了以下`controller`：
+All interfaces of Eyeblue Cloud Disk are defined in `controller`, and the following `controller` is defined in total:
 
-名称 | 所在文件 | 描述
+name | code file | description
 --------- | ---- | -----------
-PreferenceController | `preference_controller.go` | 网站标题，logo，版权说明等信息的增删改查
-MatterController | `matter_controller.go` | 站内创建文件夹，上传文件，删除文件，修改权限等
-UserController | `user_controller.go` | 登录，管理操作站内用户
-AlienController | `alien_controller.go` | 第三方授权上传，下载，预处理
-DashboardController | `dashboard_controller.go` | 云盘控制面板，查看整体数据，PU/PV访问情况
-ShareController | `share_controller.go` | 分享，操作、获取、下载分享文件/文件夹
+PreferenceController | `preference_controller.go` | Website title, logo, copyright description and other information added, deleted and checked
+MatterController | `matter_controller.go` | Create folders, upload files, delete files, modify permissions, etc
+UserController | `user_controller.go` | Log in and manage users in the operation station
+AlienController | `alien_controller.go` | Third party authorized upload, download, preprocessing
+DashboardController | `dashboard_controller.go` | Cloud disk control panel, view the overall data, PU/PV access
+ShareController | `share_controller.go` | Share, operate, get and download Shared files/folders
 
-每个接口都有不同的访问级别，系统中定义了三种访问级别，分别是：
+Each interface has different access levels. Three access levels are defined in the system, which are:
 
-`游客` < `注册用户` < `管理员`
+`tourist` < `user` < `administrator`
 
 ### PreferenceController
 
-该Controller负责网站中的偏好设置，主要操作`Preference`实体
+This Controller is responsible for preferences in the website, and it mainly operates on `Preference` entities
 
 ----------
 
 
 #### /api/preference/fetch
 
-**功能**：读取网站偏好设置，网站名称，logo，版权，备案信息，zip下载大小限制，zip下载数量限制，用户默认总大小限制，是否允许自主注册均从此接口读取
+**function** : read website preferences, website name, logo, copyright, record information, zip download size limit, zip download number limit, user default total size limit, whether to allow automatic registration is read from this interface
 
-**访问级别**：`游客`,`注册用户`,`管理员`
+**access level** : `tourist`,` 'registered user'`, `administrator`
 
-**请求参数**：无
+**request parameter** : none
 
-**返回**: 一个`Preference`实体
-
+**returns**: an `Preference` entity
 
 ----------
 #### /api/preference/edit
 
-**功能**：编辑网站偏好设置，修改网站名称，logo，版权，备案信息，zip下载大小限制，zip下载数量限制，用户默认总大小限制，是否允许自主注册
+**function** : edit website preferences, modify website name, logo, copyright, record information, zip download size limit, zip download number limit, user default total size limit, whether to allow independent registration
 
-**访问级别**：`管理员`
+**access level** : `administrator`
 
-**请求参数**：
+**request parameters**:
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-name | `string` | 必填 | 网站名称
-logoUrl | `string` | 选填 | 网站logoUrl,如果不填默认使用蓝眼云盘logo
-faviconUrl | `string` | 选填 | 网站faviconUrl,如果不填默认使用蓝眼云盘favicon.ico
-copyright | `string` | 选填 | 网站版权所有信息
-record | `string` | 选填 | 网站备案信息
-downloadDirMaxSizeStr | `int` | 选填 | zip下载大小限制
-downloadDirMaxNumStr | `int` | 选填 | zip下载数量限制
-defaultTotalSizeLimitStr | `int` | 选填 | 用户默认总大小限制
-allowRegisterStr | `bool` | 选填 | 是否允许自主注册
+name | `string` | required | site name
+logoUrl | `string` | optional | website logoUrl, if not, use Eyeblue Cloud Disk logo by default
+faviconUrl | `string` | optional | Website faviconUrl, if not filled in default USES Eyeblue Cloud Disk favicon.ico
+copyright | `string` | optional | Website copyright
+record | `string` | optional | Website record
+downloadDirMaxSizeStr | `int` | optional | Zip download size limit
+downloadDirMaxNumStr | `int` | optional | Limited number of zip downloads
+defaultTotalSizeLimitStr | `int` | optional | User default total size limit
+allowRegisterStr | `bool` | optional | Whether automatic registration is allowed or not
 
-**返回**: 一个`Preference`实体
+**returns**: an `Preference` entity
 
 ----------
 #### /api/preference/system/cleanup
 
-**功能**：重置系统，谨慎操作
+**function** : reset the system, operate carefully
 
-**访问级别**：`管理员`
+**access level** : `administrator`
 
-**请求参数**：
+**request parameters**
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-password | `string` | 必填 | 管理员用户密码
+password | `string` | required | administrator user password is required
 
-**返回**: 成功信息“重置成功”
+**return**: success message "reset successful"
 
 ----------
 ### MatterController
 
-该Controller负责站内创建文件夹，上传文件，修改文件路径，删除文件，修改文件访问权限等，主要操作`Matter`实体
+This Controller is responsible for creating folders, uploading files, modifying file paths, deleting files, modifying file access permissions, etc., mainly operating `Matter` entities
 
 ----------
 
 #### /api/matter/create/directory
 
-**功能**：创建文件夹
+**function** : create folders
 
-**访问级别**：`注册用户`,`管理员`
+**access level** : `registered user`, `administrator`
 
-**请求参数**：
+**request parameters**:
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-userUuid | `string` | 必填 | 用户的唯一标识，文件存放在该用户名下
-puuid | `string` | 必填 | 准备创建的目录所在的目录，如果在根目录下创建传`root`
-name | `string` | 必填 | 文件夹名称， 不能包含以下特殊符号：`< > \| * ? / \`
+userUuid | `string` | required | Unique identifier of the user, the file is stored under that user name
+puuid | `string` | required | The directory in which the directory is to be created, if created in the root directory, pass `root`
+name | `string` | required | Folder name, cannot contain the following special symbol: `< > \| * ? / \`
 
-**返回**: 新建的这个文件夹的`Matter`实体
+**return**: the `Matter` entity of the newly created folder
 
 ----------
 
 
 #### /api/matter/upload
 
-**功能**：上传文件
+**function** : upload files
 
-**访问级别**：`注册用户`,`管理员`
+**The level of access**：`user`, `administrator`
 
-**请求参数**：
+**Request parameters**：
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-userUuid | `string` | 必填 | 用户的唯一标识，文件存放在该用户名下
-puuid | `bool` | 选填 | 文件上传到哪个目录下
-file | `file` | 必填 | 二进制文件，在浏览器中是通过`<input type="file" name="file"/>`来选择的
-alien | `bool` | 选填 | 是否为第三方文件，默认`false`
-privacy | `bool` | 选填 | 文件的私有性，默认`true`
+userUuid | `string` | required | Unique identifier of the user, the file is stored under that user name
+puuid | `bool` | optional | Which directory to upload the file to
+file | `file` | required | Binary file, in the browser is selected by `<input type="file" name="file"/>`
+alien | `bool` | optional | Whether it is a third-party file, the default is `false `
+privacy | `bool` | optional | Private file, default `true`
 
-**返回**: 刚上传的这个文件的`Matter`实体
+**return**: just uploaded the `Matter` entity of this file
 
 ----------
+//TODO
 
 #### /api/matter/crawl（命令行工具）
 
