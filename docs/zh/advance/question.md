@@ -34,11 +34,18 @@ server{
         listen 443 ssl;
         server_name tank.eyeblue.cn;
 
-
         ssl on;
         ssl_certificate /letsencrypt/full_chain.pem;
         #private key
         ssl_certificate_key /letsencrypt/private.key;
+
+        gzip on; #开启或关闭gzip on off
+        gzip_disable "msie6"; #不使用gzip IE6
+        gzip_min_length 100k; #gzip压缩最小文件大小，超出进行压缩（自行调节）
+        gzip_buffers 4 16k; #buffer 不用修改
+        gzip_comp_level 3; #压缩级别:1-10，数字越大压缩的越好，时间也越长
+        gzip_types application/javascript text/css text/javascript; #  压缩文件类型
+        gzip_vary off;  #跟Squid等缓存服务有关，on的话会在Header里增加 "Vary: Accept-Encoding"
 
         location / {
                 proxy_pass http://127.0.0.1:6010;
@@ -57,6 +64,10 @@ server {
         rewrite ^(.*)$ https://tank.eyeblue.cn$1 permanent;
 }
 ```
+
+::: tip 提示
+由于前端资源文件`chunk-vendors.js` 约2M，因此在nginx的配置中使用gzip压缩可以显著提升访问速度。
+:::
 
 ## 为什么太大的文件就不能上传了？
 可能是反向代理的软件对post大小限制了，比如上方`nginx`配置的`client_max_body_size  2048m;`就使得最大只能上传`2G`的文件
