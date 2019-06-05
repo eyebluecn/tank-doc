@@ -1,41 +1,41 @@
-# 蓝眼云盘api接口
+# Eyeblue Cloud Disk API
 
-## 一、实体
+## 一、entity
 
-在详细介绍各controller中的接口前，有必要先介绍蓝眼云盘中的各实体，所有的实体基类均为`Base`
+Before introducing the interfaces in each controller in detail, it is necessary to introduce the entities in the eyeblue cloud disk. All entity Base classes are 'Base'
 
 #### Base
 
-`Base`定义如下，所有会在数据库中持久化的实体均会继承`Base`，`Controller`在返回实体给前端时，会将字段和值序列化成json字符串，其中键就和每个实体字段后面的`json`标签一致，下文也会有详细例子介绍
+`Base` is defined as follows. All entities that will be persisted in the database will inherit `Base`. When 'Controller' returns entities to the front end, it will serialize fields and values into json strings, where the key is consistent with the `json` tag after each entity field
 
 ```
 type Base struct {
-    //唯一标识
+    //A unique identifier
 	Uuid       string    `gorm:"primary_key" json:"uuid"`
-	//排序用的字段，一般是时间戳来表示序号先后
+	//A field, usually a timestamp, used for sorting
 	Sort       int64     `json:"sort"`
-	//修改时间
+	//UpdateTime
 	UpdateTime time.Time `json:"updateTime"`
-	//创建时间
+	//CreateTime
 	CreateTime time.Time `json:"createTime"`
 }
 ```
 
 #### Pager
 
-在前端请求一个列表时，通常返回的都是一个`Pager`，`Pager`中就是装的各个实体的列表
+When the front end requests a list, it usually returns a `Pager`, `Pager` is the list of various entities installed
 
 ```
 type Pager struct {
-    //当前页数，0基
+    //Current page, 0 base
 	Page       int         `json:"page"`
-	//每页的大小
+	//The size of each page
 	PageSize   int         `json:"pageSize"`
-	//总的条目数
+	//Total number of entries
 	TotalItems int         `json:"totalItems"`
-	//总的页数
+	//The total number of pages
 	TotalPages int         `json:"totalPages"`
-	//实体的数组
+	//Array of entities
 	Data       interface{} `json:"data"`
 }
 ```
