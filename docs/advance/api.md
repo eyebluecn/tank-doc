@@ -436,7 +436,7 @@ This Controller is responsible for preferences in the website, and it mainly ope
 
 **function** : read website preferences, website name, logo, copyright, record information, zip download size limit, zip download number limit, user default total size limit, whether to allow automatic registration is read from this interface
 
-**access level** : `tourist`,` 'registered user'`, `administrator`
+**access level** : `tourist`,`user`, `administrator`
 
 **request parameter** : none
 
@@ -525,580 +525,579 @@ privacy | `bool` | optional | Private file, default `true`
 **return**: just uploaded the `Matter` entity of this file
 
 ----------
-//TODO
 
-#### /api/matter/crawl（命令行工具）
+#### /api/matter/crawl（command line tool）
 
-**功能**：通过url获取文件
+**function**：Get the file through the url
 
-**访问级别**：`注册用户`,`管理员`
+**The level of access**：`registered user`, `administrator`
 
-**请求参数**：
+**Request parameters**：
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-url | `string` | 选填 | 文件url路径
-destPath | `string` | 选填 | 目的路径
-filename | `string` | 必填 | 文件名称
+url | `string` | optional | File url path
+destPath | `string` | optional | path of objective
+filename | `string` | required | file name
 
 
-**返回**: 刚上传的这个文件的`Matter`实体
+**return**: just uploaded the `Matter` entity of this file
 
 
 ----------
 
 #### /api/matter/delete
 
-**功能**：删除文件或者文件夹
+**function**：Delete files or folders
 
-**访问级别**：`注册用户`,`管理员`
+**The level of access**：`user`, `administrator`
 
-**请求参数**：
+**Request parameters**：
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-uuid | `string` | 必填 | 待删除的文件或文件夹的uuid
+uuid | `string` | required | Uuid of the file or folder to delete
 
 
-**返回**: 成功信息“删除成功”
+**return**: Successful information "deletion successful"
 
 ----------
 
 
 #### /api/matter/delete/batch
 
-**功能**：批量删除文件或文件夹
+**function**：Batch delete files or folders
 
-**访问级别**：`注册用户`,`管理员`
+**The level of access**：`user`, `administrator`
 
-**请求参数**：
+**Request parameters**：
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-uuids | `string` | 必填 | 待删除的文件或文件夹的uuids,用逗号(,)分隔
+uuids | `string` | required | Uuids for files or folders to be deleted, separated by commas (,)
 
-**返回**: 成功信息“删除成功”
+**return**: Successful information "deletion successful"
 
 ----------
 
 #### /api/matter/rename
 
-**功能**：重命名文件或文件夹
+**function**：Rename files or folders
 
-**访问级别**：`注册用户`,`管理员`
+**The level of access**：`user`, `administrator`
 
-**请求参数**：
+**Request parameters**：
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-uuid | `string` | 必填 | 文件的uuid
-name | `string` | 必填 | 新名字，不能包含以下特殊符号：`< > \| * ? / \`
+uuid | `string` | required | uuid of the file 
+name | `string` | required | The new name cannot contain the following special symbols：`< > \| * ? / \`
 
-**返回**: 刚重命名的这个文件的`Matter`实体
+**return**: Just renamed the `Matter` entity of this file
 
 ----------
 #### /api/matter/change/privacy
 
-**功能**：改变文件的公私有属性
+**function**：Change the public and private properties of the file
 
-**访问级别**：`注册用户`,`管理员`
+**The level of access**：`user`, `administrator`
 
-**请求参数**：
+**Request parameters**：
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-uuid | `string` | 必填 | 文件的uuid
-privacy | `bool` | 选填 | 文件的私有性，默认`false`
+uuid | `string` | required | uuid of the file
+privacy | `bool` | optional | Private file, default `false`
 
-**返回**: 成功信息“设置成功”
+**return**: Success information "setup successful"
 
 ----------
 
 #### /api/matter/move
 
-**功能**：将一个文件夹或者文件移入到另一个文件夹下
+**function**：Move a folder or file to another folder
 
-**访问级别**：`注册用户`,`管理员`
+**The level of access**：`user`, `administrator`
 
-**请求参数**：
+**Request parameters**：
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-srcUuids | `string` | 必填 | 待移动的文件或文件夹的uuids,用逗号(,)分隔
-destUuid | `string` | 必填 | 目标文件夹，根目录用`root`
+srcUuids | `string` | required | Uuids for files or folders to be moved, separated by commas (,)
+destUuid | `string` | required | Target folder, root directory with `root`
 
-**返回**: 成功信息“设置成功”
+**return**: Success information "setup successful"
 
 ----------
 
 
 #### /api/matter/detail
 
-**功能**：产看文件详情
+**function**：View file details
 
-**访问级别**：`注册用户`,`管理员`
+**The level of access**：`user`, `administrator`
 
-**请求参数**：
+**Request parameters**：
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-uuid | `string` | 必填 | 该文件的uuid
+uuid | `string` | required | The uuid of the file
 
-**返回**: 这个文件的`Matter`实体
+**return**: The `Matter` entity of this file
 
 ----------
 
 #### /api/matter/page
 
-**功能**：按照分页的方式获取某个文件夹下文件和子文件夹的列表
+**function**：Get a list of files and subfolders under a folder by pagination
 
-**访问级别**：`注册用户`,`管理员`
+**The level of access**：`user`, `administrator`
 
-**请求参数**：
+**Request parameters**：
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-puuid | `string` | 选填 | 文件夹uuid，如果根目录填`root`
-page | `int` | 选填 | 当前页数，0基，默认0
-pageSize | `int` | 选填 | 每页条目数，默认200
-userUuid | `string` | 选填 | 筛选文件拥有者，对于普通用户使用当前登录的用户uuid.
-name | `string` | 选填 | 模糊筛选文件名 
-dir | `bool` | 选填 | 筛选是否为文件夹
-orderDir | `DESC`或`ASC` | 选填 | 按文件夹排序，`DESC`降序排，`ASC`升序排
-orderCreateTime | `DESC`或`ASC` | 选填 | 按创建时间排序，`DESC`降序排，`ASC`升序排
-orderUpdateTime | `DESC`或`ASC` | 选填 | 按最近修改时间排序，`DESC`降序排，`ASC`升序排
-orderSort | `DESC`或`ASC` | 选填 | 默认排序，`DESC`降序排，`ASC`升序排
-orderTimes | `DESC`或`ASC` | 选填 | 按下载次数排序，`DESC`降序排，`ASC`升序排
-orderSize | `DESC`或`ASC` | 选填 | 按文件大小排序，`DESC`降序排，`ASC`升序排
-orderName | `DESC`或`ASC` | 选填 | 按名称排序，`DESC`降序排，`ASC`升序排
-extensions | `string` | 选填 | 按文件后缀名筛选，逗号(,)分隔。例：`jpg,png,pdf`
-shareUuid | `string` | 选填 | 分享的uuid，如果为空的话则puuid则为必填项
-shareCode | `string` | 选填 | 提取码
-shareRootUuid | `string` | 选填 | 分享根目录uuid
+puuid | `string` | optional | Folder uuid, if the root directory with `root`
+page | `int` | optional | Current page, 0 base, default 0
+pageSize | `int` | optional | Number of entries per page, default 200
+userUuid | `string` | optional | Filter the file owner to use the currently logged user uuid for normal users.
+name | `string` | optional | Fuzzy filter file name
+dir | `bool` | optional | Filter whether it is a folder
+orderDir | `DESC`or`ASC` | optional | Sort by folder, `DESC` descending, `ASC` ascending
+orderCreateTime | `DESC`or`ASC` | optional | Sort by creation time, `DESC` descending, `ASC` ascending
+orderUpdateTime | `DESC`or`ASC` | optional | Sort by last modified time, `DESC` descending, `ASC` ascending
+orderSort | `DESC`or`ASC` | optional | Default sort, `DESC` descending, `ASC` ascending
+orderTimes | `DESC`or`ASC` | optional | Sort by download times, `DESC` descending, `ASC` ascending
+orderSize | `DESC`or`ASC` | optional | Sort by file size, `DESC` descending, `ASC` ascending
+orderName | `DESC`or`ASC` | optional | Sort by name, `DESC` in descending order, `ASC` in ascending order
+extensions | `string` | optional | Filter by file suffix name, comma (,) separated. Example:`jpg,png,pdf`
+shareUuid | `string` | optional | Shared uuid, if empty, puuid is required
+shareCode | `string` | optional | Extract the code
+shareRootUuid | `string` | optional | Share the root uuid
 
-
-**返回**: `Matter`的`Pager`
+**return**: Pager entity with Matter entities
 
 ----------
 
 #### /api/matter/mirror
 
-**功能**：把本地文件映射到蓝眼云盘中（命令行工具）
+**function**：Map local files to the Eyeblue Cloud Disk (command line tool)
 
-**访问级别**：`注册用户`,`管理员`
+**The level of access**：`user`, `administrator`
 
-**请求参数**：
+**Request parameters**：
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-srcPath | `string` | 必填 | 原文件路径
-destPath | `string` | 选填 | 目标路径
-overwrite | `bool` | 选填 | 是否覆盖，默认false
+srcPath | `string` | required | Original file path
+destPath | `string` | optional | The target path
+overwrite | `bool` | optional | Override, default false
 
 ----------
 
 #### /api/matter/zip
 
-**功能**：把文件批量打包下载
+**function**：Bulk up the files and download them
 
-**访问级别**：`注册用户`,`管理员`
+**The level of access**：`user`, `administrator`
 
-**请求参数**：
+**Request parameters**：
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-uuids | `string` | 必填 | 待下载的文件或文件夹的uuids,用逗号(,)分隔
+uuids | `string` | required | Uuids for files or folders to be downloaded, separated by commas (,)
 
 ----------
 
 ### UserController
 
-该Controller负责站内创建文件夹，上传文件，删除文件，修改权限等，主要操作`Matter`实体
+This Controller is responsible for creating folders, uploading files, deleting files, modifying permissions, etc., mainly operating `Matter` entities
 
 ----------
 
 #### /api/user/login
 
-**功能**：登录
+**function**：login
 
-**访问级别**：`游客`,`注册用户`,`管理员`
+**The level of access**：`user`, `administrator`
 
-**请求参数**：
+**Request parameters**：
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-username | `string` | 必填 | 用户名
-password | `string` | 必填 | 密码
+username | `string` | required | user name
+password | `string` | required | password
 
-**返回**: 当前登录的`User`实体
+**return**: The `User` entity of the current login
 
 ----------
 
 #### /api/user/authentication/login
 
-**功能**：授权变身登录
+**function**：Authorize change login
 
-**访问级别**：`游客`,`注册用户`,`管理员`
+**The level of access**：`user`, `administrator`
 
-**请求参数**：
+**Request parameters**：
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-authentication | `string` | 必填 | 授权验证信息
+authentication | `string` | required | Authorization verification information
 
-**返回**: 当前登录的`User`实体
+**return**: The `User` entity of the current login
 
 ----------
 
 #### /api/user/register
 
-**功能**：自助注册
+**function**：Self-help registration
 
-**访问级别**：`游客`,`注册用户`,`管理员`
+**The level of access**：`tourist`, `user`, `administrator`
 
-**请求参数**：
+**Request parameters**：
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-username | `string` | 必填 | 用户名
-password | `string` | 必填 | 密码
+username | `string` | required | user name
+password | `string` | required | password
 
-**返回**: 当前登录的`User`实体
+**return**: The `User` entity of the current login
 
 ----------
 
 #### /api/user/edit
 
-**功能**：编辑用户
+**function**：Edit the user
 
-**访问级别**：`注册用户`,`管理员`
+**The level of access**：`user`, `administrator`
 
-**请求参数**：
+**Request parameters**：
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-uuid | `string` | 必填 | 待编辑的用户uuid
-avatarUrl | `string` | 选填 | 头像
-sizeLimit | `int` | 必填 | 用户上传单文件限制，单位byte. 如果负数表示无限制
-totalSizeLimit | `string` | 必填 | 该用户允许上传的总文件最大大小，单位byte
-role | `string` | 选填 | 角色
+uuid | `string` | required | User uuid to edit
+avatarUrl | `string` | required | Head portrait
+sizeLimit | `int` | required | User upload single file limit, unit byte. If negative number means unlimited
+totalSizeLimit | `string` | required | This user is allowed to upload the maximum total file size, unit byte
+role | `string` | optional | role
 
-**返回**: 编辑的`User`实体
+**return**: Edit `User` entity
 
 ----------
 
 #### /api/user/detail
 
-**功能**：查看用户详情
+**function**：View user details
 
-**访问级别**：`注册用户`,`管理员`
+**The level of access**：`user`, `administrator`
 
-**请求参数**：
+**Request parameters**：
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-uuid | `string` | 必填 | 待查看的用户uuid
+uuid | `string` | required | User uuid to be viewed
 
-**返回**: `User`实体
+**return**: `User` entities
 
 ----------
 
 #### /api/user/logout
 
-**功能**：退出登录
+**function**：Log out
 
-**访问级别**：`游客`,`注册用户`,`管理员`
+**The level of access**：`tourist`,`user`, `administrator`
 
-**请求参数**：无
+**Request parameters**：None
 
-**返回**: 成功信息"退出成功！"
+**return**: Successful message "exit successful!"
 
 ----------
 
 
 #### /api/user/page
 
-**功能**：查看用户列表
+**function**：View user list
 
-**访问级别**：`管理员`
+**The level of access**：`administrator`
 
-**请求参数**：
+**Request parameters**：
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-page | `int` | 选填 | 当前页数，0基，默认0
-pageSize | `int` | 选填 | 每页条目数，默认200
-username | `string` | 选填 | 模糊筛选用户名
-status | `string` | 选填 | 用户状态，枚举类型
-orderSort | `DESC`或`ASC` | 选填 | 默认排序，`DESC`降序排，`ASC`升序排
-orderLastTime | `DESC`或`ASC` | 选填 | 按上次登录时间排序，`DESC`降序排，`ASC`升序排
-orderCreateTime | `DESC`或`ASC` | 选填 | 按创建时间排序，`DESC`降序排，`ASC`升序排
-orderUpdateTime | `DESC`或`ASC` | 选填 | 按创建时间排序，`DESC`降序排，`ASC`升序排
+page | `int` | optional | Current page, 0 base, default 0
+pageSize | `int` | optional | Number of entries per page, default 200
+username | `string` | optional | Fuzzy filtering of user names
+status | `string` | optional | User status, enumerated types
+orderSort | `DESC`or`ASC` | optional | Default sort, `DESC` descending, `ASC` ascending
+orderLastTime | `DESC`or`ASC` | optional | Sort by last login time, `DESC` descending, `ASC` ascending
+orderCreateTime | `DESC`or`ASC` | optional | Sort by creation time, `DESC` descending, `ASC` ascending
+orderUpdateTime | `DESC`or`ASC` | optional | Sort by update time, `DESC` descending, `ASC` ascending
 
-**返回**: `User`实体的`Pager`
+**return**: `User` entity's `Pager`
 
 ----------
 
 #### /api/user/change/password
 
-**功能**：蓝眼云盘用户修改用户密码
+**function**：Eyeblue Cloud Disk user changes user password
 
-**访问级别**：`注册用户`,`管理员`
+**the level of access**：`user`, `administrator`
 
-**请求参数**：
+**Request parameters**：
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-oldPassword | `string` | 必填 | 旧密码
-newPassword | `string` | 必填 | 新密码
+oldPassword | `string` | required | old password
+newPassword | `string` | required | new password
 
-**返回**: 修改密码的`User`实体
+**return**: `User` entity used to change the password
 
 ----------
 
 #### /api/user/reset/password
 
-**功能**：管理员重置用户密码
+**function**：The administrator resets the user password
 
-**访问级别**：`管理员`
+**the level of access**：`administrator`
 
-**请求参数**：
+**Request parameters**：
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-userUuid | `string` | 必填 | 待重置密码的用户uuid
-password | `string` | 必填 | 新密码
+userUuid | `string` | required | User uuid to reset password
+password | `string` | required | new password
 
-**返回**: 修改密码的`User`实体
+**return**: The `User` entity used to change the password
 
 ----------
 
 #### /api/user/toggle/status
 
-**功能**：管理员修改用户状态
+**function**：The administrator modifies user status
 
-**访问级别**：`管理员`
+**the level of access**：`administrator`
 
-**请求参数**：
+**Request parameters**：
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-uuid | `string` | 必填 | 待操作的用户
+uuid | `string` | required | User to be operated on
 
-**返回**: 修改状态的`User`实体
+**return**: The 'User' entity used to modify the state
 
 ----------
 
 #### /api/user/transfiguration
 
-**功能**：管理员变身
+**function**：Administrator turned
 
-**访问级别**：`管理员`
+**the level of access**：`administrator`
 
-**请求参数**：
+**Request parameters**：
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-uuid | `string` | 必填 | 用户id
+uuid | `string` | required | user id
 
-**返回**: 变身用户的uuid
+**return**: turned user's uuid
 
 ----------
 
 ### AlienController
 
-- 蓝眼云盘提供了[编程接口](https://github.com/eyebluecn/tank/blob/master/build/doc/alien_zh.md)，实现了云存储（如：[七牛云](https://www.qiniu.com)，[阿里云OSS](https://www.aliyun.com/product/oss)）的核心功能，可以使用编程接口上传文件，作为其他网站、系统、app的资源存储器。可以在下载图片时对图片做缩放裁剪处理，可以有效地节省客户端流量
+- Eyeblue Cloud Disk provides[Programming interface (API)](https://github.com/eyebluecn/tank/blob/master/build/doc/alien_zh.md)，cloud storage is implemented（如：[Seven NiuYun](https://www.qiniu.com)，[Ali cloud OSS](https://www.aliyun.com/product/oss)）core function，You can use the programming interface to upload files, which can be used as resource storage for other websites, systems and apps. The image can be scaled and cropped when the image is downloaded, which can effectively save client traffic
 
-- 蓝眼系列开源软件之二的[《蓝眼博客》](https://github.com/eyebluecn/blog)正是使用蓝眼博客作为第三方资源存储器。蓝眼博客中的所有图片，附件均是存储在蓝眼云盘中
+- the second in the Eyeblue series of open source software[《Eyeblue blog》](https://github.com/eyebluecn/blog)use the blue eye blog as a third-party resource store. All the pictures in blue eye blog are stored in blue eye cloud disk
 
 
-### 上传时序图
+### Upload sequence diagram
 
-![上传时序图](https://raw.githubusercontent.com/eyebluecn/tank/master/build/doc/img/upload-time-line.png)
+![Upload sequence diagram](https://raw.githubusercontent.com/eyebluecn/tank/master/build/doc/img/upload-time-line.png)
 
-### 下载时序图
+### Download sequence diagram
 
-![下载时序图](https://raw.githubusercontent.com/eyebluecn/tank/master/build/doc/img/download-time-line.png)
+![Download sequence diagram](https://raw.githubusercontent.com/eyebluecn/tank/master/build/doc/img/download-time-line.png)
 
 ----------
 
-### 接口详情
+### Interface details
 
 #### /api/alien/fetch/upload/token
 
-**功能**：一个蓝眼云盘受信任的用户请求一个`UploadToken`，用于给另一个用户向蓝眼云盘上传文件
+**function**：A Eyeblue Cloud Disk trusted user requests a `UploadToken` to upload a file to blue eye cloud disk to another user
 
-一般的使用场景是`应用服务器`向`蓝眼云盘`请求`UploadToken`，然后将此`UploadToken`交由`浏览器`去向`蓝眼云盘`上传文件
+A common usage scenario is that `application server` requests` UploadToken `to` Eyeblue cloud disk `, and then passes this` UploadToken `to` Eyeblue cloud disk `in the browser
 
-**访问级别**：`注册用户`,`管理员`
+**the level of access**：`user`, `administrator`
 
-**请求参数**
+**Request parameters**
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-filename | `string` | 必填 | 文件名
-expireTime | `string` | 必填 | UploadToken过期时间
-privacy | `bool` | 选填 | 文件的共有性。`true`表示文件私有，下载时必须要DownloadToken. `false`表示文件公有，任何人可以通过下载链接直接下载，默认值为false
-size | `int` |  必填 | 文件的大小。单位：byte
-dirPath | `string` | 必填 |文件存放的路径。不能为空，必须以`/`开头，不能出现连续的`//`,不能包含以下特殊符号：`< > \| * ? \`。举例：`/app/blog/20180101121212001`
+filename | `string` | required | filename
+expireTime | `string` | required | UploadToken expiration time
+privacy | `bool` | optional | Document co-existence. `true` means file private，DownloadToken is required for download. `false`means file public，Anyone can download it directly from the download link, which defaults to false
+size | `int` |  required | File size. Unit: byte
+dirPath | `string` | required |The path for file storage.Cannot be empty, must begin with `/`, can not appear continuous` // `.Cannot contain the following special symbols:`< > \| * ? \`.For example,：`/app/blog/20180101121212001`
 
 ----------
 
 #### /api/alien/fetch/download/token
 
-**功能**：一个蓝眼云盘受信任的用户请求一个`DownloadToken`，用于给另一个用户下载蓝眼云盘上的私有文件
+**function**：A trusted user of Eyeblue Cloud Disk requests a `DownloadToken` to download private files on Eyeblue Cloud Disk for another user
 
-一般的使用场景是`应用服务器`向`蓝眼云盘`请求`DownloadToken`，然后将此`DownloadToken`交由`浏览器`去向`蓝眼云盘`下载文件
 
-**访问级别**：`注册用户`,`管理员`
+A common usage scenario is when `application server` requests` DownloadToken `to` Eyeblue cloud disk `and then sends this` DownloadToken` to `Eyeblue cloud disk` with a `browser` to download a file
 
-**请求参数**
+**the level of access**：`user`, `administrator`
 
-名称 | 类型 | 必填性 | 描述
+**Request parameters**
+
+Name | type | required | description
 --------- | ---- | ---- | -----------
-matterUuid | `string` |  必填 | 文件uuid，要想下载的文件`uuid`
-expireTime | `string` |  必填 | UploadToken过期时间，单位：s。默认 86400s 即24h
+matterUuid | `string` |  required | File uuid, the file `uuid` that you want to download
+expireTime | `string` |  required | UploadToken expiration time,Unit: s.By default 86400s is 24h
 
 ----------
 
 #### /api/alien/confirm
 
-**功能**：`应用服务器`向蓝眼云盘确认某个文件是否确实已经上传好了
+**function**：`application server` confirms to Eyeblue Cloud Disk that a file is actually uploaded
 
-**访问级别**：`注册用户`,`管理员`
+**the level of access**：`user`, `administrator`
 
-**请求参数**
+**Request parameters**
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-matterUuid | `string` | 必填 | 浏览器上传完毕后，蓝眼云盘返回给浏览器的`uuid`
+matterUuid | `string` | required | After the browser is uploaded, Eyeblue Cloud Disk returns` uuid `to the browser
 
 ----------
 
 #### /api/alien/upload
 
-**功能**：浏览器拿着`UploadToken`通过FormData向蓝眼云盘上传文件
+**function**：The browser uploads the file to blue eye cloud disk using `UploadToken` through FormData
 
-一般的使用场景是`应用服务器`向`蓝眼云盘`请求`UploadToken`，然后将此`UploadToken`交由`浏览器`去向`蓝眼云盘`上传文件。由于在请求`UploadToken`的时候已经传入了文件元信息，因此这里的文件信息必须要和`/api/alien/fetch/upload/token`传入的参数信息一致
+A common usage scenario is that `application server` requests` UploadToken `to` Eyeblue Cloud Disk `, and then passes this `UploadToken` to` Eyeblue Cloud Disk `in the browser. Because the request ` UploadToken ` meta information was introduced to the file, so must the file information and ` / API/alien/fetch/upload/token ` incoming parameter information
 
-**访问级别**：`游客`,`注册用户`,`管理员`
+**access level** : `tourist`,`user`, `administrator`
 
-**请求参数**
+**Request parameters**
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-uploadTokenUuid | `string` | 必填 | uploadToken标识，`/api/alien/fetch/upload/token`请求返回对象中的`uuid`
-file | `file` | 必填 | 文件，在浏览器中是通过`<input type="file" name="file"/>`来选择的
+uploadTokenUuid | `string` | required | uploadToken identification，`/api/alien/fetch/upload/token` request ' uuid 'in the returns object
+file | `file` | required | file，In the browser it is selected by `<input type="file" name="file"/>`
 
 ----------
 
 #### /api/alien/crawl/token
 
-**功能**：获取一个token，提供给第三方去调用的一个接口
+**function**：Get a token,an interface provided to a third party to invoke
 
-**访问级别**：`游客`,`注册用户`,`管理员`
+**access level** : `tourist`,`user`, `administrator`
 
-**请求参数**
+**Request parameters**
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-uploadTokenUuid | `string` | 必填 | uploadToken标识，`/api/alien/fetch/upload/token`请求返回对象中的`uuid`
-url | `string` | 选填 | 获取文件的链接
+uploadTokenUuid | `string` | required | UploadToken identification, ` / API/alien/fetch/upload/token ` request returns objects ` uuid `
+url | `string` | optional | Get the link to the file
 
 ----------
 
 #### /api/alien/crawl/direct
 
-**功能**：让蓝眼云盘去拉取一个url资源
+**function**：Eyeblue Cloud Disk to pull a url resource
 
-**访问级别**：`注册用户`,`管理员`
+**access level**：`user`, `administrator`
 
-**请求参数**
+**Request parameters**
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-filename | `string` | 必填 | 文件名
-privacy | `bool` | 选填 | 文件的共有性。`true`表示文件私有，下载时必须要DownloadToken. `false`表示文件公有，任何人可以通过下载链接直接下载，默认值为false
-dirPath | `string` | 选填 | 文件存放路径
-url | `string` | 选填 | 获取文件的链接
+filename | `string` | required | filename
+privacy | `bool` | optional | Document co-existence.`true` indicates that the file is private and must be downloaded with a DownloadToken.`false` means that the file is public, and anyone can download it directly through the download link. The default value is false
+dirPath | `string` | optional | File storage path
+url | `string` | optional | Get the link to the file
 
 ----------
 
 #### /api/alien/Preview/{uuid}/{filename}
 
-**功能**：这个接口实现预览功能
+**function**：This interface implements preview functionality
 
-**访问级别**：`游客`,`注册用户`,`管理员`
+**access level**：`tourist`,`user`, `administrator`
 
-**请求参数**： 均是放置在url中
+**Request parameters**： Both are placed in urls
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-uuid | `string` | 必填 | 文件的uuid，该参数放在url的路径中
-filename | `string` | 必填 | 文件的名称，该参数放在url的路径中
-downloadTokenUuid | `string` | 选填 |download的uuid，如果是私有文件该参数必须，公有文件无需填写
+uuid | `string` | required | The uuid of the file, which is placed in the path of the url
+filename | `string` | required | The name of the file, which is placed in the path of the url
+downloadTokenUuid | `string` | optional |The uuid of download is required if it is a private file. Public files are not required
 
-**返回**: 二进制的文件
+**return**: Binary file
 
 ----------
 
 #### /api/alien/download/{uuid}/{filename}
 
-**功能**：在浏览器中下载文件
+**function**：Download the file in your browser
 
-这个接口既可以下载公有文件，又可以下载私有文件。同时对于图片文件还可以做裁剪缩放等操作
+This interface can download both public and private files. At the same time for the picture file can also do crop zoom operations
 
-**访问级别**：`注册用户`,`管理员`
+**access level**：`user`, `administrator`
 
-**请求参数**：
+**Request parameters**：
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-uuid | `string` | 必填 | 文件的uuid，该参数放在url的路径中
-filename | `string` | 必填 | 文件的名称，该参数放在url的路径中
-downloadTokenUuid | `string` | 选填 |download的uuid，如果是私有文件该参数必须，公有文件无需填写
+uuid | `string` | required | The uuid of the file, which is placed in the path of the url
+filename | `string` | required | The name of the file, which is placed in the path of the url
+downloadTokenUuid | `string` | optional |The uuid of download is required if it is a private file. Public files are not required
 
-**返回**: 二进制的文件
+**return**: Binary file
 
-该接口同时还可以对图片进行缩放预处理
-> 图片缩放支持的格式有：".jpg", ".jpeg", ".png", ".tif", ".tiff", ".bmp", ".gif"
+The interface can also preprocess image scaling
+> Image zooming is supported in the following formats:".jpg", ".jpeg", ".png", ".tif", ".tiff", ".bmp", ".gif"
 
-##### 额外参数
+##### Additional parameters
 
-| 参数 | 类型   |  描述  | 取值范围  |
+| parameter | type | describes | the value range of | 
 | ------------ | ---- | ------------ | ------------ |
-| imageProcess | `string`  | 指定图片处理的方式，对于图片缩放固定为`resize`  |  固定为`resize` |
-| imageResizeM | `string` | 指定图片缩放的策略，有三种策略，`fit` 表示固定一边，另一边按比例缩放；`fill`表示先将图片延伸出指定W与H的矩形框外，然后进行居中裁剪；`fixed`表示直接按照指定的W和H缩放图片，这种方式可能导致图片变形  | [`fit`,`fill`,`fixed`] 不填默认`fit`   |
-|  imageResizeW | `int`  |  指定的宽度，对于`fit`可以不指定 |  1 ~ 4096  |
-|  imageResizeH | `int`  |  指定的高度，对于`fit`可以不指定 |  1 ~ 4096  |
+| imageProcess | `string`  | Specifies how the image will be processed, fixed to` 'resize'` for image scaling  |  Fixed for `resize` |
+| imageResizeM | `string`  | Specify a strategy for image scaling,there are three strategies. `fit` means to fix one side and scale the other side to scale;`fill` means to extend the picture out of the specified rectangle box of W and H, and then center and crop it;`fixed` means to scale the picture directly according to the specified W and H, which may cause the image to be distorted | [`fit`,`fill`,`fixed`] If not, default`fit`   |
+| imageResizeW | `int`  |  The specified width,`fit` may not be specified |  1 ~ 4096  |
+| imageResizeH | `int`  |  The specified height,`fit` may not be specified |  1 ~ 4096  |
 
-##### 示例
+##### For example
 
-原图：
+master map：
 
-![将宽度指定为200，高度等比例缩放](http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg)
+![Specify a width of 200 and a scale of height](http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg)
 
-1. 将宽度指定为200，高度等比例缩放
+1. Specify a width of 200 and a scale of height
 
-![将宽度指定为200，高度等比例缩放](http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fit&imageResizeW=200)
+![Specify a width of 200 and a scale of height](http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fit&imageResizeW=200)
 
 [http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fit&imageResizeW=200](http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fit&imageResizeW=200)
 
-2. 将高度指定为200，宽度等比例缩放
+2. Specify a height of 200 and a scale of width
 
-![将高度指定为200，宽度等比例缩放](http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fit&imageResizeH=200)
+![Specify a height of 200 and a scale of width](http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fit&imageResizeH=200)
 
 [http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fit&imageResizeH=200](http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fit&imageResizeH=200)
 
-3. 图片自动填充在200*200的大小中 （这种情况用得最多）
+3. The image is automatically filled in a size of 200 by 200 (this is the case most often)
 
-![图片自动填充在200*200的大小中](http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fill&imageResizeW=200&imageResizeH=200)
+![The image is automatically filled in a size of 200 by 200](http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fill&imageResizeW=200&imageResizeH=200)
 
 [http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fill&imageResizeW=200&imageResizeH=200](http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fill&imageResizeW=200&imageResizeH=200)
 
-4. 图片固定大小200*200 (一般会导致变形)
+4. Image fixed size 200*200 (usually leads to distortion)
 
-![图片自动填充在200*200的大小中](http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fixed&imageResizeW=200&imageResizeH=200)
+![The image is automatically filled in a size of 200 by 200](http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fixed&imageResizeW=200&imageResizeH=200)
 
 [http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fixed&imageResizeW=200&imageResizeH=200](http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fixed&imageResizeW=200&imageResizeH=200)
 
@@ -1107,152 +1106,154 @@ downloadTokenUuid | `string` | 选填 |download的uuid，如果是私有文件�
 
 ### DashboardController
 
-该Controller为蓝眼云盘的控制面板，帮助了解云盘的统计数据：PV/UV、'活跃'文件、活跃IP
+The Controller is the blue eye cloud disk control panel, which helps to understand cloud disk statistics: PV/UV, 'active' file, active IP
 
 ----------
 
 #### /api/dashboard/page
 
-**功能**：获取近一段时间统计数据
+**function**：Get statistics for a recent period of time
 
-**访问级别**：`管理员`
+**access level**：`administrator`
 
-**请求参数**：
+**Request parameters**：
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-page | `int` | 选填 | 当前页数，0基，默认0
-pageSize | `int` | 选填 | 每页条目数，默认200
-orderSort | `DESC`或`ASC` | 选填 | 默认排序，`DESC`降序排，`ASC`升序排
-orderDt | `DESC`或`ASC` | 选填 | 按日期排序，`DESC`降序排，`ASC`升序排
-orderCreateTime | `DESC`或`ASC` | 选填 | 按创建时间排序，`DESC`降序排，`ASC`升序排
-orderUpdateTime | `DESC`或`ASC` | 选填 | 按创建时间排序，`DESC`降序排，`ASC`升序排
+page | `int` | optional | Current page, 0 base, default 0
+pageSize | `int` | optional | Number of entries per page, default 200
+orderSort | `DESC`or`ASC` | optional | Default sort, `DESC` descending, `ASC` ascending
+orderDt | `DESC`or`ASC` | optional | Sort by date, `DESC` descending, `ASC` ascending
+orderCreateTime | `DESC`or`ASC` | optional | Sort by creation time, `DESC` descending, `ASC` ascending
+orderUpdateTime | `DESC`or`ASC` | optional | Sort by update time, `DESC` descending, `ASC` ascending
 
-**返回**: `Dashboard`实体的`Pager`
+**return**: `Pager` of `Dashboard` entity
 
 ----------
 
 #### /api/dashboard/active/ip/top10
 
-**功能**：获取Top10活跃IP
+**function**：Get the Top10 active IP
 
-**访问级别**：`管理员`
+**access level**：`administrator`
 
-**请求参数**：无
+**Request parameters**：None
 
-**返回**: 由`ip`和`times`组成的List
+**return**: List composed of `IP` and `times`
 
 ----------
 
 ### ShareController
 
-该Controller为蓝眼云盘的提供分享功能，可以用来分享一切你想要分享的东西（文件/文件夹）
+This Controller provides sharing for Eyeblue Cloud Disk, which can be used to share anything you want (files/folders).
 
 ----------
 
 #### /api/share/create
 
-**功能**：创建文件分享
+**function**：Create file share
 
-**访问级别**：`注册用户`,`管理员`
+**access level**：`user`, `administrator`
 
-**请求参数**：
+**Request parameters**：
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-matterUuids | `string` | 必填 | 文件uuid，要想分享的文件`uuid`，分享多个文件uuid用逗号隔开
-expireInfinity | `bool` | 必填 | 分享是否过期失效，默认false
-expireTime | `string` | 必填 | 过期日期，如果expireInfinity为true则默认为当天
+matterUuids | `string` | required | File uuid,To share the file `uuid`, share multiple file uuids separated by commas
+expireInfinity | `bool` | required | If the share expires, the default is false
+expireTime | `string` | required | The expiration date, if expireInfinity is true, defaults to that date
 
-**返回**: 被分享的`Share`实体
+**return**: The 'Share' entity that is Shared
 
 ----------
 
 #### /api/share/delete
 
-**功能**：在我的分享里删除文件分享
+**function**：Delete file sharing in my share
 
-**访问级别**：`注册用户`,`管理员`
+**access level**：`user`, `administrator`
 
-**请求参数**：
+**Request parameters**：
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-uuid | `string` | 必填 | 文件uuid，要想删除分享的文件`uuid`
+uuid | `string` | required | File uuid,To delete the Shared file `uuid`
 
-**返回**: 成功信息“操作成功”
+**return**: Success message "operation successful"
 
 ----------
 
 #### /api/share/delete/batch
 
-**功能**：在我的分享里批量删除文件分享
+**function**：Batch delete file share in my share
 
-**访问级别**：`注册用户`,`管理员`
+**access level**：`user`, `administrator`
 
-**请求参数**：
+**Request parameters**：
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-uuids | `string` | 必填 | 文件uuid，要想删除分享的文件`uuid`，删除多个文件分享uuid用逗号隔开
+uuids | `string` | required | File uuid，To delete the Shared file 'uuid', remove multiple file sharing uuids separated by commas
 
-**返回**: 成功信息“操作成功”
+**return**: Success message "operation successful"
 
 ----------
 
 #### /api/share/page
 
-**功能**：获取我的文件分享列表
+**function**：Get my file sharing list
 
-**访问级别**：`注册用户`,`管理员`
+**access level**：`user`, `administrator`
 
-**请求参数**：
+**Request parameters**：
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-page | `int` | 选填 | 当前页数，0基，默认0
-pageSize | `int` | 选填 | 每页条目数，默认200
-orderCreateTime | `DESC`或`ASC` | 选填 | 按创建时间排序，`DESC`降序排，`ASC`升序排
+page | `int` | optional | Current page, 0 base, default 0
+pageSize | `int` | optional | Number of entries per page, default 200
+orderCreateTime | `DESC`or`ASC` | optional | Sort by creation time, `DESC` descending, `ASC` ascending
 
-**返回**: `Share`实体的`Pager`
+**return**: 'Share' entity 'Pager'
 
 ----------
 //TODO
 
 #### /api/share/browse
 
-**功能**：被分享者打开文件分享
+**function**：The Shared open file sharing
 
-**访问级别**：`游客`,`注册用户`,`管理员`
+**access level** : `tourist`,`user`, `administrator`
 
-**请求参数**：
+**Request parameters**：
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-shareUuid | `string` | 必填 | 当前分享实体的uuid
-code | `string` | 选填 | 提取码，如果不是自己的分享则为必填项
-puuid | `string` | 选填 | 文件uuid
-rootUuid | `string` | 选填 | 当前分享正在查看的根目录uuid，前端辅助字段
+shareUuid | `string` | required | The uuid of the currently Shared entity
+code | `string` | optional | ExtrExtraction code, if not Shared by itself, is required
+puuid | `string` | optional | File uuid
+rootUuid | `string` | optional | Currently share the root directory uuid that you are viewing, the front-end secondary field
 
-**返回**: 被分享的`Share`实体
+**return**: The 'Share' entity that is Shared
 
 ----------
 
 #### /api/share/zip
 
-**功能**：被分享者下载文件分享
+**function**：The Shared person downloads the Shared file
 
-**访问级别**：`游客`,`注册用户`,`管理员`
+**access level** : `tourist`,`user`, `administrator`
 
-**请求参数**：
+**Request parameters**：
 
-名称 | 类型 | 必填性 | 描述
+Name | type | required | description
 --------- | ---- | ---- | -----------
-shareUuid | `string` | 必填 | 当前分享实体的uuid
-code | `string` | 选填 | 提取码，如果不是自己的分享则为必填项
-puuid | `string` | 选填 | 文件uuid
-rootUuid | `string` | 选填 | 当前分享正在查看的根目录uuid，前端辅助字段
+shareUuid | `string` | required | The uuid of the currently Shared entity
 
-**返回**: 无
+
+code | `string` | optional | Extract code, if not ownself share is required
+puuid | `string` | optional | File uuid
+rootUuid | `string` | optional | Currently share the root directory uuid that you are viewing, the front-end secondary field
+
+**return**: None
 
 ----------
