@@ -1026,7 +1026,7 @@ url | `string` | 选填 | 获取文件的链接
 
 ----------
 
-#### /api/alien/Preview/{uuid}/{filename}
+#### /api/alien/preview/{uuid}/{filename}
 
 **功能**：这个接口实现预览功能
 
@@ -1062,47 +1062,7 @@ downloadTokenUuid | `string` | 选填 |download的uuid，如果是私有文件�
 
 **返回**: 二进制的文件
 
-该接口同时还可以对图片进行缩放预处理
-> 图片缩放支持的格式有：".jpg", ".jpeg", ".png", ".tif", ".tiff", ".bmp", ".gif"
-
-##### 额外参数
-
-| 参数 | 类型   |  描述  | 取值范围  |
-| ------------ | ---- | ------------ | ------------ |
-| imageProcess | `string`  | 指定图片处理的方式，对于图片缩放固定为`resize`  |  固定为`resize` |
-| imageResizeM | `string` | 指定图片缩放的策略，有三种策略，`fit` 表示固定一边，另一边按比例缩放；`fill`表示先将图片延伸出指定W与H的矩形框外，然后进行居中裁剪；`fixed`表示直接按照指定的W和H缩放图片，这种方式可能导致图片变形  | [`fit`,`fill`,`fixed`] 不填默认`fit`   |
-|  imageResizeW | `int`  |  指定的宽度，对于`fit`可以不指定 |  1 ~ 4096  |
-|  imageResizeH | `int`  |  指定的高度，对于`fit`可以不指定 |  1 ~ 4096  |
-
-##### 示例
-
-原图：
-
-![将宽度指定为200，高度等比例缩放](http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg)
-
-1. 将宽度指定为200，高度等比例缩放
-
-![将宽度指定为200，高度等比例缩放](http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fit&imageResizeW=200)
-
-[http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fit&imageResizeW=200](http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fit&imageResizeW=200)
-
-2. 将高度指定为200，宽度等比例缩放
-
-![将高度指定为200，宽度等比例缩放](http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fit&imageResizeH=200)
-
-[http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fit&imageResizeH=200](http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fit&imageResizeH=200)
-
-3. 图片自动填充在200*200的大小中 （这种情况用得最多）
-
-![图片自动填充在200*200的大小中](http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fill&imageResizeW=200&imageResizeH=200)
-
-[http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fill&imageResizeW=200&imageResizeH=200](http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fill&imageResizeW=200&imageResizeH=200)
-
-4. 图片固定大小200*200 (一般会导致变形)
-
-![图片自动填充在200*200的大小中](http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fixed&imageResizeW=200&imageResizeH=200)
-
-[http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fixed&imageResizeW=200&imageResizeH=200](http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fixed&imageResizeW=200&imageResizeH=200)
+该接口同时还可以对图片进行缩放预处理，请[参考这里](./image.md)
 
 
 ----------
