@@ -1,8 +1,8 @@
 # 图片处理
 
-#### /api/alien/download/{uuid}/{filename}
+### /api/alien/download/{uuid}/{filename}
 
-#### /api/alien/preview/{uuid}/{filename}
+### /api/alien/preview/{uuid}/{filename}
 
 **功能**：在浏览器中下载文件
 

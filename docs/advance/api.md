@@ -1,8 +1,8 @@
 # Eyeblue Cloud Disk API
 
-## Ⅰ、entity
+## Entity
 
-Before introducing the interfaces in each controller in detail, it is necessary to introduce the entities in the Eyeblue Cloud Disk. All entity Base classes are 'Base'
+Before introducing the interfaces in each controller in detail, it is necessary to introduce the entities in the Eyeblue Cloud Disk. All entity Base classes are `Base`
 
 #### Base
 
@@ -10,14 +10,12 @@ Before introducing the interfaces in each controller in detail, it is necessary 
 
 ```
 type Base struct {
-    //A unique identifier
-	Uuid       string    `gorm:"primary_key" json:"uuid"`
-	//A field, usually a timestamp, used for sorting
-	Sort       int64     `json:"sort"`
-	//UpdateTime
-	UpdateTime time.Time `json:"updateTime"`
-	//CreateTime
-	CreateTime time.Time `json:"createTime"`
+
+	Uuid       string    `gorm:"primary_key" json:"uuid"`   //A unique identifier
+	Sort       int64     `json:"sort"`	                    //A field, usually a timestamp, used for sorting
+	UpdateTime time.Time `json:"updateTime"`	            //UpdateTime
+	CreateTime time.Time `json:"createTime"`	            //CreateTime
+
 }
 ```
 
@@ -27,111 +25,81 @@ When the front end requests a list, it usually returns a `Pager`, `Pager` is the
 
 ```
 type Pager struct {
-    //Current page, 0 base
-	Page       int         `json:"page"`
-	//The size of each page
-	PageSize   int         `json:"pageSize"`
-	//Total number of entries
-	TotalItems int         `json:"totalItems"`
-	//The total number of pages
-	TotalPages int         `json:"totalPages"`
-	//Array of entities
-	Data       interface{} `json:"data"`
+
+	Page       int         `json:"page"`        //Current page, 0 base
+	PageSize   int         `json:"pageSize"`	//The size of each page
+	TotalItems int         `json:"totalItems"`	//Total number of entries
+	TotalPages int         `json:"totalPages"`	//The total number of pages
+	Data       interface{} `json:"data"`	    //Array of entities
+
 }
 ```
 
 
 #### Matter
 
-`Matter` represents a file (a folder is a special file). In order to avoid duplication of `file` with the system, `Matter` is used here. This entity is the most important and basic entity of blue-eye cloud disk:
+`Matter` represents a file (a folder is a special file). In order to avoid duplication of `file` with the system, `Matter` is used here. This entity is the most important and basic entity of blue-eye cloud disk
 
 ```
 type Matter struct {
-    //Inheritance Base, that is the Base of Uuid, Sort, ModifyTime, CreateTime here also
-	Base
-	//The uuid of the folder in which it is located, if in the root directory, this field is root
-	Puuid    string  `json:"puuid"`
-	//The user uuid that created this file
-	UserUuid string  `json:"userUuid"`
-	//The user name to create this file
-    Username string  `json:"username"`
-	//Whether the file is a folder
-	Dir      bool    `json:"dir"`
-	//File name with suffix. For example：avatar.jpg
-	Name     string  `json:"name"`
-    //Md5 value of the file, which is not currently implemented, as a reserved field
-	Md5      string  `json:"md5"`
-	//File size, unit byte. For example, if a file is 1M in size, then this will be： 1048576
-	Size     int64   `json:"size"`
-	//If true, the file can only be downloaded by the author or super administrator. If false, everyone can download the file through the download link
-	Privacy  bool    `json:"privacy"`
-	//The path of the file on disk. The front end does not need to care about this field. But this field is critical when the backend is looking for files
-	Path     string  `json:"path"`
-	//Download times
-    Times    int64   `json:"times"`
-	//The parent of the file, matter, will not be persisted to the data set. This field is a temporary assembly of matter details
-	Parent   *Matter `gorm:"-" json:"parent"`
-	//The file's sublevel matter array, which will not be persisted to the data set, is a temporary assembly of matter details
-    Children *Matter `gorm:"-" json:"-"`
+
+	Base                                        //Inheritance Base, that is the Base of Uuid, Sort, ModifyTime, CreateTime here also
+	Puuid    string  `json:"puuid"`	            //The uuid of the folder in which it is located, if in the root directory, this field is root
+	UserUuid string  `json:"userUuid"`	        //The user uuid that created this file
+    Username string  `json:"username"`	        //The user name to create this file
+	Dir      bool    `json:"dir"`	            //Whether the file is a folder
+	Name     string  `json:"name"`	            //File name with suffix. For example：avatar.jpg
+	Md5      string  `json:"md5"`               //Md5 value of the file, which is not currently implemented, as a reserved field
+	Size     int64   `json:"size"`	            //File size, unit byte. For example, if a file is 1M in size, then this will be： 1048576
+	Privacy  bool    `json:"privacy"`	        //If true, the file can only be downloaded by the author or super administrator. If false, everyone can download the file through the download link
+	Path     string  `json:"path"`	            //The path of the file on disk. The front end does not need to care about this field. But this field is critical when the backend is looking for files
+    Times    int64   `json:"times"`	            //Download times
+	Parent   *Matter `gorm:"-" json:"parent"`	//The parent of the file, matter, will not be persisted to the data set. This field is a temporary assembly of matter details
+    Children *Matter `gorm:"-" json:"-"`	    //The file's sublevel matter array, which will not be persisted to the data set, is a temporary assembly of matter details
+
 }
 ```
 #### User
 
-`User` represents the User：
+`User` represents the User
 
 ```
 type User struct {
-    //Inherit Base, same as above
-	Base
-	//Roles, with the following enumerated values：GUEST(It is not persisted to the database),USER,ADMINISTRATOR
-	Role      string    `json:"role"`
-	//Username, useful in the Matter path field
-	Username  string    `json:"username"`
-	//Passwords are not returned to the front end by default
-	Password  string    `json:"-"`
-	//Image Url
-	AvatarUrl string    `json:"avatarUrl"`
-	//IP at last login
-	LastIp    string    `json:"lastIp"`
-	//Last login time
-	LastTime  time.Time `json:"lastTime"`
-	//This user allows the maximum size of a single file to be uploaded
-	SizeLimit int64     `json:"sizeLimit"`
-	//The maximum size of files that this user allows to upload
-    TotalSizeLimit int64     `json:"totalSizeLimit"`
-    //Total size of files uploaded by this user
-    TotalSize int64     `json:"totalSize"`
-	//State with the following enumerated values：OK,DISABLED
-	Status    string    `json:"status"`
+
+	Base                                                //Inherit Base, same as above
+	Role      string    `json:"role"`	                //Roles, with the following enumerated values：GUEST(It is not persisted to the database),USER,ADMINISTRATOR
+	Username  string    `json:"username"`	            //Username, useful in the Matter path field
+	Password  string    `json:"-"`	                    //Passwords are not returned to the front end by default
+	AvatarUrl string    `json:"avatarUrl"`	            //Image Url
+	LastIp    string    `json:"lastIp"`	                //IP at last login
+	LastTime  time.Time `json:"lastTime"`	            //Last login time
+	SizeLimit int64     `json:"sizeLimit"`	            //This user allows the maximum size of a single file to be uploaded
+    TotalSizeLimit int64`json:"totalSizeLimit"`	        //The maximum size of files that this user allows to upload
+    TotalSize int64     `json:"totalSize"`              //Total size of files uploaded by this user
+	Status    string    `json:"status"`	                //State with the following enumerated values：OK,DISABLED
+
 }
 ```
 
 
 #### Preference
 
-`Preference` is the Preference setting of the whole website. This entity is responsible for the name, logo, favicon, copyright, record number and other information of the website. The definition is as follows:
+`Preference` is the Preference setting of the whole website. This entity is responsible for the name, logo, favicon, copyright, record number and other information of the website.
 
 ```
 type Preference struct {
-    //inherit Base, function is the same as above
-	Base
-	//website name
-	Name        string `json:"name"`
-	//url of the website logo
-	LogoUrl     string `json:"logoUrl"`
-	//copyright information
-	Copyright   string `json:"copyright"`
+
+    Base                                        //inherit Base, function is the same as above
+	Name        string `json:"name"`	        //website name
+	LogoUrl     string `json:"logoUrl"`	        //url of the website logo
+	Copyright   string `json:"copyright"`	    //copyright information
 	Record      string `json:"record"`
-    //size limit
-    DownloadDirMaxSize    int64 `json:"downloadDirMaxSize"`
-    //number of files
-    DownloadDirMaxNum     int64 `json:"downloadDirMaxNum"` 
-    //user default total size limit
-    DefaultTotalSizeLimit int64 `json:"defaultTotalSizeLimit"`
-    //whether automatic registration is allowed
-    AllowRegister bool `json:"allowRegister"`  
-	//currently running version of the blue eye blog, this field is not modifiable and hardcoded every time it is published
-	Version     string `json:"version"`
+    AllowRegister bool `json:"allowRegister"`  	//whether automatic registration is allowed
+    Version     string `json:"version"`         //currently running version of the blue eye blog, this field is not modifiable and hardcoded every time it is published
+    DownloadDirMaxSize    int64 `json:"downloadDirMaxSize"`    //size limit
+    DownloadDirMaxNum     int64 `json:"downloadDirMaxNum"`     //number of files
+    DefaultTotalSizeLimit int64 `json:"defaultTotalSizeLimit"` //user default total size limit
+
 }
 ```
 
@@ -141,24 +109,17 @@ Token for uploading to strangers
 
 ```
 type UploadToken struct {
-    // inherit Base, function is the same as above
-	Base
-	// the user who issues the token, any user in the system can issue the token
-	UserUuid   string    `json:"userUuid"`
-	// to upload a file with this token, you must upload it under this folder
-	FolderUuid string    `json:"folderUuid"`
-	// the stranger uploads the uuid of the finished file
-	MatterUuid string    `json:"matterUuid"`
-	// expiration time
-	ExpireTime time.Time `json:"expireTime"`
-	// this must be the name of the file you upload with this token
-	Filename   string    `json:"filename"`
-	// upload files with this token must be private or private
-	Privacy    bool      `json:"privacy"`
-    // this size is required to upload a file with this token
-	Size       int64     `json:"size"`
-	// use this token to upload the IP of the stranger
-	Ip         string    `json:"ip"`
+
+	Base                                        // inherit Base, function is the same as above
+	UserUuid   string    `json:"userUuid"`      // the user who issues the token, any user in the system can issue the token
+	FolderUuid string    `json:"folderUuid"`	// to upload a file with this token, you must upload it under this folder
+	MatterUuid string    `json:"matterUuid"`	// the stranger uploads the uuid of the finished file
+	ExpireTime time.Time `json:"expireTime"`	// expiration time
+	Filename   string    `json:"filename"`	    // this must be the name of the file you upload with this token
+	Privacy    bool      `json:"privacy"`	    // upload files with this token must be private or private
+	Size       int64     `json:"size"`          // this size is required to upload a file with this token
+	Ip         string    `json:"ip"`	        // use this token to upload the IP of the stranger
+
 }
 ```
 
@@ -168,16 +129,13 @@ type UploadToken struct {
 A token used for downloading to strangers. If Privacy=true, it means that only you or the super administrator can download it. If certain users who you trust can also download it, then a `DownloadToken` needs to be generated for these users to download
 ```
 type DownloadToken struct {
-    // inherit Base, function is the same as above
-	Base
-    // the user who issues this token
-	UserUuid   string    `json:"userUuid"`
-    // this token can only be used to download this file
-	MatterUuid string    `json:"matterUuid"`
-    // expiration date
-	ExpireTime time.Time `json:"expireTime"`
-    // the IP of the downloader
-	Ip         string    `json:"ip"`
+
+	Base                                        // inherit Base, function is the same as above
+	UserUuid   string    `json:"userUuid"`      // the user who issues this token
+	MatterUuid string    `json:"matterUuid"`    // this token can only be used to download this file
+	ExpireTime time.Time `json:"expireTime"`    // expiration date
+	Ip         string    `json:"ip"`            // the IP of the downloader
+	
 }
 
 ```
@@ -188,28 +146,19 @@ Eyeblue Cloud Disk control panel, showing cloud disk statistics: PV/UV, 'active'
 
 ```
 type Dashboard struct {
-    // inherit Base, function is the same as above
-	Base
-	// link relative ratio，The ratio of change in quantity over two consecutive unit periods, such as two consecutive weeks
-    InvokeNum      int64  `json:"invokeNum"`
-    // total link relative ratio
-    TotalInvokeNum int64  `json:"totalInvokeNum"`
-    // the UV
-    Uv             int64  `json:"uv"`  
-    // total UV           
-    TotalUv        int64  `json:"totalUv"`    
-    // total number of documents on that day
-    MatterNum      int64  `json:"matterNum"`    
-    // total number of documents
-    TotalMatterNum int64  `json:"totalMatterNum"`
-    // total file size of the day
-    FileSize       int64  `json:"fileSize"`    
-    // total file size
-    TotalFileSize  int64  `json:"totalFileSize"` 
-    // the average time taken reflects the overall response speed of the server
-    AvgCost        int64  `json:"avgCost"`
-    // date
-    Dt 	           string `json:"dt"`
+
+	Base                                            // inherit Base, function is the same as above
+    InvokeNum      int64  `json:"invokeNum"`	    // link relative ratio，The ratio of change in quantity over two consecutive unit periods, such as two consecutive weeks
+    TotalInvokeNum int64  `json:"totalInvokeNum"`   // total link relative ratio
+    Uv             int64  `json:"uv"`               // the UV
+    TotalUv        int64  `json:"totalUv"`          // total UV           
+    MatterNum      int64  `json:"matterNum"`        // total number of documents on that day
+    TotalMatterNum int64  `json:"totalMatterNum"`   // total number of documents
+    FileSize       int64  `json:"fileSize"`         // total file size of the day
+    TotalFileSize  int64  `json:"totalFileSize"`    // total file size
+    AvgCost        int64  `json:"avgCost"`          // the average time taken reflects the overall response speed of the server
+    Dt 	           string `json:"dt"`               // date
+
 }
 
 ```
@@ -220,28 +169,19 @@ File sharing record
 
 ```
 type Share struct {
-    // inherit Base, function is the same as above
-	Base
-    // share the name of the record
-	Name           string    `json:"name"`
-    // Shared type, file/folder/mixed type
-	ShareType      string    `json:"shareType"`
-    // users who share the record
-	Username       string    `json:"username"`
-    // share the user id of the record
-	UserUuid       string    `json:"userUuid"`
-    // download times
-	DownloadTimes  int64     `json:"downloadTimes"`
-    // extraction code
-	Code           string    `json:"code"`
-    // whether it expires or not
-	ExpireInfinity bool      `json:"expireInfinity"`
-    // expiration time
-	ExpireTime     time.Time `json:"expireTime"`
-    // folder file
-	DirMatter      *Matter   `json:"dirMatter"`
-    // file collection
-	Matters        []*Matter `json:"matters"`
+
+	Base                                            // inherit Base, function is the same as above
+	Name           string    `json:"name"`          // share the name of the record
+	ShareType      string    `json:"shareType"`     // Shared type, file/folder/mixed type
+	Username       string    `json:"username"`      // users who share the record
+	UserUuid       string    `json:"userUuid"`      // share the user id of the record
+	DownloadTimes  int64     `json:"downloadTimes"` // download times
+	Code           string    `json:"code"`          // extraction code
+	ExpireInfinity bool      `json:"expireInfinity"`// whether it expires or not
+	ExpireTime     time.Time `json:"expireTime"`    // expiration time
+	DirMatter      *Matter   `json:"dirMatter"`     // folder file
+	Matters        []*Matter `json:"matters"`       // file collection
+
 }
 
 ```
@@ -251,12 +191,11 @@ type Share struct {
 `WebResult` is not an entity that will be persisted to the database. `WebResult` is a layer of packaging when `controller` returns data to the front end. With `WebResult`, the data returned by each interface will be more uniform, facilitating the unified processing of the front end
 ```
 type WebResult struct {
-    //Status code, the specific meaning of each code reference below
-	Code int       `json:"code"`
-	//A one-sentence description of the result of the request will usually indicate the cause of the error, or modify permissions and other small operations prompted by `operation success`
-	Msg  string      `json:"msg"`
-	//The content may be an entity, or it may be a Pager.
-	Data interface{} `json:"data"`
+
+	Code int         `json:"code"`  //Status code, the specific meaning of each code reference below
+	Msg  string      `json:"msg"`	//A one-sentence description of the result of the request will usually indicate the cause of the error, or modify permissions and other small operations prompted by `operation success`
+	Data interface{} `json:"data"`	//The content may be an entity, or it may be a Pager.
+
 }
 
 ```
@@ -264,41 +203,28 @@ The corresponding relationship of the status code is as follows:
 
 ```
 const (
-	//normal
-	RESULT_CODE_OK = 200
-	//Not logged in
-	RESULT_CODE_LOGIN = -400
-	//Not logged in
-	RESULT_CODE_UNAUTHORIZED = -401
-	//Request error
-	RESULT_CODE_BAD_REQUEST = -402
-	//Could not find
-	RESULT_CODE_NOT_FOUND = -404
-	//Login date
-	RESULT_CODE_LOGIN_EXPIRED = -405
-	//This login user is not a valid user
-	RESULT_CODE_LOGIN_INVALID = -406
-	//The submitted form was not validated
-	RESULT_CODE_FORM_INVALID = -410
-	//Too many requests
-	RESULT_CODE_FREQUENCY = -420
-	//Server error
-	RESULT_CODE_SERVER_ERROR = -500
-	//Remote service unavailable
-	RESULT_CODE_NOT_AVAILABLE = -501
-	//Concurrent abnormal
-	RESULT_CODE_CONCURRENCY = -511
-	//The remote micro service was not found
-	RESULT_CODE_SERVICE_NOT_FOUND = -600
-	//Remote micro service connection timeout
-	RESULT_CODE_SERVICE_TIME_OUT = -610
-	//Universal exception
-	RESULT_CODE_UTIL_EXCEPTION = -700
+
+	RESULT_CODE_OK = 200	                //Normal
+	RESULT_CODE_LOGIN = -400  	            //Not logged in
+	RESULT_CODE_UNAUTHORIZED = -401	        //No permission
+	RESULT_CODE_BAD_REQUEST = -402	        //Request error
+	RESULT_CODE_NOT_FOUND = -404	        //Could not find
+	RESULT_CODE_LOGIN_EXPIRED = -405	    //Login date
+	RESULT_CODE_LOGIN_INVALID = -406	    //This login user is not a valid user
+	RESULT_CODE_FORM_INVALID = -410	        //The submitted form was not validated
+	RESULT_CODE_FREQUENCY = -420	        //Too many requests
+	RESULT_CODE_SERVER_ERROR = -500	        //Server error
+	RESULT_CODE_NOT_AVAILABLE = -501	    //Remote service unavailable
+	RESULT_CODE_CONCURRENCY = -511	        //Concurrent abnormal
+	RESULT_CODE_SERVICE_NOT_FOUND = -600	//The remote micro service was not found
+	RESULT_CODE_SERVICE_TIME_OUT = -610	    //Remote micro service connection timeout
+	RESULT_CODE_UTIL_EXCEPTION = -700	    //Universal exception
+
 )
 ```
-## ⅠⅠ、Return specification
+## Return specification
 
-Eyeblue Cloud Disk adopts the mode of front and back end separation. When the front end calls the back end interface, urls start with `/ API` and return json strings
+Eyeblue Cloud Disk adopts the mode of front and back end separation. When the front end calls the back end interface, urls start with `/API` and return json strings
 
 - The key of the returned json string is the lowercase Camel-Case, specifically referring to the `json` tag in the entity class
 
@@ -408,7 +334,7 @@ The returned contents are all packaged by `WebResult`, so they have a high degre
     }
     ```
     
-## ⅠⅠⅠ、interface
+## Interface
 
 All interfaces of Eyeblue Cloud Disk are defined in `controller`, and the following `controller` is defined in total:
 
@@ -883,7 +809,7 @@ Name | type | required | description
 --------- | ---- | ---- | -----------
 uuid | `string` | required | User to be operated on
 
-**return**: The 'User' entity used to modify the state
+**return**: The `User` entity used to modify the state
 
 ----------
 
@@ -1059,48 +985,7 @@ downloadTokenUuid | `string` | optional |The uuid of download is required if it 
 
 **return**: Binary file
 
-The interface can also preprocess image scaling
-> Image zooming is supported in the following formats:".jpg", ".jpeg", ".png", ".tif", ".tiff", ".bmp", ".gif"
-
-##### Additional parameters
-
-| parameter | type | describes | the value range of | 
-| ------------ | ---- | ------------ | ------------ |
-| imageProcess | `string`  | Specifies how the image will be processed, fixed to` 'resize'` for image scaling  |  Fixed for `resize` |
-| imageResizeM | `string`  | Specify a strategy for image scaling,there are three strategies. `fit` means to fix one side and scale the other side to scale;`fill` means to extend the picture out of the specified rectangle box of W and H, and then center and crop it;`fixed` means to scale the picture directly according to the specified W and H, which may cause the image to be distorted | [`fit`,`fill`,`fixed`] If not, default`fit`   |
-| imageResizeW | `int`  |  The specified width,`fit` may not be specified |  1 ~ 4096  |
-| imageResizeH | `int`  |  The specified height,`fit` may not be specified |  1 ~ 4096  |
-
-##### For example
-
-master map：
-
-![Specify a width of 200 and a scale of height](http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg)
-
-1. Specify a width of 200 and a scale of height
-
-![Specify a width of 200 and a scale of height](http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fit&imageResizeW=200)
-
-[http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fit&imageResizeW=200](http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fit&imageResizeW=200)
-
-2. Specify a height of 200 and a scale of width
-
-![Specify a height of 200 and a scale of width](http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fit&imageResizeH=200)
-
-[http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fit&imageResizeH=200](http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fit&imageResizeH=200)
-
-3. The image is automatically filled in a size of 200 by 200 (this is the case most often)
-
-![The image is automatically filled in a size of 200 by 200](http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fill&imageResizeW=200&imageResizeH=200)
-
-[http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fill&imageResizeW=200&imageResizeH=200](http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fill&imageResizeW=200&imageResizeH=200)
-
-4. Image fixed size 200*200 (usually leads to distortion)
-
-![The image is automatically filled in a size of 200 by 200](http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fixed&imageResizeW=200&imageResizeH=200)
-
-[http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fixed&imageResizeW=200&imageResizeH=200](http://tank.eyeblue.cn/api/alien/download/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?imageProcess=resize&imageResizeM=fixed&imageResizeW=200&imageResizeH=200)
-
+The interface can also preprocess image scaling, [see here](./image.md)
 
 ----------
 
@@ -1163,7 +1048,7 @@ matterUuids | `string` | required | File uuid,To share the file `uuid`, share mu
 expireInfinity | `bool` | required | If the share expires, the default is false
 expireTime | `string` | required | The expiration date, if expireInfinity is true, defaults to that date
 
-**return**: The 'Share' entity that is Shared
+**return**: The `Share` entity that is Shared
 
 ----------
 
@@ -1213,10 +1098,9 @@ page | `int` | optional | Current page, 0 base, default 0
 pageSize | `int` | optional | Number of entries per page, default 200
 orderCreateTime | `DESC`or`ASC` | optional | Sort by creation time, `DESC` descending, `ASC` ascending
 
-**return**: 'Share' entity 'Pager'
+**return**: `Share` entity's `Pager`
 
 ----------
-//TODO
 
 #### /api/share/browse
 
@@ -1233,7 +1117,7 @@ code | `string` | optional | ExtrExtraction code, if not Shared by itself, is re
 puuid | `string` | optional | File uuid
 rootUuid | `string` | optional | Currently share the root directory uuid that you are viewing, the front-end secondary field
 
-**return**: The 'Share' entity that is Shared
+**return**: The `Share` entity that is Shared
 
 ----------
 
