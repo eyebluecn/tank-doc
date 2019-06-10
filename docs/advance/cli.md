@@ -31,6 +31,8 @@ YourPassword => 超级管理员的密码
 SourcePath => 想要映射的本地文件夹，例如：`/data/temp`
 
 DestPath => 蓝眼云盘的文件夹，例如 `/morning`
+
+-host => 可以指定蓝眼云盘地址，默认使用 http://127.0.0.1:6010
 :::
 
 ## 拉取远程文件

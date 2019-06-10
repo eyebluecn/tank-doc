@@ -1,5 +1,13 @@
 # Download
 
+## 3.0.4
+
+| File        | OS   |  Arch  |  Size  |
+| --------   | --------  | --------  | --------  |
+| [tank-3.0.4.windows-amd64.zip](https://tank.eyeblue.cn/api/alien/download/467b0334-99f6-48e9-590f-7d20111e7b70/tank-3.0.4.windows-amd64.zip)     | Windows |   x86-64    |   	11.3M    |
+| [tank-3.0.4.linux-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/56aeaa88-fe94-49bd-5bfc-6bbdc914c840/tank-3.0.4.linux-amd64.tar.gz)     | linux |   x86-64    |   	11.5M    |
+| eyeblue/tank:3.0.4     | Docker |   x86-64    |   	1.24G    |
+
 ## 3.0.3
 
 | File        | OS   |  Arch  |  Size  |
