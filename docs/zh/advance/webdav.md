@@ -6,7 +6,7 @@ https://tank.eyeblue.cn/api/dav
 (以官方蓝眼云盘为例)
 
 ## 使用单独的域名作为WebDAV地址
-如果你想去掉/api/dav的后缀，并且使用其他域名作为WebDAV的访问地址，你可以参考以下的nginx配置：
+如果你想去掉 `/api/dav` 的后缀，并且使用其他域名作为`WebDAV`的访问地址，你可以参考以下的nginx配置：
 
 ```shell
 #https://tank-dav.eyeblue.cn
@@ -57,7 +57,6 @@ NetDrive 3是一个收费软件，不过可以支持7天试用，而且跨平台
 ### MacOS平台
 
 #### NetDrive 3
-NetDrive 3是一个收费软件，不过可以支持7天试用，而且跨平台，下载地址：http://www.netdrive.net/
 
 ### Android平台
 
