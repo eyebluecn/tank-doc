@@ -1,61 +1,57 @@
 # Command Line Tool
 
-Ready to complete...
+Eyeblue Cloud Disk provides a number of useful command-line tools. `tank` (or `tank.exe`) files are essentially executable files that accept parameters.When we enter a certain parameter, we can use it as a command line tool.
 
-蓝眼云盘提供了很多实用的命令行工具，`tank`(或者`tank.exe`)文件本质上就是一个可执行文件，可以接受参数，当我们输入一定的参数时，就可以把它当成命令行工具使用。
+## Preparation 
 
-## 准备条件
-在使用命令行工具时，请首先启动蓝眼云盘。因为命令行工具本质上去调用蓝眼云盘的`http`接口
+When using command-line tools, start Eyeblue Cloud Disk first.Because command-line tools essentially call the `HTTP` interface of Eyeblue Cloud Disk
 
-## 查看版本
+## Check the version
 
-查看当前蓝眼云盘版本
+Check out the current version of Eyeblue Cloud Disk
 
 ```shell
 ./tank -mode=version
 ```
 
-## 映射本地文件映射
+## Map local file mappings
 
-将本地文件映射到蓝眼云盘中
+Map the local file to the Eyeblue Cloud Disk
 
 ```shell
 ./tank -mode=mirror -username=YourUsername -password=YourPassword -src=SourcePath -dest=DestPath
 ```
 
-::: tip 提示
-YourUsername => 超级管理员的用户名
+::: tip hint
+YourUsername => The user name of the super administrator
 
-YourPassword => 超级管理员的密码
+YourPassword => The password for the super administrator
 
-SourcePath => 想要映射的本地文件夹，例如：`/data/temp`
+SourcePath => The local folder you want to map to，for example：`/data/temp`
 
-DestPath => 蓝眼云盘的文件夹，例如 `/morning`
+DestPath => Eyeblue Cloud Disk Folder, for examlep `/morning`
 
--host => 可以指定蓝眼云盘地址，默认使用 http://127.0.0.1:6010
+-host => You can specify the Eyeblue Cloud Disk address，The default is  http://127.0.0.1:6010
 :::
 
-## 拉取远程文件
+## Pull remote files
 
-将一个远程文件拉取到蓝眼云盘中
+Drag a remote file to the Eyeblue Cloud Disk
 
 ```shell
 ./tank -mode=crawl -username=YourUsername -password=YourPassword -src=SourcePath -dest=DestPath
 ```
 
-::: tip 提示
-YourUsername => 超级管理员的用户名
+::: tip hint
+YourUsername => The user name of the super administrator
 
-YourPassword => 超级管理员的密码
+YourPassword => The password for the super administrator
 
-SourcePath => 远程的资源文件，一般是`http://`或者`https://`开头
+SourcePath => Remote resource file，It usually begins with `http://` or `https://`
 
-DestPath => 蓝眼云盘的文件夹，例如 `/morning`
+DestPath => Eyeblue Cloud Disk Folder, for examlep `/morning`
 :::
 
-## 版本迁移
+## Version of the migration
 
-版本迁移请查看[这里](./migrate.md)
-
-
-
+Version migration please see[here](./migrate.md)
