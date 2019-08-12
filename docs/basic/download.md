@@ -1,5 +1,13 @@
 # Download
 
+## 3.0.5
+
+| File        | OS   |  Arch  |  Size  |
+| --------   | --------  | --------  | --------  |
+| [tank-3.0.5.windows-amd64.zip](https://tank.eyeblue.cn/api/alien/download/57c92e97-5fbf-4fd8-5668-db0136dad690/tank-3.0.5.windows-amd64.zip)     | Windows |   x86-64    |   	11.3M    |
+| [tank-3.0.5.linux-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/36778041-39aa-426f-43bb-eb489bc2b564/tank-3.0.5.linux-amd64.tar.gz)     | linux |   x86-64    |   	11.5M    |
+
+
 ## 3.0.4
 
 | File        | OS   |  Arch  |  Size  |
