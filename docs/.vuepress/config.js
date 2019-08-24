@@ -75,7 +75,8 @@ module.exports = {
                             '/advance/image',
                             '/advance/alien',
                             '/advance/api',
-                            '/advance/question'
+                            '/advance/frontend',
+                            '/advance/question',
                         ]
                     }
                 ]
@@ -124,7 +125,8 @@ module.exports = {
                             '/zh/advance/image',
                             '/zh/advance/alien',
                             '/zh/advance/api',
-                            '/zh/advance/question'
+                            '/zh/advance/frontend',
+                            '/zh/advance/question',
                         ]
                     }
                 ]
