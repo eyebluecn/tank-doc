@@ -443,7 +443,7 @@ name | `string` | required | Folder name, cannot contain the following special s
 Name | type | required | description
 --------- | ---- | ---- | -----------
 userUuid | `string` | required | Unique identifier of the user, the file is stored under that user name
-puuid | `bool` | optional | Which directory to upload the file to
+puuid | `string` | optional | Which directory to upload the file to
 file | `file` | required | Binary file, in the browser is selected by `<input type="file" name="file"/>`
 alien | `bool` | optional | Whether it is a third-party file, the default is `false `
 privacy | `bool` | optional | Private file, default `true`
