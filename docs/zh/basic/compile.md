@@ -38,4 +38,6 @@ cd tank/build/pack/
 https://athens.azurefd.net
 
 https://goproxy.io
+
+https://goproxy.cn
 :::
