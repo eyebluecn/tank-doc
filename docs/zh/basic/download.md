@@ -8,6 +8,7 @@
 | [tank-3.0.6.linux-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/96f9ab48-a6d2-4fd1-5292-cd5d16a58af1/tank-3.0.6.linux-amd64.tar.gz)     | linux |   x86-64    |   	11.5M    |
 | [tank-3.0.6.darwin-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/928b95e6-fe56-4313-7acb-8a7c5018557a/tank-3.0.6.darwin-amd64.tar.gz)     | macOS |   x86-64    |   	11.5M    |
 | [tank-3.0.6.android-arm64.tar.gz](https://tank.eyeblue.cn/api/alien/download/e405dc82-660e-463f-5fb3-add8b7d7e2c9/tank-3.0.6.android-arm64.tar.gz)     | android |   arm64    |   	11.3M    |
+| [tank-3.0.6.linux-arm64.tar.gz](https://tank.eyeblue.cn/api/alien/download/e7fd2237-6be4-4bff-7ddd-d7bcaa72aab0/tank-3.0.6.linux-arm64.tar.gz)     | linux |   arm64    |   	11.3M    |
 | eyeblue/tank:3.0.6     | Docker |   x86-64    |   	1.24G    |
 
 
