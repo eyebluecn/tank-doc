@@ -121,6 +121,7 @@ module.exports = {
                         children: [
                             '/zh/advance/cli',
                             '/zh/advance/migrate',
+                            '/zh/advance/preview',
                             '/zh/advance/webdav',
                             '/zh/advance/image',
                             '/zh/advance/alien',
