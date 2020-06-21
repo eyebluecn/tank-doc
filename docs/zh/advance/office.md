@@ -13,6 +13,11 @@
 onlyoffice 支持部署在自己的服务器上，因此预览就没有限制了。官网地址：https://www.onlyoffice.com
 
 
+## kkfileview
+https://kkfileview.keking.cn/zh-cn/index.html
+支持多种预览格式。
+
+
 ## Docker安装
 
 ### 1.拉取镜像
