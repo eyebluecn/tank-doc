@@ -2,7 +2,7 @@
 home: true
 heroImage: /logo.png
 actionText: Start →
-actionLink: /basic/
+actionLink: /en/basic/
 features:
 - title: Cloud Disk
   details: Basic cloud storage feature

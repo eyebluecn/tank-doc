@@ -4,7 +4,7 @@
 
 #### Steps
 1. Install Mysql
-2. Download EyeblueTank，[Go to download](./download.md)
+2. Download EyeblueTank，[Go to download](download.md)
 3. unzip and run `tank`
 ```shell
 ./tank
@@ -64,7 +64,7 @@ systemctl stop tank.service
 ```
 ## Windows
 1. Install MySQL
-2. Download EyeblueTank，[Go to download](./download.md)
+2. Download EyeblueTank，[Go to download](download.md)
 3. Unzip and double click `tank.exe`
 4. Open `http://127.0.0.1:6010` do as the guide shows.
 
@@ -72,7 +72,7 @@ systemctl stop tank.service
 ## macOS
 #### Steps
 1. Install MySQL
-2. Download EyeblueTank，[Go to download](./download.md)
+2. Download EyeblueTank，[Go to download](download.md)
 3. Unzip and run`tank`
 ```shell
 ./tank
@@ -91,7 +91,7 @@ container is `dockermysql`,use port 13306，root's password 123456，crate a `ta
 :::
 
 
-2. start EyeblueTank in docker，`x.x.x`is the latest version，[See Here](./download.md)
+2. start EyeblueTank in docker，`x.x.x`is the latest version，[See Here](download.md)
 ```shell
 docker run --name tank -p 6010:6010 --link dockermysql:mysql -v ~/data/dockermatter:/data/build/matter -d eyeblue/tank:x.x.x
 ```

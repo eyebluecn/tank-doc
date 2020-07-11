@@ -157,6 +157,6 @@ downloadTokenUuid | `string` | optional |The uuid of download is required if it 
 
 **return**: Binary file
 
-The interface can also preprocess image scaling, [see here](./image.md)
+The interface can also preprocess image scaling, [see here](image.md)
 
 

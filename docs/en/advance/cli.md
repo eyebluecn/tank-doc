@@ -54,4 +54,4 @@ DestPath => Eyeblue Cloud Disk Folder, for examlep `/morning`
 
 ## Version of the migration
 
-Version migration please see[here](./migrate.md)
+Version migration please see[here](migrate.md)
