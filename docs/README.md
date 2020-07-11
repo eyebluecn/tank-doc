@@ -5,9 +5,9 @@ actionText: Start →
 actionLink: /basic/
 features:
 - title: Cloud Disk
-  details: Basic cloud disk feature
+  details: Basic cloud storage feature
 - title: Advance Feature
-  details: Support Webdav, Support upload files by api.
+  details: Support Webdav, Support upload files by api, Support scan disks.
 - title: High Performance
   details: Developed by Golang
 footer: MIT Licensed | Copyright © 2018-present Eyeblue Tank

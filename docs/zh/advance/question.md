@@ -73,9 +73,11 @@ server {
 可能是反向代理的软件对post大小限制了，比如上方`nginx`配置的`client_max_body_size  2048m;`就使得最大只能上传`2G`的文件
 
 ## 为什么我的doc,ppt,xls等office文件不能预览？
-由于预览office文件是借助了[微软的接口](https://view.officeapps.live.com/op/embed.aspx)，因此预览有这几个限制。
+由于默认预览office文件是借助了[微软的接口](https://view.officeapps.live.com/op/embed.aspx)，它有这几个限制。
 - 1. 你部署的蓝眼云盘必须是公网ip或者外网可以访问的域名。(也就是或127.0.0.1或者localhost都不行)  
 - 2. 文件不能太大，超过10M微软的预览接口便不支持了。
+
+你可以通过自定义预览引擎，来使用决定文件应该怎样预览。[参考这里](./preview.md)
 
 
 ## 公有文件和私有文件有什么区别？

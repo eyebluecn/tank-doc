@@ -15,14 +15,7 @@
 
 1. 文件`tank`是可执行文件，可以直接运行，如步骤3所示。
 
-2. 如果你只是简单地希望蓝眼云盘常驻后台运行，请使用根目录`service`文件夹下的脚本文件。
-```shell
-# 启动蓝眼云盘
-./startup.sh
-# 停止蓝眼云盘
-./shutdown.sh
-```
-3. **[推荐]** 如果你希望开机启动蓝眼云盘，或者可以使用系统的`systemctl`或`service`来控制蓝眼云盘。
+2. **[推荐]** 如果你希望开机启动蓝眼云盘，或者可以使用系统的`systemctl`或`service`来控制蓝眼云盘。
 - 1) 在`/etc/systemd/system/`下创建`tank.service`文件
 ```shell
 vim /etc/systemd/system/tank.service
@@ -45,6 +38,7 @@ RestartSec=3
 [Install]
 WantedBy=multi-user.target
 ```
+
 - 3) 装载`tank`服务，并启动（停止）蓝眼云盘
 ```shell
 # 装载tank服务
@@ -60,7 +54,13 @@ systemctl restart tank.service
 # 停止tank
 systemctl stop tank.service
 ```
-
+3. 如果你只是简单地希望蓝眼云盘常驻后台运行，请使用根目录`service`文件夹下的脚本文件。
+```shell
+# 启动蓝眼云盘
+./startup.sh
+# 停止蓝眼云盘
+./shutdown.sh
+```
 ## Windows
 1. 安装MySQL，并创建一个数据库(使用UTF-8编码，否则不能存储中文)
 2. 下载最新版本的蓝眼云盘，[去下载](./download.md)

@@ -8,14 +8,19 @@
 
 
 ### 上传时序图
-
-![上传时序图](https://raw.githubusercontent.com/eyebluecn/tank/master/build/doc/img/upload-time-line.png)
+![上传时序图](/upload-time-line.png)
 
 ### 下载时序图
 
-![下载时序图](https://raw.githubusercontent.com/eyebluecn/tank/master/build/doc/img/download-time-line.png)
+![下载时序图](/download-time-line.png)
 
 ----------
+
+### 接口鉴权
+
+鉴权方式有两种：
+1. 调用`/api/user/login` (username,password 为入参)后，会得到cookie，后面每次请求时都带上该cookie。
+2. 每次请求接口时，都额外传 `_username`,`_password` 两个参数，用户名密码匹配则可通过鉴权。
 
 ### 接口详情
 

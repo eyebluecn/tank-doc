@@ -1,36 +1,27 @@
 # Install
 
-
-## todo...
-
 ## Linux
 
-#### 基本步骤
-1. 安装MySQL，并创建一个数据库(使用UTF-8编码，否则不能存储中文)
-2. 下载最新版本的蓝眼云盘，[去下载](./download.md)
-3. 解压，运行根目录下`tank`
+#### Steps
+1. Install Mysql
+2. Download EyeblueTank，[Go to download](./download.md)
+3. unzip and run `tank`
 ```shell
 ./tank
 ```
-4. 打开 `http://127.0.0.1:6010` 看到安装引导页面即表示软件安装成功。接着按照UI引导安装蓝眼云盘即可。
+4. open `http://127.0.0.1:6010` , the install guide page means installing succeed.
+You may finish the initialing work by the guid.
 
-#### 更多的运行方法
+#### More Run Methods
 
-1. 文件`tank`是可执行文件，可以直接运行，如步骤3所示。
+1. `tank` is an executable file, as step 3.
 
-2. 如果你只是简单地希望蓝眼云盘常驻后台运行，请使用根目录`service`文件夹下的脚本文件。
-```shell
-# 启动蓝眼云盘
-./startup.sh
-# 停止蓝眼云盘
-./shutdown.sh
-```
-3. **[推荐]** 如果你希望开机启动蓝眼云盘，或者可以使用系统的`systemctl`或`service`来控制蓝眼云盘。
-- 1) 在`/etc/systemd/system/`下创建`tank.service`文件
+2. **[Recommended]** If you want to start when server bootstrap. Use system's `systemctl` or `service`
+- 1) `/etc/systemd/system/` create `tank.service`
 ```shell
 vim /etc/systemd/system/tank.service
 ```
-- 2) `tank.service`的内容如下所示，其中`ExecStart`根据实际情况指定`tank`可执行文件
+- 2) `tank.service` 
 ```shell
 [Unit]
 Description=EyeblueTank
@@ -48,81 +39,76 @@ RestartSec=3
 [Install]
 WantedBy=multi-user.target
 ```
-- 3) 装载`tank`服务，并启动（停止）蓝眼云盘
+
+- 3) load `tank` service
 ```shell
-# 装载tank服务
+# load tank
 systemctl daemon-reload
-# 设置tank开机启动
+# make tank start when bootstrap
 systemctl enable tank.service
-# 查看tank状态
+# show status
 systemctl status tank.service
-# 启动tank
+# start tank
 systemctl start tank.service
-# 重启tank
+# restart tank
 systemctl restart tank.service
-# 停止tank
+# stop tank
 systemctl stop tank.service
 ```
-
+3. You can also use the following ways, open folder `service`
+```shell
+# start
+./startup.sh
+# stop
+./shutdown.sh
+```
 ## Windows
-1. 安装MySQL，并创建一个数据库(使用UTF-8编码，否则不能存储中文)
-2. 下载最新版本的蓝眼云盘，[去下载](./download.md)
-3. 解压，双击根目录下的`tank.exe`运行
-4. 打开 `http://127.0.0.1:6010` 看到安装引导页面即表示软件安装成功。接着按照UI引导安装蓝眼云盘即可。
+1. Install MySQL
+2. Download EyeblueTank，[Go to download](./download.md)
+3. Unzip and double click `tank.exe`
+4. Open `http://127.0.0.1:6010` do as the guide shows.
 
 
 ## macOS
-#### 基本步骤
-1. 安装MySQL(使用UTF-8编码)
-2. 下载最新版本的蓝眼云盘，[去下载](./download.md)
-3. 解压，运行根目录下`tank`
+#### Steps
+1. Install MySQL
+2. Download EyeblueTank，[Go to download](./download.md)
+3. Unzip and run`tank`
 ```shell
 ./tank
 ```
-4. 打开 `http://127.0.0.1:6010` 看到安装引导页面即表示软件安装成功。接着按照UI引导安装蓝眼云盘即可。
+4. open `http://127.0.0.1:6010`  do as the guide shows.
 
-
-#### 更多的运行方法
-
-1. 文件`tank`是可执行文件，可以直接运行，如步骤3所示。
-
-2. 如果你只是简单地希望蓝眼云盘常驻后台运行，请使用根目录`service`文件夹下的脚本文件。
-```shell
-# 启动蓝眼云盘
-./startup.sh
-# 停止蓝眼云盘
-./shutdown.sh
-```
 
 ## Docker
 
-1. Docker中启动mysql
+1. start mysql in Docker
 ```shell
 docker run --name dockermysql -p 13306:3306 -e MYSQL_ROOT_PASSWORD=123456 -e MYSQL_DATABASE=tank -e MYSQL_USER=tank -e MYSQL_PASSWORD=tank123 -v ~/data/dockermysql:/var/lib/mysql -d mysql:5.7
 ```
-::: tip 提示
-容器名称为`dockermysql`，占用宿主13306端口，root密码123456，创建了一个`tank`数据库，用户名`tank`，密码`tank123` ，将文件挂载于宿主的`~/data/dockermysql`文件夹。
+::: tip Hint
+container is `dockermysql`,use port 13306，root's password 123456，crate a `tank` database，username`tank`，password`tank123` ，mounted to `~/data/dockermysql`
 :::
 
 
-2. Docker中启动蓝眼云盘，`x.x.x`使用最新版本，[参考这里](./download.md)
+2. start EyeblueTank in docker，`x.x.x`is the latest version，[See Here](./download.md)
 ```shell
 docker run --name tank -p 6010:6010 --link dockermysql:mysql -v ~/data/dockermatter:/data/build/matter -d eyeblue/tank:x.x.x
 ```
-::: tip 提示
-容器名称为`tank`，占用宿主6010端口，链接数据库为`mysql`，即通过`mysql`可以访问到步骤1中mysql的地址，将文件挂载于宿主的`~/data/dockermatter`文件夹。
+::: tip Hint
+容container is `tank`，Use port 6010，database is `mysql`，use `mysql` can visit step 1 mysql.Mounted to `~/data/dockermatter`
 :::
 
-3. 打开 `http://127.0.0.1:6010` 看到安装引导页面即表示软件安装成功。
+3. Open `http://127.0.0.1:6010`  do as the guide shows.
 
-::: tip 提示
+::: tip Hints
 MySQL Host => `mysql`
 
-MySQL 端口 => `3306` 
+MySQL Port => `3306` 
 
-MySQL 库名 => `tank` 
+MySQL Database => `tank` 
 
-MySQL 用户名 => `tank` 
+MySQL Username => `tank` 
 
-MySQL 密码 => `tank123` 
+MySQL Password => `tank123` 
 :::

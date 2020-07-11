@@ -61,7 +61,6 @@ module.exports = {
                         children: [
                             '/basic/',
                             '/basic/install',
-                            '/basic/compile',
                             '/basic/download',
                         ]
                     },
@@ -122,6 +121,7 @@ module.exports = {
                             '/zh/advance/cli',
                             '/zh/advance/migrate',
                             '/zh/advance/preview',
+                            '/zh/advance/scan',
                             '/zh/advance/webdav',
                             '/zh/advance/image',
                             '/zh/advance/alien',
