@@ -47,13 +47,16 @@ ALTER TABLE `tank`.`tank31_user`  CHARACTER SET = utf8mb4 ;
 ```
 
 
-其次是 `tank31_matter` 表中新增了`prop`,`visit_time`字段， `tank31_preference` 表中新增了`preview_config`,`scan_config`字段。
+其次是 `tank31_matter` 表中新增了`prop`,`visit_time`,`deleted`,`delete_time`字段， `tank31_preference` 表中新增了`preview_config`,`scan_config`,`deleted_keep_days`字段。
 这一步操作可以不做，因为在安装引导界面会自动补齐缺失的字段。
 ```sql
 ALTER TABLE `tank`.`tank31_matter` ADD COLUMN `prop` VARCHAR(1034) NULL DEFAULT '{}' AFTER `times`;
 ALTER TABLE `tank`.`tank31_matter` ADD COLUMN `visit_time` TIMESTAMP NULL DEFAULT '2018-01-01 00:00:00' AFTER `prop`;
+ALTER TABLE `tank`.`tank31_matter` ADD COLUMN `deleted` TINYINT(1) NULL DEFAULT 0 AFTER `visit_time`;
+ALTER TABLE `tank`.`tank31_matter` ADD COLUMN `delete_time` TIMESTAMP NULL DEFAULT '2018-01-01 00:00:00' AFTER `deleted`;
 ALTER TABLE `tank`.`tank31_preference` ADD COLUMN `preview_config` TEXT NULL AFTER `allow_register`;
 ALTER TABLE `tank`.`tank31_preference` ADD COLUMN `scan_config` TEXT NULL AFTER `preview_config`;
+ALTER TABLE `tank`.`tank31_preference` ADD COLUMN `deleted_keep_days` BIGINT(20) NULL DEFAULT 7 AFTER `scan_config`;
 
 ```
 
