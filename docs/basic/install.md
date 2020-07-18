@@ -39,6 +39,18 @@ RestartSec=3
 WantedBy=multi-user.target
 ```
 
+::: tip 提示
+上文中给出的`tank.service`是用的root账号配置的。如果是要使用普通账号，应该加入如下字段：
+
+```shell
+User=XXX
+WorkingDirectory=/data/program/tank/tank
+Type=simple
+```
+
+:::
+
+
 - 3) 装载`tank`服务，并启动（停止）蓝眼云盘
 ```shell
 # 装载tank服务
