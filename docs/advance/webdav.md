@@ -69,3 +69,29 @@ NetDrive 3是一个收费软件，不过可以支持7天试用，而且跨平台
 AppStore中搜索“FE文件管理器”即可下载，按照引导添加即可。
 
 ## 欢迎网友留言添加更多好用的WebDAV客户端。
+
+
+## windows下映射webdav技巧
+
+从Windows Vista起，微软就禁用了http形式的基本WebDAV验证形式（KB841215），必须使用https连接，但是架设在AppFog上的免费账户对SSL证书无权限。所以在Windows Vista/7/8中，要方便地映射ownCloud文件为系统上的“网络位置”，就必须改注册表……
+
+HKEY_LOCAL_MACHINE>>SYSTEM>>CurrentControlSet>>Services>>WebClient>>Parameters>>BasicAuthLevel
+
+把这个值从1改为2，然后进控制面板，服务，把WebClient服务重启（没有启动的就启动它）。
+
+然后打开命令提示符，输入以下指令。
+
+net use * http://YOUR_ownCloud_SERVER_PATH/api/dav /user:yourusername *
+
+这个时候会提示输入密码
+
+提示成功的话，打开计算机看看是不是在网络位置里出现一个盘了？
+
+可以直接在cmd中 X: 进入这个挂载的地址。（X:是自动分配的盘符）
+
+加上参数/persistent:YES 还可以使得这个映射在重启计算机后依然存在。
+
+安全提醒：不要在公共网络环境（如公共WiFi热点）下以http连接的WebDAV访问，以免泄露隐私数据。
+
+
+
