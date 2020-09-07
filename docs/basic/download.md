@@ -1,4 +1,13 @@
 # 软件下载
+## 3.1.1
+
+| 文件名        | 操作系统(OS)   |  架构(Arch)  |  大小  |
+| --------   | --------  | --------  | --------  |
+| [tank-3.1.1.windows-amd64.zip](https://tank.eyeblue.cn/api/alien/download/c4d33b70-7fe1-4b8f-5fc7-a0079556894f/tank-3.1.1.windows-amd64.zip)     | Windows |   x86-64    |   	11.3M    | 
+| [tank-3.1.1.linux-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/4a9120d9-3e7f-4143-7aaa-9dfa42d7374a/tank-3.1.1.linux-amd64.tar.gz)     | linux |   x86-64    |   	11.5M    |
+| [tank-3.1.1.darwin-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/9b37dbed-bc3f-4917-5d62-732ed1db5c26/tank-3.1.1.darwin-amd64.tar.gz)     | macOS |   x86-64    |   	11.5M    | 
+| eyeblue/tank:3.1.1     | Docker |   x86-64    |   	1.24G    |
+
 
 ## 3.1.0
 
