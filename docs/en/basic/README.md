@@ -31,3 +31,8 @@ Scan the Dingding QRCode to join us.
  ![](/dingding.jpg)
 
 
+## Thank Author
+If EyeblueTank helped you, feel free to give us a reward.
+
+![](/alipay.png)
+
