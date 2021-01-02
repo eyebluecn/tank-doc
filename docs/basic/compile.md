@@ -25,6 +25,9 @@ npm run build
 
 - linux平台运行如下命令：
 ```
+# Go 1.13 及以上（推荐）启用go module功能，默认是关闭的
+go env -w GO111MODULE=on
+
 cd tank/build/pack/
 ./build.sh
 ```
