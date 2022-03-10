@@ -1,4 +1,11 @@
 # 软件下载
+## 3.1.3
+
+| 文件名        | 操作系统(OS)   |  架构(Arch)  |  大小  |
+| --------   | --------  | --------  | --------  |
+| [tank-3.1.3.windows-amd64.zip](https://tank.eyeblue.cn/api/alien/download/10ef8c84-c4ad-425b-651c-a28945fcdf38/tank-3.1.3.windows-amd64.zip)     | Windows |   x86-64    |   	12.5M    | 
+
+
 ## 3.1.2
 
 | 文件名        | 操作系统(OS)   |  架构(Arch)  |  大小  |

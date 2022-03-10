@@ -1,5 +1,12 @@
 # Download
 
+## 3.1.3
+
+| File        | OS   |  Arch  |  Size  |
+| --------   | --------  | --------  | --------  |
+| [tank-3.1.3.windows-amd64.zip](https://tank.eyeblue.cn/api/alien/download/10ef8c84-c4ad-425b-651c-a28945fcdf38/tank-3.1.3.windows-amd64.zip)     | Windows |   x86-64    |   	12.5M    | 
+
+
 ## 3.1.2
 
 | File        | OS   |  Arch  |  Size  |
