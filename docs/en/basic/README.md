@@ -15,6 +15,7 @@ EyeblueTank is an elegant cloud storage.
 ## Features
 
 - Support Docker
+- Support Sqlite
 - Installation package is about 10M, Support `windows`, `linux`, `macOS`
 - Support uploading, previewing, downloading, sharing
 - Providing programming api, you can use EyeblueTank as other system's storage.
