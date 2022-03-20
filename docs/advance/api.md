@@ -520,7 +520,7 @@ name | `string` | 必填 | 文件夹名称， 不能包含以下特殊符号：`
 名称 | 类型 | 必填性 | 描述
 --------- | ---- | ---- | -----------
 userUuid | `string` | 必填 | 用户的唯一标识，文件存放在该用户名下
-puuid | `string` | 选填 | 文件上传到哪个目录下
+puuid | `string` | 必填 | 文件上传到哪个目录下
 file | `file` | 必填 | 二进制文件，在浏览器中是通过`<input type="file" name="file"/>`来选择的
 alien | `bool` | 选填 | 是否为第三方文件，默认`false`
 privacy | `bool` | 选填 | 文件的私有性，默认`true`
