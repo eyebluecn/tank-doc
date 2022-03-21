@@ -6,7 +6,7 @@
 | --------   | --------  | --------  | --------  |
 | [tank-3.1.5.windows-amd64.zip](https://tank.eyeblue.cn/api/alien/download/c1753d9b-039a-4c34-4f27-500673c2cfc2/tank-3.1.5.windows-amd64.zip)     | Windows |   x86-64    |   	15.6M    | 
 | [tank-3.1.5.linux-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/ad56de35-16e2-463e-48c6-b7e808e67a4b/tank-3.1.5.linux-amd64.tar.gz)     | linux |   x86-64    |   	15.5M    |
-| [tank-3.1.5.darwin-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/092ff2ce-7410-473f-55da-8b7050297c5e/tank-3.1.4.darwin-amd64.tar.gz)     | macOS |   x86-64    |   	15.2M    | 
+| [tank-3.1.5.darwin-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/f1fe3e39-fb2c-4784-5f0b-0ff87ce665bc/tank-3.1.5.darwin-amd64.tar.gz)     | macOS |   x86-64    |   	15.2M    | 
 | eyeblue/tank:3.1.5    | Docker |   x86-64    |   	1.88G    |
 .
 ::: tip Hint
