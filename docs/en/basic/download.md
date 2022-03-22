@@ -8,7 +8,8 @@
 | [tank-3.1.5.linux-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/ad56de35-16e2-463e-48c6-b7e808e67a4b/tank-3.1.5.linux-amd64.tar.gz)     | linux |   x86-64    |   	15.5M    |
 | [tank-3.1.5.darwin-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/f1fe3e39-fb2c-4784-5f0b-0ff87ce665bc/tank-3.1.5.darwin-amd64.tar.gz)     | macOS |   x86-64    |   	15.2M    | 
 | eyeblue/tank:3.1.5    | Docker |   x86-64    |   	1.88G    |
-.
+
+
 ::: tip Hint
 3.1.4 has a fatal bug, so we do not provide 3.1.4 anymore.
 :::
@@ -31,8 +32,8 @@
 | [tank-3.1.2.windows-amd64.zip](https://tank.eyeblue.cn/api/alien/download/78632f19-b808-430c-6dc6-b688756a493f/tank-3.1.2.windows-amd64.zip)     | Windows |   x86-64    |   	11.3M    | 
 | [tank-3.1.2.linux-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/421278a7-9400-4ae3-6398-175cb1cfb062/tank-3.1.2.linux-amd64.tar.gz)     | linux |   x86-64    |   	11.5M    |
 | [tank-3.1.2.darwin-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/46fc199a-3878-4288-4fd6-a518e8b5d729/tank-3.1.2.darwin-amd64.tar.gz)     | macOS |   x86-64    |   	11.5M    | 
+| [tank-3.1.2.linux-arm64.tar.gz](https://tank.eyeblue.cn/api/alien/download/616fe38e-0f9a-479a-4eb2-ef0fa50ba222/tank-3.1.2.linux-arm64.tar.gz)     | linux |   arm64    |   	11.2M    | 
 | eyeblue/tank:3.1.2    | Docker |   x86-64    |   	1.24G    |
-
 
 
 
