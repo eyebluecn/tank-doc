@@ -41,30 +41,30 @@ Format is ir=mode_width_height
 
 The original image：
 
-![Specify a width of 200,equally scaled height](http://tanker.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg)
+![Specify a width of 200,equally scaled height](http://tank.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg)
 
 1. Specify a width of 200,equally scaled height
 
-![Specify a width of 200,equally scaled height](http://tanker.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fit_200_0)
+![Specify a width of 200,equally scaled height](http://tank.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fit_200_0)
 
-[http://tanker.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fit_200_0](http://tanker.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fit_200_0)
+[http://tank.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fit_200_0](http://tank.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fit_200_0)
 
 2. Specify a height of 200,the width is equally scaled
 
-![Specify a height of 200,the width is equally scaled](http://tanker.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fit_0_200)
+![Specify a height of 200,the width is equally scaled](http://tank.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fit_0_200)
 
-[http://tanker.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fit_0_200](http://tanker.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fit_0_200)
+[http://tank.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fit_0_200](http://tank.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fit_0_200)
 
 3. The image is automatically filled in a size of 200 by 200 (this is the case most often)
 
-![The image is automatically filled in a size of 200 by 200 (this is the case most often)](http://tanker.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fill_200_200)
+![The image is automatically filled in a size of 200 by 200 (this is the case most often)](http://tank.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fill_200_200)
 
-[http://tanker.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fill_200_200](http://tanker.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fill_200_200)
+[http://tank.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fill_200_200](http://tank.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fill_200_200)
 
 4. Image fixed size 200*200 (usually leads to distortion)
 
-![Image fixed size 200*200 (usually leads to distortion)](http://tanker.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fixed_200_200)
+![Image fixed size 200*200 (usually leads to distortion)](http://tank.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fixed_200_200)
 
-[http://tanker.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fixed_200_200](http://tanker.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fixed_200_200)
+[http://tank.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fixed_200_200](http://tank.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fixed_200_200)
 
 

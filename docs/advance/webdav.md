@@ -1,7 +1,7 @@
 # Webdav
 
 ## 访问地址
-https://tanker.eyeblue.cn/api/dav
+https://tank.eyeblue.cn/api/dav
 
 (以官方蓝眼云盘为例)
 

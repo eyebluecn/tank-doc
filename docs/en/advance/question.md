@@ -27,12 +27,12 @@ CHANGE COLUMN `username` `username` VARCHAR(45) CHARACTER SET 'utf8' NOT NULL ;
 
 
 ## How to configure nginx reverse proxy?
-Normally we don't want to expose port 6010 to the public network. In this case, nginx will need to reverse proxy, allowing users to access Eyeblue Cloud Disk using the domain name and port 80 (or port 443). Here is the nginx configuration of `tanker.eyeblue.cn`
+Normally we don't want to expose port 6010 to the public network. In this case, nginx will need to reverse proxy, allowing users to access Eyeblue Cloud Disk using the domain name and port 80 (or port 443). Here is the nginx configuration of `tank.eyeblue.cn`
 ```shell
-#https://tanker.eyeblue.cn
+#https://tank.eyeblue.cn
 server{
         listen 443 ssl;
-        server_name tanker.eyeblue.cn;
+        server_name tank.eyeblue.cn;
 
         ssl on;
         ssl_certificate /letsencrypt/full_chain.pem;
@@ -57,11 +57,11 @@ server{
 
 }
 
-#http://tanker.eyeblue.cn forward all 80 requests to 443
+#http://tank.eyeblue.cn forward all 80 requests to 443
 server {
         listen      80;
-        server_name    tanker.eyeblue.cn;
-        rewrite ^(.*)$ https://tanker.eyeblue.cn$1 permanent;
+        server_name    tank.eyeblue.cn;
+        rewrite ^(.*)$ https://tank.eyeblue.cn$1 permanent;
 }
 ```
 

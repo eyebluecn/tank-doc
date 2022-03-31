@@ -5,8 +5,8 @@
 对于office文件，如果没有设置，那么会默认使用微软预览接口。 我们同样推荐使用kkfileview来预览。
 
 ## url占位符
-- {originUrl} 文件原始的url地址。eg: https://tanker.eyeblue.cn/api/alien/download/2a0ceee1-744c-4c82-4215-69c382597a50/abstract-free-photo-2210x1473.jpg
-- {url} 对于公有文件publicUrl=originUrl，对于私有文件publicUrl是originUrl带上downloadToken。 eg: https://tanker.eyeblue.cn/api/alien/download/2a0ceee1-744c-4c82-4215-69c382597a50/abstract-free-photo-2210x1473.jpg?downloadTokenUuid=6bdba52f-af6b-49ae-5a5d-fd80bfb01d3b
+- {originUrl} 文件原始的url地址。eg: https://tank.eyeblue.cn/api/alien/download/2a0ceee1-744c-4c82-4215-69c382597a50/abstract-free-photo-2210x1473.jpg
+- {url} 对于公有文件publicUrl=originUrl，对于私有文件publicUrl是originUrl带上downloadToken。 eg: https://tank.eyeblue.cn/api/alien/download/2a0ceee1-744c-4c82-4215-69c382597a50/abstract-free-photo-2210x1473.jpg?downloadTokenUuid=6bdba52f-af6b-49ae-5a5d-fd80bfb01d3b
 - {b64Url} 文件经过base64以及urlencode编码，即 b64Url = encodeURIComponent(Base64.encode(originUrl))
 
 

@@ -2,7 +2,7 @@
 
 EyeblueTank is an elegant cloud storage.
 
-[Demo Online](https://tanker.eyeblue.cn) (username: demo password: 123456)
+[Demo Online](https://tank.eyeblue.cn) (username: demo password: 123456)
 
 ## Software Infrastructure
  

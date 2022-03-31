@@ -1,7 +1,7 @@
 # Webdav
 
 ## Link
-https://tanker.eyeblue.cn/api/dav
+https://tank.eyeblue.cn/api/dav
 
 (Based on Eyeblue Cloud Disk)
 

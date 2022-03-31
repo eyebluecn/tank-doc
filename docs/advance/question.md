@@ -27,12 +27,12 @@ CHANGE COLUMN `username` `username` VARCHAR(45) CHARACTER SET 'utf8' NOT NULL ;
 
 
 ## 如何配置nginx反向代理？
-通常我们不希望把6010端口暴露到公网，这时需要nginx进行反向代理，让用户使用域名及80端口（或443端口）就能访问蓝眼云盘。以下是`tanker.eyeblue.cn`的nginx配置
+通常我们不希望把6010端口暴露到公网，这时需要nginx进行反向代理，让用户使用域名及80端口（或443端口）就能访问蓝眼云盘。以下是`tank.eyeblue.cn`的nginx配置
 ```shell
-#https://tanker.eyeblue.cn
+#https://tank.eyeblue.cn
 server{
         listen 443 ssl;
-        server_name tanker.eyeblue.cn;
+        server_name tank.eyeblue.cn;
 
         ssl on;
         ssl_certificate /letsencrypt/full_chain.pem;
@@ -57,11 +57,11 @@ server{
 
 }
 
-#http://tanker.eyeblue.cn 转发所有80的请求到443
+#http://tank.eyeblue.cn 转发所有80的请求到443
 server {
         listen      80;
-        server_name    tanker.eyeblue.cn;
-        rewrite ^(.*)$ https://tanker.eyeblue.cn$1 permanent;
+        server_name    tank.eyeblue.cn;
+        rewrite ^(.*)$ https://tank.eyeblue.cn$1 permanent;
 }
 ```
 
