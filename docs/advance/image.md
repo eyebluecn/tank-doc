@@ -41,30 +41,30 @@ downloadTokenUuid | `string` | 选填 |download的uuid，如果是私有文件�
 
 原图：
 
-![将宽度指定为200，高度等比例缩放](http://tank.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg)
+![将宽度指定为200，高度等比例缩放](http://tanker.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg)
 
 1. 将宽度指定为200，高度等比例缩放
 
-![将宽度指定为200，高度等比例缩放](http://tank.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fit_200_0)
+![将宽度指定为200，高度等比例缩放](http://tanker.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fit_200_0)
 
-[http://tank.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fit_200_0](http://tank.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fit_200_0)
+[http://tanker.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fit_200_0](http://tanker.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fit_200_0)
 
 2. 将高度指定为200，宽度等比例缩放
 
-![将高度指定为200，宽度等比例缩放](http://tank.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fit_0_200)
+![将高度指定为200，宽度等比例缩放](http://tanker.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fit_0_200)
 
-[http://tank.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fit_0_200](http://tank.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fit_0_200)
+[http://tanker.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fit_0_200](http://tanker.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fit_0_200)
 
 3. 图片自动填充在200*200的大小中 （这种情况用得最多）
 
-![图片自动填充在200*200的大小中](http://tank.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fill_200_200)
+![图片自动填充在200*200的大小中](http://tanker.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fill_200_200)
 
-[http://tank.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fill_200_200](http://tank.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fill_200_200)
+[http://tanker.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fill_200_200](http://tanker.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fill_200_200)
 
 4. 图片固定大小200*200 (一般会导致变形)
 
-![图片自动填充在200*200的大小中](http://tank.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fixed_200_200)
+![图片自动填充在200*200的大小中](http://tanker.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fixed_200_200)
 
-[http://tank.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fixed_200_200](http://tank.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fixed_200_200)
+[http://tanker.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fixed_200_200](http://tanker.eyeblue.cn/api/alien/preview/3f4b3090-e688-4d63-7705-93a120690505/horse.jpg?ir=fixed_200_200)
 
 

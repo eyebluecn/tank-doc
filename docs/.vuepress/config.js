@@ -63,7 +63,7 @@ module.exports = {
         sidebarDepth: 2, // e'b将同时提取markdown中h2 和 h3 标题，显示在侧边栏上。
         nav: [
           {text: '主页', link: '/'}, // 内部链接 以docs为根目录
-          {text: '在线体验', link: 'https://tank.eyeblue.cn'}, // 外部链接
+          {text: '在线体验', link: 'https://tanker.eyeblue.cn'}, // 外部链接
         ],
         sidebar: [
           {
@@ -103,7 +103,7 @@ module.exports = {
         sidebarDepth: 2, // e'b将同时提取markdown中h2 和 h3 标题，显示在侧边栏上。
         nav: [
           {text: 'Home', link: '/en/'}, // 内部链接 以docs为根目录
-          {text: 'Demo Online', link: 'https://tank.eyeblue.cn'}, // 外部链接
+          {text: 'Demo Online', link: 'https://tanker.eyeblue.cn'}, // 外部链接
         ],
         sidebar: [
           {
