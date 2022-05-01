@@ -1,5 +1,15 @@
 # Download
 
+## 3.1.6
+
+| File        | OS   |  Arch  |  Size  |
+| --------   | --------  | --------  | --------  |
+| [tank-3.1.6.windows-amd64.zip](https://tank.eyeblue.cn/api/alien/download/d2616725-a61a-4a27-49bc-d053ab80c5e8/tank-3.1.6.windows-amd64.zip)     | Windows |   x86-64    |   	15.6M    | 
+| [tank-3.1.6.linux-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/f86c0da3-2500-4847-477a-d2a796a051fd/tank-3.1.6.linux-amd64.tar.gz)     | linux |   x86-64    |   	15.5M    |
+| [tank-3.1.6.darwin-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/e4fb64e9-c925-4398-5329-af3daee758ea/tank-3.1.6.darwin-amd64.tar.gz)     | macOS |   x86-64    |   	15.2M    | 
+| eyeblue/tank:3.1.6    | Docker |   x86-64    |   	1.88G    |
+
+
 ## 3.1.5
 
 | File        | OS   |  Arch  |  Size  |
