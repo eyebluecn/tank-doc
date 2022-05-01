@@ -84,7 +84,7 @@ systemctl stop tank.service
 
 1. start mysql in Docker
 ```shell
-docker run --name dockermysql -p 13306:3306 -e MYSQL_ROOT_PASSWORD=123456 -e MYSQL_DATABASE=tank -e MYSQL_USER=tank -e MYSQL_PASSWORD=tank123 -v ~/data/dockermysql:/var/lib/mysql -d mysql:5.7
+docker run --name dockermysql -p 13306:3306 -e MYSQL_ROOT_PASSWORD=123456 -e MYSQL_DATABASE=tank -e TZ=Asia/Shanghai -d mysql:5.7 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --default-time_zone='+8:00'
 ```
 ::: tip Hint
 container is `dockermysql`,use port 13306，root's password 123456，crate a `tank` database，username`tank`，password`tank123` ，mounted to `~/data/dockermysql`

@@ -106,12 +106,17 @@ systemctl stop tank.service
 ## Docker
 
 1. Docker中启动mysql
+
 ```shell
-docker run --name dockermysql -p 13306:3306 -e MYSQL_ROOT_PASSWORD=123456 -e MYSQL_DATABASE=tank -e MYSQL_USER=tank -e MYSQL_PASSWORD=tank123 -v ~/data/dockermysql:/var/lib/mysql -d mysql:5.7
+docker run --name dockermysql -p 13306:3306 -e MYSQL_ROOT_PASSWORD=123456 -e MYSQL_DATABASE=tank -e TZ=Asia/Shanghai -d mysql:5.7 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --default-time_zone='+8:00'
 ```
+
 ::: tip 提示
-容器名称为`dockermysql`，占用宿主13306端口，root密码123456，创建了一个`tank`数据库，用户名`tank`，密码`tank123` ，将文件挂载于宿主的`~/data/dockermysql`文件夹。
+1.容器名称为`dockermysql`，占用宿主13306端口，root密码123456，创建了一个`tank`数据库，用户名`tank`，密码`tank123` ，将文件挂载于宿主的`~/data/dockermysql`文件夹。
+
+2.指定时区为Asia/Shanghai，编码为utf8mb4
 :::
+
 
 
 2. Docker中启动蓝眼云盘，`x.x.x`使用最新版本，[参考这里](./download.md)
