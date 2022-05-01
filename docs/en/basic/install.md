@@ -84,7 +84,7 @@ systemctl stop tank.service
 
 1. start mysql in Docker
 ```shell
-docker run --name dockermysql -p 13306:3306 -e MYSQL_ROOT_PASSWORD=123456 -e MYSQL_DATABASE=tank -e TZ=Asia/Shanghai -d mysql:5.7 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --default-time_zone='+8:00'
+docker run --name dockermysql -p 13306:3306 -e MYSQL_ROOT_PASSWORD=123456 -e MYSQL_DATABASE=tank -e TZ=Asia/Shanghai -d mysql:5.7 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --default-time_zone=+8:00
 ```
 ::: tip Hint
 container is `dockermysql`,use port 13306，root's password 123456，crate a `tank` database，username`tank`，password`tank123` ，mounted to `~/data/dockermysql`
@@ -96,10 +96,12 @@ container is `dockermysql`,use port 13306，root's password 123456，crate a `ta
 docker run --name tank -p 6010:6010 --link dockermysql:mysql -v ~/data/dockermatter:/data/build/matter -d eyeblue/tank:x.x.x
 ```
 ::: tip Hint
-容container is `tank`，Use port 6010，database is `mysql`，use `mysql` can visit step 1 mysql.Mounted to `~/data/dockermatter`
+1. Container is `tank`，Use port 6010，database is `mysql`，use `mysql` can visit step 1 mysql.Mounted to `~/data/dockermatter`
+
+2. Default time-zone is Asia/Shanghai, if you want to change use -e TZ=xxx/yyy
 :::
 
-3. Open `http://127.0.0.1:6010`  do as the guide shows.
+4. Open `http://127.0.0.1:6010`  do as the guide shows.
 
 ::: tip Hints
 MySQL Host => `mysql`
