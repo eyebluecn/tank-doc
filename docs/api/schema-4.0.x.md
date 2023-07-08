@@ -255,7 +255,7 @@ CREATE TABLE `tank40_user` (
 
 **user表**
 - 新增字段`space_uuid`
-
+- 删除字段`size_limit`,`total_size_limit`,`total_size`
 
 :::
 

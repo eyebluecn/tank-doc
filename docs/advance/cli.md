@@ -53,7 +53,7 @@ DestPath => 蓝眼云盘的文件夹，例如 `/morning`
 
 ## 版本迁移
 
-版本迁移请查看[这里](./migrate.md)
+版本迁移请查看[这里](../upgrade/migrate.md)
 
 
 

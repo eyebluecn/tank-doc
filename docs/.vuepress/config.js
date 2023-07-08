@@ -92,6 +92,14 @@ module.exports = {
             ]
           },
           {
+            title: '版本升级',
+            collapsable: false,
+            children: [
+              '/upgrade/migrate-3.1.x-to-4.0.x',
+              '/upgrade/migrate',
+            ]
+          },
+          {
             title: '接口文档',
             collapsable: false,
             children: [
