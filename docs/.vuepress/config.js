@@ -87,9 +87,16 @@ module.exports = {
               '/advance/webdav',
               '/advance/image',
               '/advance/alien',
-              '/advance/api',
               '/advance/frontend',
               '/advance/question',
+            ]
+          },
+          {
+            title: '接口文档',
+            collapsable: false,
+            children: [
+              '/api/api',
+              '/api/schema-3.1.x',
             ]
           }
         ]
