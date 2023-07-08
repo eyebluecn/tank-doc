@@ -97,6 +97,7 @@ module.exports = {
             children: [
               '/api/api',
               '/api/schema-3.1.x',
+              '/api/schema-4.0.x',
             ]
           }
         ]
