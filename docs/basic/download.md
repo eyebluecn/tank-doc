@@ -1,6 +1,17 @@
 # 软件下载
 
 
+## 4.0.0.beta1
+
+| 文件名        | 操作系统(OS)   |  架构(Arch)  |  大小  |
+| --------   | --------  | --------  | --------  |
+| [tank-4.0.0.beta1.windows-amd64.zip](https://tank.eyeblue.cn/api/alien/download/7d390e12-9840-4ec7-7847-4c40f7464dda/tank-4.0.0.beta1.windows-amd64.zip)     | Windows |   x86-64    |   	15.6M    | 
+| [tank-4.0.0.beta1.linux-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/ffc2edd0-16f3-4df9-60e5-53d329822786/tank-4.0.0.beta1.linux-amd64.tar.gz)     | linux |   x86-64    |   	15.5M    |
+| [tank-4.0.0.beta1.darwin-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/5eba4d37-1164-4232-43a8-a1087c7f47eb/tank-4.0.0.beta1.darwin-amd64.tar.gz)     | macOS |   x86-64    |   	15.2M    | 
+| eyeblue/tank:4.0.0.beta1   | Docker |   x86-64    |   	1.88G    |
+
+
+
 ## 3.1.6
 
 | 文件名        | 操作系统(OS)   |  架构(Arch)  |  大小  |
