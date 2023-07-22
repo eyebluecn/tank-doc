@@ -76,7 +76,7 @@
 | [tank-3.1.0.darwin-amd64.tar.gz](https://tanker.eyeblue.cn/api/alien/download/906e64f2-2885-4ebe-45eb-49ff3119ee18/tank-3.1.0.darwin-amd64.tar.gz)     | macOS |   x86-64    |   	11.5M    | 
 | eyeblue/tank:3.1.0     | Docker |   x86-64    |   	1.24G    |
 
-[从3.0.x到3.1.x的升级文档](https://tank-doc.eyeblue.cn/advance/migrate.html)
+[从3.0.x到3.1.x的升级文档](https://tank-doc.eyeblue.cn/upgrade/migrate.html)
 
 ## 3.0.6
 

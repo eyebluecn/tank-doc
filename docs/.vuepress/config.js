@@ -81,7 +81,6 @@ module.exports = {
             collapsable: false,
             children: [
               '/advance/cli',
-              '/advance/migrate',
               '/advance/preview',
               '/advance/scan',
               '/advance/webdav',
