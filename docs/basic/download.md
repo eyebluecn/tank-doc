@@ -9,7 +9,7 @@
 | [tank-4.0.0.beta1.linux-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/ffc2edd0-16f3-4df9-60e5-53d329822786/tank-4.0.0.beta1.linux-amd64.tar.gz)     | linux |   x86-64    |   	15.5M    |
 | [tank-4.0.0.beta1.darwin-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/5eba4d37-1164-4232-43a8-a1087c7f47eb/tank-4.0.0.beta1.darwin-amd64.tar.gz)     | macOS |   x86-64    |   	15.2M    | 
 | eyeblue/tank:4.0.0.beta1   | Docker |   x86-64    |   	1.88G    |
-
+[从3.1.x到4.0.x的升级文档](https://tank-doc.eyeblue.cn/upgrade/migrate-3.1.x-to-4.0.x.html)
 
 
 ## 3.1.6
