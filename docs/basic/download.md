@@ -1,6 +1,17 @@
 # 软件下载
 
 
+## 4.0.0.beta2
+
+| 文件名                                                                                                                                                          | 操作系统(OS)   |  架构(Arch)  |  大小  |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------| --------  | --------  | --------  |
+| [tank-4.0.0.beta2.windows-amd64.zip](https://tank.eyeblue.cn/api/alien/download/498cbc87-8965-46f5-6a8b-61a10a37a511/tank-4.0.0.beta2.windows-amd64.zip)     | Windows |   x86-64    |   	15.6M    | 
+| [tank-4.0.0.beta2.linux-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/c03b0924-5b63-43d2-5b18-a6f8e917b30f/tank-4.0.0.beta2.linux-amd64.tar.gz)   | linux |   x86-64    |   	15.5M    |
+| [tank-4.0.0.beta2.darwin-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/64a2115c-70db-42d4-6204-85367feba3f5/tank-4.0.0.beta2.darwin-amd64.tar.gz) | macOS |   x86-64    |   	15.2M    | 
+| eyeblue/tank:4.0.0.beta2                                                                                                                                     | Docker |   x86-64    |   	1.88G    |
+[从4.0.x到4.0.x的升级文档](/upgrade/migrate.html)
+
+
 ## 4.0.0.beta1
 
 | 文件名        | 操作系统(OS)   |  架构(Arch)  |  大小  |
@@ -9,7 +20,7 @@
 | [tank-4.0.0.beta1.linux-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/ffc2edd0-16f3-4df9-60e5-53d329822786/tank-4.0.0.beta1.linux-amd64.tar.gz)     | linux |   x86-64    |   	15.5M    |
 | [tank-4.0.0.beta1.darwin-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/5eba4d37-1164-4232-43a8-a1087c7f47eb/tank-4.0.0.beta1.darwin-amd64.tar.gz)     | macOS |   x86-64    |   	15.2M    | 
 | eyeblue/tank:4.0.0.beta1   | Docker |   x86-64    |   	1.88G    |
-[从3.1.x到4.0.x的升级文档](https://tank-doc.eyeblue.cn/upgrade/migrate-3.1.x-to-4.0.x.html)
+[从3.1.x到4.0.x的升级文档](/upgrade/migrate-3.1.x-to-4.0.x.html)
 
 
 ## 3.1.6
