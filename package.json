@@ -8,5 +8,8 @@
     "docs:build": "vuepress build docs"
   },
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "vuepress": "0.14.11"
+  }
 }
