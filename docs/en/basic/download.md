@@ -3,7 +3,7 @@
 
 ## 4.0.0
 
-| 文件名                                                                                                                                              | 操作系统(OS)   |  架构(Arch)  | 大小     |
+| File        | OS   |  Arch  |  Size  |
 |--------------------------------------------------------------------------------------------------------------------------------------------------| --------  | --------  |--------|
 | [tank-4.0.0.windows-amd64.zip](https://tank.eyeblue.cn/api/alien/download/2deb586c-0c2f-4e78-628f-f170db81383a/tank-4.0.0.windows-amd64.zip)     | Windows |   x86-64    | 	16.8M | 
 | [tank-4.0.0.linux-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/9522e34c-a16f-423b-5fae-b354f525e7ad/tank-4.0.0.linux-amd64.tar.gz)   | linux |   x86-64    | 	15.6M |
