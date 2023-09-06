@@ -30,7 +30,7 @@ EyeblueTank is an elegant cloud storage.
 
 Scan the Dingding QRCode to join us.
 
- ![](/dingding.png)
+ ![](/dingding.jpg)
 
 
 ## Thank Author
