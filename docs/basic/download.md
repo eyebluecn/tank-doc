@@ -1,5 +1,14 @@
 # 软件下载
 
+## 4.0.1
+
+| 文件名                                                                                                                                              | 操作系统(OS)   |  架构(Arch)  | 大小     |
+|--------------------------------------------------------------------------------------------------------------------------------------------------| --------  | --------  |--------|
+| [tank-4.0.1.windows-amd64.zip](https://tank.eyeblue.cn/api/alien/download/d7f8f09e-86e9-4494-4d81-f68997b557dc/tank-4.0.1.windows-amd64.zip)     | Windows |   x86-64    | 	16.8M | 
+| [tank-4.0.1.linux-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/6a0b9a7a-83e8-4ed8-69ea-998854c94444/tank-4.0.1.linux-amd64.tar.gz)   | linux |   x86-64    | 	15.6M |
+| [tank-4.0.1.darwin-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/7f217c03-4d65-45a8-4961-c0e69b7a9b1c/tank-4.0.1.darwin-amd64.tar.gz) | macOS |   x86-64    | 	15.4M | 
+[Upgrade from 4.0.x to 4.0.x](/upgrade/migrate.html)
+
 
 ## 4.0.0
 
