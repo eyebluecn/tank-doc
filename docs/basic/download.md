@@ -1,5 +1,26 @@
 # 软件下载
 
+## 4.0.1
+
+| 文件名                                                                                                                                              | 操作系统(OS)   |  架构(Arch)  | 大小     |
+|--------------------------------------------------------------------------------------------------------------------------------------------------| --------  | --------  |--------|
+| [tank-4.0.1.windows-amd64.zip](https://tank.eyeblue.cn/api/alien/download/d7f8f09e-86e9-4494-4d81-f68997b557dc/tank-4.0.1.windows-amd64.zip)     | Windows |   x86-64    | 	16.8M | 
+| [tank-4.0.1.linux-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/6a0b9a7a-83e8-4ed8-69ea-998854c94444/tank-4.0.1.linux-amd64.tar.gz)   | linux |   x86-64    | 	15.6M |
+| [tank-4.0.1.darwin-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/7f217c03-4d65-45a8-4961-c0e69b7a9b1c/tank-4.0.1.darwin-amd64.tar.gz) | macOS |   x86-64    | 	15.4M | 
+[Upgrade from 4.0.x to 4.0.x](/upgrade/migrate.html)
+
+
+## 4.0.0
+
+| 文件名                                                                                                                                              | 操作系统(OS)   |  架构(Arch)  | 大小     |
+|--------------------------------------------------------------------------------------------------------------------------------------------------| --------  | --------  |--------|
+| [tank-4.0.0.windows-amd64.zip](https://tank.eyeblue.cn/api/alien/download/2deb586c-0c2f-4e78-628f-f170db81383a/tank-4.0.0.windows-amd64.zip)     | Windows |   x86-64    | 	16.8M | 
+| [tank-4.0.0.linux-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/9522e34c-a16f-423b-5fae-b354f525e7ad/tank-4.0.0.linux-amd64.tar.gz)   | linux |   x86-64    | 	15.6M |
+| [tank-4.0.0.darwin-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/cf9442d3-e308-4ed1-747d-1ab79f38bca4/tank-4.0.0.darwin-amd64.tar.gz) | macOS |   x86-64    | 	15.4M | 
+| eyeblue/tank:4.0.0                                                                                                                               | Docker |   x86-64    | 	1.99G |
+[从3.1.x到4.0.x的升级文档](/upgrade/migrate-3.1.x-to-4.0.x.html)
+[从4.0.x到4.0.x的升级文档](/upgrade/migrate.html)
+
 
 ## 4.0.0.beta2
 
