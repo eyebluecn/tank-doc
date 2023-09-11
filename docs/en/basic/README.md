@@ -4,6 +4,20 @@ EyeblueTank is an elegant cloud storage.
 
 [Demo Online](https://tanker.eyeblue.cn) (username: demo password: 123456)
 
+## Features
+
+- Support Docker
+- Support Sqlite
+- Installation package is about 10M, Support `windows`, `linux`, `macOS`
+- Support uploading, folder uploading, url crawl uploading, drag uploading, previewing, downloading, sharing
+- Support shared space, multiple users can manage files in the same space
+- Providing programming api, you can use EyeblueTank as other system's storage.
+- Support image cache, can reshape image by request params.
+- Support multi users, support user space limit.
+- Support i18n
+- Support Custom Preview
+
+
 ## Software Infrastructure
  
  Separate backend and frontend. Backend uses Golang and frontend uses React.
@@ -12,19 +26,9 @@ EyeblueTank is an elegant cloud storage.
 
  ![](/github.png "github.png") [eyebluecn/tank-front](https://github.com/eyebluecn/tank-front)
 
-## Features
+## Domain Model
 
-- Support Docker
-- Support Sqlite
-- Installation package is about 10M, Support `windows`, `linux`, `macOS`
-- Support uploading, previewing, downloading, sharing
-- Support shared space, multiple users can manage files in the same space
-- Providing programming api, you can use EyeblueTank as other system's storage.
-- Support image cache, can reshape image by request params.
-- Support multi users, support user space limit.
-- Support i18n
-- Support Custom Preview
-
+![](/domain.svg)
 
 ## Join Us
 

@@ -1,6 +1,6 @@
 # 自定义预览引擎
 
-蓝眼云盘`3.1.x`版本支持用户自定义预览引擎，你可以在网站偏好设置处，设置文件后缀所使用的预览引擎。
+蓝眼云盘`3.1.x`后的版本支持用户自定义预览引擎，你可以在网站偏好设置处，设置文件后缀所使用的预览引擎。
 
 对于office文件，如果没有设置，那么会默认使用微软预览接口。 我们同样推荐使用kkfileview来预览。
 
@@ -28,7 +28,7 @@ https://kkfileview.keking.cn/zh-cn/index.html
 ### kkfileview 2.x.x 及以下版本
 引擎格式填写方式： http://your-kkfileview-domain/onlinePreview?url={url}
 
-## only Office.
+## onlyOffice
 配置方法：http://your-onlyoffice-domain/onlyOffice/edit?url={url}
 
 感谢由@温文英承 提供配置方法。

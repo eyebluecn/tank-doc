@@ -86,7 +86,6 @@ module.exports = {
               '/advance/webdav',
               '/advance/image',
               '/advance/alien',
-              '/advance/frontend',
               '/advance/question',
             ]
           },
@@ -99,10 +98,9 @@ module.exports = {
             ]
           },
           {
-            title: '接口文档',
+            title: '数据库设计',
             collapsable: false,
             children: [
-              '/api/api',
               '/api/schema-3.1.x',
               '/api/schema-4.0.x',
             ]
@@ -135,13 +133,11 @@ module.exports = {
             collapsable: false,
             children: [
               '/en/advance/cli',
-              '/en/advance/migrate',
               '/en/advance/webdav',
               '/en/advance/image',
               '/en/advance/alien',
-              '/en/advance/api',
-              '/en/advance/frontend',
               '/en/advance/question',
+              '/en/advance/migrate',
             ]
           }
         ]
