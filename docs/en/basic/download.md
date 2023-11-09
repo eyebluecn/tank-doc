@@ -1,5 +1,15 @@
 # Download
 
+## 4.0.2
+
+| File                                                                                                                                             | OS   |  Arch  |  Size  |
+|--------------------------------------------------------------------------------------------------------------------------------------------------| --------  | --------  |--------|
+| [tank-4.0.2.windows-amd64.zip](https://tank.eyeblue.cn/api/alien/download/45d18c01-7a89-4144-7f2e-2e942252ac20/tank-4.0.2.windows-amd64.zip)     | Windows |   x86-64    | 	16.8M | 
+| [tank-4.0.2.linux-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/1ac38ba9-6c5a-4d52-42eb-2019690f102c/tank-4.0.2.linux-amd64.tar.gz)   | linux |   x86-64    | 	15.6M |
+| [tank-4.0.2.darwin-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/99a4cce7-9338-4960-5fe7-91dc6acacbf6/tank-4.0.2.darwin-amd64.tar.gz) | macOS |   x86-64    | 	15.4M | 
+| eyeblue/tank:4.0.2                                                                                                                               | Docker |   x86-64    | 	1.99G |
+[Upgrade from 4.0.x to 4.0.x](/upgrade/migrate.html)
+
 
 ## 4.0.1
 
