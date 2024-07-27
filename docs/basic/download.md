@@ -1,6 +1,20 @@
 # 软件下载
 
 
+## 4.1.0
+
+| 文件名                                                                                                                                               | 操作系统(OS)   |  架构(Arch)  | 大小     |
+|---------------------------------------------------------------------------------------------------------------------------------------------------| --------  | --------  |--------|
+| [tank-4.1.0.windows-amd64.zip](https://tank.eyeblue.cn/api/alien/download/42be019d-a9cc-4a83-7e23-602a0801993c/tank-4.1.0.windows-amd64.zip)      | Windows |   x86-64    | 	16.8M | 
+| [tank-4.1.0.linux-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/4b69c223-1570-4282-6133-9e91a91d8b22/tank-4.1.0.linux-amd64.tar.gz)    | linux |   x86-64    | 	15.6M |
+| [tank-4.1.0.darwin-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/7eb517ac-abb2-4a94-4279-bd08bf6cbf73/tank-4.1.0.darwin-amd64.tar.gz)  | macOS |   x86-64    | 	15.4M | 
+| [tank-4.1.0.darwin-arm64.tar.gz](https://tank.eyeblue.cn/api/alien/download/3c6bfba4-7c77-4144-79bd-a12cdc6ed3ca/tank-4.1.0.darwin-arm64.tar.gz)  | macOS |   x86-64    | 	15.4M | 
+| eyeblue/tank:4.1.0                                                                                                                                | Docker |   x86-64    | 	1.99G |
+[Upgrade from 4.0.x to 4.1.x](/upgrade/migrate.html)
+
+
+
+
 ## 4.0.4
 
 | 文件名                                                                                                                                              | 操作系统(OS)   |  架构(Arch)  | 大小     |

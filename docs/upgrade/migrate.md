@@ -1,5 +1,48 @@
 # 历史版本升级
 
+
+## 4.0.x升级到4.1.x版本
+
+4.0.x到4.1.x是中型升级，因此数据库表有变动。
+
+升级分为三步进行
+
+### 1. 停止蓝眼云盘4.0.x
+
+首先停止蓝眼云盘
+
+### 2. 调整数据库schema
+只需要执行以下sql语句，当然你也可以根据以下sql语句的语义在自己sql客户端用可视化操作。
+
+首先是需要将表名前缀从 `tank40_` 升级成了 `tank41_`，我的库名是tank，自己的库名视具体情况而定。
+```sql
+
+ALTER TABLE `tank`.`tank40_bridge` RENAME TO  `tank`.`tank41_bridge`;
+ALTER TABLE `tank`.`tank40_dashboard` RENAME TO  `tank`.`tank41_dashboard`;
+ALTER TABLE `tank`.`tank40_download_token` RENAME TO  `tank`.`tank41_download_token`;
+ALTER TABLE `tank`.`tank40_footprint` RENAME TO  `tank`.`tank41_footprint`;
+ALTER TABLE `tank`.`tank40_image_cache` RENAME TO  `tank`.`tank41_image_cache`;
+ALTER TABLE `tank`.`tank40_matter` RENAME TO  `tank`.`tank41_matter`;
+ALTER TABLE `tank`.`tank40_preference` RENAME TO  `tank`.`tank41_preference`;
+ALTER TABLE `tank`.`tank40_session` RENAME TO  `tank`.`tank41_session`;
+ALTER TABLE `tank`.`tank40_share` RENAME TO  `tank`.`tank41_share`;
+ALTER TABLE `tank`.`tank40_space` RENAME TO  `tank`.`tank41_space`;
+ALTER TABLE `tank`.`tank40_space_member` RENAME TO  `tank`.`tank41_space_member`;
+ALTER TABLE `tank`.`tank40_upload_token` RENAME TO  `tank`.`tank41_upload_token`;
+ALTER TABLE `tank`.`tank40_user` RENAME TO  `tank`.`tank41_user`;
+
+```
+
+清除潜在的脏数据：
+```sql
+DELETE t1
+FROM tank41_space t1
+LEFT JOIN tank41_user t2 ON t1.uuid = t2.space_uuid
+WHERE t1.type = 'PRIVATE' AND t2.uuid IS NULL;
+```
+
+
+
 ## 4.0.x升级到4.0.x版本
 4.0.x到4.0.x是小型升级，数据库表没有任何变动。
 
