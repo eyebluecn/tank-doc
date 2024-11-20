@@ -137,7 +137,7 @@ MySQL 端口 => `3306`
 
 MySQL 库名 => `tank` 
 
-MySQL 用户名 => `tank` 
+MySQL 用户名 => `root` 
 
 MySQL 密码 => `tank123` 
 :::
