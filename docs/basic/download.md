@@ -2,11 +2,13 @@
 
 ## 4.1.2
 
-| 文件名                                                                                                                                            | 操作系统(OS)   |  架构(Arch)  | 大小     |
-|------------------------------------------------------------------------------------------------------------------------------------------------| --------  | --------  |--------|
-| [tank-4.1.2.windows-amd64.zip](https://tank.eyeblue.cn/api/alien/download/a0441e0d-3903-46a5-4cd8-d7759d08153b/tank-4.1.2.windows-amd64.zip)   | Windows |   x86-64    | 	16.8M | 
-| [tank-4.1.2.linux-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/5b9ba582-be87-43bb-7168-b0c00a39ec52/tank-4.1.2.linux-amd64.tar.gz) | linux |   x86-64    | 	15.6M |
-| eyeblue/tank:4.1.2                                                                                                                             | Docker |   x86-64    | 	1.99G |
+| 文件名                                                                                                                                              | 操作系统(OS)   |  架构(Arch)  | 大小     |
+|--------------------------------------------------------------------------------------------------------------------------------------------------| --------  | --------  |--------|
+| [tank-4.1.2.windows-amd64.zip](https://tank.eyeblue.cn/api/alien/download/6d00610a-840e-4805-4ae0-b821908613b5/tank-4.1.2.windows-amd64.zip)     | Windows |   x86-64    | 	16.8M | 
+| [tank-4.1.2.linux-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/5b9ba582-be87-43bb-7168-b0c00a39ec52/tank-4.1.2.linux-amd64.tar.gz)   | linux |   x86-64    | 	15.6M |
+| [tank-4.1.2.darwin-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/c7f861dc-3e9a-41f6-7462-ad4b849c5553/tank-4.1.2.darwin-amd64.tar.gz) | macOS |   x86-64    | 	15.4M | 
+| [tank-4.1.2.darwin-arm64.tar.gz](https://tank.eyeblue.cn/api/alien/download/cc4bfb2b-911b-46af-7360-e2553d3fda2e/tank-4.1.2.darwin-arm64.tar.gz) | macOS |   x86-64    | 	15.4M | 
+| eyeblue/tank:4.1.2                                                                                                                               | Docker |   x86-64    | 	1.99G |
 [Upgrade from 4.0.x to 4.1.x](/upgrade/migrate.html)
 
 
