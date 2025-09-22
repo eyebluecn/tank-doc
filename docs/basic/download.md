@@ -5,9 +5,9 @@
 | 文件名                                                                                                                                              | 操作系统(OS)   |  架构(Arch)  | 大小     |
 |--------------------------------------------------------------------------------------------------------------------------------------------------| --------  | --------  |--------|
 | [tank-4.1.3.windows-amd64.zip](https://tank.eyeblue.cn/api/alien/download/774856de-6d3a-45a1-61a8-217b6d92eeb1/tank-4.1.3.windows-amd64.zip)     | Windows |   x86-64    | 	16.8M | 
-| [tank-4.1.3.linux-arm64.tar.gz](https://tank.eyeblue.cn/api/alien/download/260acfe5-aa26-4500-5083-ff20b75165af/tank-4.1.3.linux-arm64.tar.gz)     | linux |  arm64    | 	9.4M  | 
-| [tank-4.1.3.linux-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/c9080e74-da29-4f33-6aac-f9a0a78fd63e/tank-4.1.3.linux-amd64.tar.gz)     | linux |   amd64    | 	9.9M  | 
-| [tank-4.1.3.linux-386.tar.gz](https://tank.eyeblue.cn/api/alien/download/29868cbe-0b48-41ff-493b-1a43fa822d38/tank-4.1.3.linux-386.tar.gz)     | linux |  386   | 	9.5M  | 
+| [tank-4.1.3.linux-arm64.tar.gz](https://tank.eyeblue.cn/api/alien/download/f89dbd57-756d-4e2b-5604-c8d7089df7c3/tank-4.1.3.linux-arm64.tar.gz)     | linux |  arm64    | 	9.4M  | 
+| [tank-4.1.3.linux-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/27fff292-9d09-41d2-6f11-4afd43a5cbb3/tank-4.1.3.linux-amd64.tar.gz)     | linux |   amd64    | 	9.9M  | 
+| [tank-4.1.3.linux-386.tar.gz](https://tank.eyeblue.cn/api/alien/download/a2e17576-d93a-4547-45b1-0307adca399e/tank-4.1.3.linux-386.tar.gz)     | linux |  386   | 	9.5M  | 
 | [tank-4.1.3.darwin-arm64.tar.gz](https://tank.eyeblue.cn/api/alien/download/4581773b-da7f-4189-4efe-70e6a64812ec/tank-4.1.3.darwin-arm64.tar.gz)     | macOS |  arm64   | 	9.5M  | 
 | [tank-4.1.3.darwin-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/f1a7fb67-6757-40c7-6e37-bf7ec7484794/tank-4.1.3.darwin-amd64.tar.gz)     | macOS |  amd64   | 	9.5M  | 
 | eyeblue/tank:4.1.3                                                                                                                               | Docker |   x86-64    | 	1.99G |
