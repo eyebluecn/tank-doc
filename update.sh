@@ -20,7 +20,7 @@ echo " --- npm install --- "
 cnpm install
 
 echo " --- vuepress build docs --- "
-vuepress build docs
+./node_modules/.bin/vuepress build docs
 
 echo " --- move to production folder --- "
 if [[ ! -d "$PRODUCTION_DIR" ]] ; then
