@@ -1,5 +1,21 @@
 # 软件下载
 
+## 4.2.0
+
+| 文件名                                                                                                                                              | 操作系统(OS)   |  架构(Arch)  | 大小     |
+|--------------------------------------------------------------------------------------------------------------------------------------------------| --------  | --------  |--------|
+| [tank-4.2.0.linux-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/9b758ade-d187-4a16-66ef-03ae990fd303/tank-4.2.0.linux-amd64.tar.gz) | macOS |   amd64    | 	15.4M | 
+| [tank-4.2.0.linux-arm64.tar.gz](https://tank.eyeblue.cn/api/alien/download/a7e852b6-3fb9-4870-7db4-77d044791a4d/tank-4.2.0.linux-arm64.tar.gz)     | Windows |   arm64    | 	16.8M | 
+| [tank-4.2.0.linux-386.tar.gz](https://tank.eyeblue.cn/api/alien/download/4397fdfe-13f2-4f4c-5597-95dd5665fdbb/tank-4.2.0.linux-386.tar.gz)   | linux |  386    | 	15.6M |
+| [tank-4.2.0.windows-amd64.zip](https://tank.eyeblue.cn/api/alien/download/7f60174c-e73b-4e38-65c0-8064dc2dc4dd/tank-4.2.0.windows-amd64.zip) | macOS |   amd64    | 	15.4M | 
+| [tank-4.2.0.windows-arm64.zip](https://tank.eyeblue.cn/api/alien/download/82fc3f58-7422-4435-7187-38939935f1b9/tank-4.2.0.windows-arm64.zip) | macOS |   arm64    | 	15.4M | 
+| [tank-4.2.0.windows-386.zip](https://tank.eyeblue.cn/api/alien/download/5506f851-1164-4740-7ac9-95aa636e402b/tank-4.2.0.windows-386.zip) | macOS |   386    | 	15.4M | 
+| [tank-4.2.0.darwin-arm64.tar.gz](https://tank.eyeblue.cn/api/alien/download/bc6aea05-3fa1-4ae4-5df7-0305b7b2eb96/tank-4.2.0.darwin-arm64.tar.gz) | macOS |   arm64    | 	15.4M | 
+| [tank-4.2.0.darwin-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/ee89c8d0-2cde-4ee6-4ebb-751b0b73f329/tank-4.2.0.darwin-amd64.tar.gz) | macOS |   amd64    | 	15.4M | 
+[Upgrade from 4.1.x to 4.2.x](/upgrade/migrate.html)
+
+
+
 ## 4.1.3
 
 | 文件名                                                                                                                                              | 操作系统(OS)   |  架构(Arch)  | 大小     |

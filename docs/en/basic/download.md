@@ -4,14 +4,16 @@
 
 | File                                                                                                                                             | OS   |  Arch  |  Size  |
 |--------------------------------------------------------------------------------------------------------------------------------------------------| --------  | --------  |--------|
-| [tank-4.1.3.windows-amd64.zip](https://tank.eyeblue.cn/api/alien/download/774856de-6d3a-45a1-61a8-217b6d92eeb1/tank-4.1.3.windows-amd64.zip)     | Windows |   x86-64    | 	16.8M | 
-| [tank-4.1.3.linux-arm64.tar.gz](https://tank.eyeblue.cn/api/alien/download/f89dbd57-756d-4e2b-5604-c8d7089df7c3/tank-4.1.3.linux-arm64.tar.gz)     | linux |  arm64    | 	9.4M  | 
-| [tank-4.1.3.linux-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/27fff292-9d09-41d2-6f11-4afd43a5cbb3/tank-4.1.3.linux-amd64.tar.gz)     | linux |   amd64    | 	9.9M  | 
-| [tank-4.1.3.linux-386.tar.gz](https://tank.eyeblue.cn/api/alien/download/a2e17576-d93a-4547-45b1-0307adca399e/tank-4.1.3.linux-386.tar.gz)     | linux |  386   | 	9.5M  | 
-| [tank-4.1.3.darwin-arm64.tar.gz](https://tank.eyeblue.cn/api/alien/download/4581773b-da7f-4189-4efe-70e6a64812ec/tank-4.1.3.darwin-arm64.tar.gz)     | macOS |  arm64   | 	9.5M  | 
-| [tank-4.1.3.darwin-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/f1a7fb67-6757-40c7-6e37-bf7ec7484794/tank-4.1.3.darwin-amd64.tar.gz)     | macOS |  amd64   | 	9.5M  | 
-| eyeblue/tank:4.1.3                                                                                                                               | Docker |   x86-64    | 	1.99G |
-[Upgrade from 4.0.x to 4.1.x](/upgrade/migrate.html)
+| [tank-4.2.0.linux-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/9b758ade-d187-4a16-66ef-03ae990fd303/tank-4.2.0.linux-amd64.tar.gz) | macOS |   amd64    | 	15.4M | 
+| [tank-4.2.0.linux-arm64.tar.gz](https://tank.eyeblue.cn/api/alien/download/a7e852b6-3fb9-4870-7db4-77d044791a4d/tank-4.2.0.linux-arm64.tar.gz)     | Windows |   arm64    | 	16.8M | 
+| [tank-4.2.0.linux-386.tar.gz](https://tank.eyeblue.cn/api/alien/download/4397fdfe-13f2-4f4c-5597-95dd5665fdbb/tank-4.2.0.linux-386.tar.gz)   | linux |  386    | 	15.6M |
+| [tank-4.2.0.windows-amd64.zip](https://tank.eyeblue.cn/api/alien/download/7f60174c-e73b-4e38-65c0-8064dc2dc4dd/tank-4.2.0.windows-amd64.zip) | macOS |   amd64    | 	15.4M | 
+| [tank-4.2.0.windows-arm64.zip](https://tank.eyeblue.cn/api/alien/download/82fc3f58-7422-4435-7187-38939935f1b9/tank-4.2.0.windows-arm64.zip) | macOS |   arm64    | 	15.4M | 
+| [tank-4.2.0.windows-386.zip](https://tank.eyeblue.cn/api/alien/download/5506f851-1164-4740-7ac9-95aa636e402b/tank-4.2.0.windows-386.zip) | macOS |   386    | 	15.4M | 
+| [tank-4.2.0.darwin-arm64.tar.gz](https://tank.eyeblue.cn/api/alien/download/bc6aea05-3fa1-4ae4-5df7-0305b7b2eb96/tank-4.2.0.darwin-arm64.tar.gz) | macOS |   arm64    | 	15.4M | 
+| [tank-4.2.0.darwin-amd64.tar.gz](https://tank.eyeblue.cn/api/alien/download/ee89c8d0-2cde-4ee6-4ebb-751b0b73f329/tank-4.2.0.darwin-amd64.tar.gz) | macOS |   amd64    | 	15.4M | 
+[Upgrade from 4.1.x to 4.2.x](/upgrade/migrate.html)
+
 
 
 ## 4.1.2
